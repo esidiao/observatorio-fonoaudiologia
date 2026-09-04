@@ -135,6 +135,23 @@ guarda que existe porque, no projeto de Farmácia, republicar por um caminho par
 derrubou 33 dos 51 campos com todos os testes verdes: nenhum teste checava *presença* de
 campo.
 
+## Publicação
+
+O deploy é **manual**. Um push na `main` roda os portões, os testes e o build,
+mas não publica nada: publicar é um ato deliberado.
+
+Para colocar no ar, em **Actions → CI → Run workflow**, escolha a ação:
+
+| Ação | O que faz |
+|---|---|
+| `publicar` | valida e publica no GitHub Pages |
+| `so-validar` | roda portões, testes e build; não publica |
+| `verificar-fontes` | só checa se INEP ou CNES publicaram edição nova |
+
+A verificação de fontes também roda sozinha toda segunda-feira e abre issue
+quando encontra edição nova — ou quando a verificação fica **indeterminada**,
+que é diferente de não ter novidade.
+
 ## Princípio inegociável
 
 Nenhum indicador é estimado, interpolado ou preenchido por analogia. Sem fonte oficial

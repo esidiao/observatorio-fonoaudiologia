@@ -7,6 +7,10 @@ name: CI — validação, build e publicação
 # externa estar de pé naquele minuto. A atualização de dados é um ato
 # deliberado, feito com `python etl/pipeline.py`, e chega aqui como commit.
 
+# O deploy é MANUAL, por escolha do mantenedor: push na main valida, mas não
+# publica. Publicar é um ato deliberado, disparado em Actions -> Run workflow
+# com a ação "publicar". Assim um commit de ajuste de texto não coloca no ar um
+# conjunto de dados que ainda não foi olhado.
 on:
   push:
     branches: [main]
@@ -15,6 +19,15 @@ on:
     # Segunda-feira, 06:00 UTC — verifica se alguma fonte publicou edição nova.
     - cron: '0 6 * * 1'
   workflow_dispatch:
+    inputs:
+      acao:
+        description: 'O que fazer nesta execução'
+        type: choice
+        default: publicar
+        options:
+          - publicar          # valida e publica no GitHub Pages
+          - so-validar        # roda portões e testes, não publica
+          - verificar-fontes  # só checa se as fontes têm edição nova
 
 permissions:
   contents: read
@@ -32,7 +45,11 @@ jobs:
   # Portão de qualidade + build
   # ──────────────────────────────────────────────────────────────
   validar:
-    if: github.event_name != 'schedule'
+    if: >-
+      github.event_name == 'push' ||
+      github.event_name == 'pull_request' ||
+      (github.event_name == 'workflow_dispatch' &&
+       inputs.acao != 'verificar-fontes')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -88,18 +105,29 @@ jobs:
           test -f site/dist/static/js/indicadores.js
           test "$(ls site/dist/uf/*.html | wc -l)" -eq 27
 
+      # O artefato só é empacotado quando a intenção é publicar. Empacotar
+      # sempre custaria minutos em toda validação, e deixaria pendurado um
+      # artefato pronto para ir ao ar sem ninguém ter pedido.
       - name: Empacotar para o Pages
-        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        if: >-
+          github.event_name == 'workflow_dispatch' &&
+          inputs.acao == 'publicar' &&
+          github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: site/dist
 
   # ──────────────────────────────────────────────────────────────
-  # Publicação no GitHub Pages
+  # Publicação no GitHub Pages — MANUAL
+  #
+  # Actions -> "CI — validação, build e publicação" -> Run workflow -> publicar
   # ──────────────────────────────────────────────────────────────
   publicar:
     needs: validar
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      inputs.acao == 'publicar' &&
+      github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -112,7 +140,10 @@ jobs:
   # Verificação semanal de frescor das fontes
   # ──────────────────────────────────────────────────────────────
   verificar-fontes:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    if: >-
+      github.event_name == 'schedule' ||
+      (github.event_name == 'workflow_dispatch' &&
+       inputs.acao == 'verificar-fontes')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
