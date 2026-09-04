@@ -16,8 +16,15 @@ Compartilha o método e o design system; não compartilha código, dados nem dep
 | Municípios com oferta presencial | 83 |
 | Vagas presenciais | 17.028 |
 | Vagas EaD (atribuídas à UF-sede) | 12.876 |
-| Polos EaD | 793 registros em 616 municípios |
+| Polos EaD | 793 registros em 618 municípios |
 | Cursos avaliados no CPC 2023 | 74, em 23 UFs |
+| Municípios com fonoaudiólogo no SUS | 4.207 de 5.571 |
+| Municípios com serviço fonoaudiológico | 2.230 |
+| Fonoaudiólogos vinculados ao SUS | 23.760 |
+
+A especificação deste projeto trazia 616 municípios com polo. A apuração dá
+**618**, e o número foi conferido de forma independente contra outro
+levantamento do mesmo Censo. Vale 618.
 
 **A oferta presencial cobre 24 UFs, não 27.** Amapá, Mato Grosso do Sul e Roraima não têm
 curso presencial de Fonoaudiologia. Eles aparecem no site como *sem oferta presencial* —
@@ -85,24 +92,41 @@ python site/build.py
 
 O site sai em `site/dist/`.
 
-### Portão de qualidade (GO)
+### Portões de qualidade (GO)
 
 ```bash
 python etl/indices.py --autoteste
+python site/estatistica.py
+python site/catalogo.py
 ```
+
+Conferem, respectivamente: as fórmulas dos índices contra um estado sintético
+calculado à mão; Spearman, valor de p e regressão múltipla contra casos de
+resultado conhecido; e a coerência interna do catálogo de indicadores.
 
 ### Testes
 
 ```bash
-python -m pytest tests/ -v
+python tests/test_catalogo.py
+python tests/test_validacao.py
+python tests/test_check_fontes.py
 ```
+
+Rodam como script ou sob `pytest`, se você o tiver instalado.
 
 ## Atualizar os dados
 
 ```bash
 python etl/pipeline.py --check-only     # só verifica se as fontes mudaram
 python etl/pipeline.py --ano 2024       # extrai, calcula, valida, publica
+python etl/pipeline.py --so-riqueza     # só a guarda de riqueza
+python etl/serie.py --anos 2023 2024    # série histórica
 ```
+
+A extração do CNES leva perto de uma hora, porque o FTP do DATASUS derruba a
+maior parte das conexões que usam `REST`. Ela guarda as fatias já filtradas em
+`etl/dados/cnes_<competência>/`, então reprocessar a agregação depois é
+instantâneo. Use `--pular-cnes` quando estiver mexendo em outra parte.
 
 O pipeline encadeia extração -> índices -> enriquecimento -> **conferência de riqueza** ->
 validação, e só grava se tudo passar. A conferência de riqueza compara o número de campos
