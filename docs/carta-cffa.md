@@ -11,6 +11,10 @@
 > Fontes consultadas: [posse do 15º Colegiado](https://fonoaudiologia.org.br/posse-do-15o-colegiado-do-conselho-federal-de-fonoaudiologia/) ·
 > [reeleição da presidência](https://www1.fob.usp.br/professora-andrea-cintra-lopes-e-reeleita-presidente-do-conselho-federal-de-fonoaudiologia/)
 
+> **Versão para WhatsApp:** [`carta-cffa-whatsapp.md`](carta-cffa-whatsapp.md) —
+> três mensagens curtas, com a formatação que o WhatsApp entende. Esta carta
+> formal serve como anexo em PDF ou como e-mail, se a conversa avançar.
+
 ---
 
 **À Presidência do Conselho Federal de Fonoaudiologia**
