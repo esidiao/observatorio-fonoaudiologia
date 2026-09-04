@@ -5,19 +5,25 @@
     "obra": "Observatório Nacional da Fonoaudiologia",
     "descricao": "Sítio estático data-driven com indicadores de acesso territorial, qualidade e cobertura assistencial dos cursos de Fonoaudiologia no Brasil, incluindo a formulação dos índices ICT, E, IAF, ICAF e ICRE."
   },
-  "registrado_em": "2026-09-04T16:15:05+00:00",
+  "registrado_em": "2026-09-04T16:55:23+00:00",
   "algoritmo": "SHA-256",
   "natureza": "Declaração datada de conteúdo. Permite comparar uma cópia com o original arquivo a arquivo. Não é registro em cartório nem depósito no INPI, e não constitui, por si só, prova oponível a terceiros.",
   "escopo": "Apenas material autoral: código, textos, templates e o desenho dos índices. Não inclui os dados públicos (INEP, DATASUS, IBGE), que pertencem às respectivas fontes, nem bibliotecas de terceiros.",
-  "n_arquivos": 28,
-  "bytes_totais": 296020,
-  "sha256_combinado": "8aacc118f5c4b78dae2153c7ee798fad6824abdd845bf4ea552c1b48cc2ba1cb",
+  "n_arquivos": 33,
+  "bytes_totais": 332585,
+  "sha256_combinado": "07601af4fcd433b98e64686a8cb50b66062be27a37b39201eeb4a73c56cb250e",
   "arquivos": [
     {
       "arquivo": "README.md",
       "bytes": 5379,
       "linhas": 128,
       "sha256": "f793f3f762e031966b78953d4ecfc174fd4d57fe04a5222fac2634a24c40742c"
+    },
+    {
+      "arquivo": "SECURITY.md",
+      "bytes": 2203,
+      "linhas": 45,
+      "sha256": "98ef7ef8801255dc71aadc3e6a6f092c89ad6852bd2a0d6519f50266305640c9"
     },
     {
       "arquivo": "requirements.txt",
@@ -33,9 +39,9 @@
     },
     {
       "arquivo": "etl/extrair_censo.py",
-      "bytes": 8716,
-      "linhas": 213,
-      "sha256": "9d7e0d2ca83ba1d366436e790fb8f6e1daf7c45c55838ff942f671fd0f29c67e"
+      "bytes": 8705,
+      "linhas": 212,
+      "sha256": "d7ca1c9977be11b8347eab0a8b0ceeede6312b67b6a17855842a74b7ffe0d30b"
     },
     {
       "arquivo": "etl/extrair_cnes.py",
@@ -45,9 +51,9 @@
     },
     {
       "arquivo": "etl/extrair_cpc.py",
-      "bytes": 12556,
-      "linhas": 296,
-      "sha256": "013589c519bd2162d378b6225cc5a1bd7f263bbf599b0cacce72e4b8037cb4c5"
+      "bytes": 12225,
+      "linhas": 295,
+      "sha256": "a7d66fa878be2e36cba115987ab3d0ab5c94f0342cd49ea80777e30b9ddc6190"
     },
     {
       "arquivo": "etl/indices.py",
@@ -62,6 +68,12 @@
       "sha256": "d0f4c8644e80110aef1d1d36334118e1cb0be3a993c28086a2fbe91cfecf1cd7"
     },
     {
+      "arquivo": "etl/pipeline.py",
+      "bytes": 12443,
+      "linhas": 322,
+      "sha256": "4746c1a38e6fc88daa5edbcfc347d543aff5ec24e99c3370357e4a25f4496b0e"
+    },
+    {
       "arquivo": "etl/rede.py",
       "bytes": 19897,
       "linhas": 506,
@@ -74,10 +86,16 @@
       "sha256": "d967416d566153e8f387ad1f164afbb0ba7dbbfeb1191712b7065c41cb0cef72"
     },
     {
+      "arquivo": "etl/serie.py",
+      "bytes": 8450,
+      "linhas": 225,
+      "sha256": "c7b94d215c98ee3f92b47bcad0a1d03fa014d47715adb98f3da7d3c763fa3d94"
+    },
+    {
       "arquivo": "site/build.py",
-      "bytes": 20782,
-      "linhas": 515,
-      "sha256": "0535b3b1dda61d0745bdcda7697ca8216d80da8f013196c2130195e750a948cd"
+      "bytes": 21967,
+      "linhas": 541,
+      "sha256": "9c4d2446d207e028ac02b1754e1a97b6aa86b872ea0ccb0d6d2c25fc9585ec15"
     },
     {
       "arquivo": "site/catalogo.py",
@@ -159,15 +177,15 @@
     },
     {
       "arquivo": "site/static/css/style.css",
-      "bytes": 21974,
-      "linhas": 759,
-      "sha256": "ec5a2313f3e954d034d0a655cc0b81bb65f3c5aaf33beb932923cd5f641549f3"
+      "bytes": 17376,
+      "linhas": 452,
+      "sha256": "c359c43a0612fdc783b4ddb10ba16af697ba41abddf364cfb43774fea6c53bec"
     },
     {
       "arquivo": "site/static/js/app.js",
-      "bytes": 16015,
-      "linhas": 442,
-      "sha256": "ae519388faae206a8c746351fc21d212f58ca4907542417228ca9acee2f2d2ee"
+      "bytes": 19566,
+      "linhas": 505,
+      "sha256": "923a8fc45e0a9179304ed1a2031528d3fff4f44855ef60b677f4aee4e3ab0e0b"
     },
     {
       "arquivo": "tests/test_catalogo.py",
@@ -176,10 +194,22 @@
       "sha256": "0d2610d290b368cf4ed7714251024b86f2327d135bac2c69d0d5034cf18db201"
     },
     {
+      "arquivo": "tests/test_check_fontes.py",
+      "bytes": 6213,
+      "linhas": 179,
+      "sha256": "0d4d37a0c85c2d6d8c053d9f51e041aaa5d31ed1e6a3da113b3153284c9f12d4"
+    },
+    {
       "arquivo": "tests/test_validacao.py",
       "bytes": 10357,
       "linhas": 277,
       "sha256": "96aa5c2ba03d3d6fa1bfb74ac0388a96f614c014e12fa8919864f22fbe4d6181"
+    },
+    {
+      "arquivo": ".github/workflows/ci.yml",
+      "bytes": 7460,
+      "linhas": 186,
+      "sha256": "c57dafb06c996d0d5dbc0ff8f1801719acc6e9de59092a8adc7839a1cccd414e"
     }
   ]
 }

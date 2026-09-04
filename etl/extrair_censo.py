@@ -31,7 +31,6 @@ import argparse
 import csv
 import json
 import re
-import sys
 import unicodedata
 from datetime import date
 from pathlib import Path

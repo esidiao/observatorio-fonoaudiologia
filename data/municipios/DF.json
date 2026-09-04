@@ -13,9 +13,16 @@
    "concluintes": 164,
    "polos_ead": 5,
    "tem_curso_presencial": true,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 383,
+   "estabelecimentos_servico_fono": 251,
+   "servicos_fono": [
+    "107/004",
+    "107/005",
+    "107/006",
+    "107/008",
+    "135/005",
+    "135/010"
+   ]
   }
  ]
 }

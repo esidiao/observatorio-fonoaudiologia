@@ -13,7 +13,7 @@
    "concluintes": 1,
    "polos_ead": 1,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
+   "fonoaudiologos_sus": 1,
    "estabelecimentos_servico_fono": null,
    "servicos_fono": null
   },
@@ -29,9 +29,12 @@
    "concluintes": 0,
    "polos_ead": 1,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 1,
+   "estabelecimentos_servico_fono": 3,
+   "servicos_fono": [
+    "107/004",
+    "135/010"
+   ]
   },
   {
    "codigo": "5002407",
@@ -45,9 +48,12 @@
    "concluintes": 4,
    "polos_ead": 1,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 5,
+   "estabelecimentos_servico_fono": 3,
+   "servicos_fono": [
+    "107/006",
+    "135/010"
+   ]
   },
   {
    "codigo": "5002704",
@@ -61,9 +67,15 @@
    "concluintes": 0,
    "polos_ead": 2,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 126,
+   "estabelecimentos_servico_fono": 29,
+   "servicos_fono": [
+    "107/004",
+    "107/005",
+    "107/006",
+    "135/005",
+    "135/010"
+   ]
   },
   {
    "codigo": "5002902",
@@ -77,9 +89,11 @@
    "concluintes": 0,
    "polos_ead": 1,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 1,
+   "estabelecimentos_servico_fono": 1,
+   "servicos_fono": [
+    "135/010"
+   ]
   },
   {
    "codigo": "5003702",
@@ -93,9 +107,14 @@
    "concluintes": 14,
    "polos_ead": 2,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 32,
+   "estabelecimentos_servico_fono": 6,
+   "servicos_fono": [
+    "107/004",
+    "107/005",
+    "135/005",
+    "135/010"
+   ]
   },
   {
    "codigo": "5003751",
@@ -109,7 +128,7 @@
    "concluintes": 0,
    "polos_ead": 1,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
+   "fonoaudiologos_sus": 1,
    "estabelecimentos_servico_fono": null,
    "servicos_fono": null
   },
@@ -125,9 +144,13 @@
    "concluintes": 0,
    "polos_ead": 1,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 4,
+   "estabelecimentos_servico_fono": 1,
+   "servicos_fono": [
+    "107/004",
+    "107/006",
+    "135/010"
+   ]
   },
   {
    "codigo": "5004601",
@@ -141,7 +164,7 @@
    "concluintes": 0,
    "polos_ead": 1,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
+   "fonoaudiologos_sus": 2,
    "estabelecimentos_servico_fono": null,
    "servicos_fono": null
   },
@@ -157,9 +180,12 @@
    "concluintes": 0,
    "polos_ead": 1,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 2,
+   "estabelecimentos_servico_fono": 3,
+   "servicos_fono": [
+    "107/004",
+    "135/010"
+   ]
   },
   {
    "codigo": "5005707",
@@ -173,9 +199,12 @@
    "concluintes": 0,
    "polos_ead": 2,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 3,
+   "estabelecimentos_servico_fono": 2,
+   "servicos_fono": [
+    "107/004",
+    "135/010"
+   ]
   },
   {
    "codigo": "5006200",
@@ -189,9 +218,11 @@
    "concluintes": 0,
    "polos_ead": 1,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 2,
+   "estabelecimentos_servico_fono": 2,
+   "servicos_fono": [
+    "135/010"
+   ]
   },
   {
    "codigo": "5006606",
@@ -205,9 +236,12 @@
    "concluintes": 0,
    "polos_ead": 1,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 5,
+   "estabelecimentos_servico_fono": 2,
+   "servicos_fono": [
+    "107/004",
+    "107/006"
+   ]
   },
   {
    "codigo": "5008305",
@@ -221,9 +255,12 @@
    "concluintes": 1,
    "polos_ead": 2,
    "tem_curso_presencial": false,
-   "fonoaudiologos_sus": null,
-   "estabelecimentos_servico_fono": null,
-   "servicos_fono": null
+   "fonoaudiologos_sus": 9,
+   "estabelecimentos_servico_fono": 5,
+   "servicos_fono": [
+    "107/004",
+    "135/010"
+   ]
   }
  ]
 }

@@ -29,8 +29,28 @@
       "extraido_em": "2026-09-04"
     },
     "cnes": {
-      "presente": false,
-      "motivo": "data/cobertura_cnes.json não gerado"
+      "presente": true,
+      "fonte": "Cadastro Nacional de Estabelecimentos de Saúde (CNES/DATASUS)",
+      "arquivo": "BASE_DE_DADOS_CNES_202607.ZIP",
+      "url": "ftp://ftp.datasus.gov.br/cnes/BASE_DE_DADOS_CNES_202607.ZIP",
+      "competencia": "202607",
+      "cbo_familia": "2238",
+      "servicos_considerados": {
+        "107": "Atenção à Saúde Auditiva (todas as classificações)",
+        "135/005": "Reabilitação auditiva",
+        "135/010": "Atenção fonoaudiológica"
+      },
+      "cer_indisponivel": "A habilitação de Centro Especializado em Reabilitação não é publicada nesta base: os códigos existem em tbSubGruposHabilitacao (2208-2211, 8223-8225) mas nenhuma tabela-fato os liga a estabelecimento ou município. O indicador de CER não existe e não foi substituído por proxy.",
+      "extraido_em": "2026-09-04",
+      "diagnostico": {
+        "vinculos_fonoaudiologia": 55883,
+        "vinculos_em_estabelecimento_desabilitado": 87,
+        "vinculos_sem_cadastro": 0,
+        "servicos_fonoaudiologicos": 13959,
+        "servicos_marcados_inativos": 0,
+        "servicos_em_estabelecimento_desabilitado": 1484,
+        "servicos_sem_cadastro": 0
+      }
     },
     "ibge_municipios": {
       "fonte": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios?view=nivelado",

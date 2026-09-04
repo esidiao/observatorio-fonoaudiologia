@@ -41,7 +41,6 @@ import csv
 import json
 import re
 import unicodedata
-from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
