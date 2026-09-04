@@ -5,19 +5,19 @@
     "obra": "Observatório Nacional da Fonoaudiologia",
     "descricao": "Sítio estático data-driven com indicadores de acesso territorial, qualidade e cobertura assistencial dos cursos de Fonoaudiologia no Brasil, incluindo a formulação dos índices ICT, E, IAF, ICAF e ICRE."
   },
-  "registrado_em": "2026-09-04T16:57:51+00:00",
+  "registrado_em": "2026-09-04T18:38:52+00:00",
   "algoritmo": "SHA-256",
   "natureza": "Declaração datada de conteúdo. Permite comparar uma cópia com o original arquivo a arquivo. Não é registro em cartório nem depósito no INPI, e não constitui, por si só, prova oponível a terceiros.",
   "escopo": "Apenas material autoral: código, textos, templates e o desenho dos índices. Não inclui os dados públicos (INEP, DATASUS, IBGE), que pertencem às respectivas fontes, nem bibliotecas de terceiros.",
   "n_arquivos": 33,
-  "bytes_totais": 334576,
-  "sha256_combinado": "b714f2546dbe8124772fda2006a7d3fdbf96bc197675f49781da5368d56fae47",
+  "bytes_totais": 336761,
+  "sha256_combinado": "bd5467d4951200fb0b653fdbb402dd06ceaa1c2a7129298b7306dae73a09fbca",
   "arquivos": [
     {
       "arquivo": "README.md",
-      "bytes": 6736,
-      "linhas": 152,
-      "sha256": "3748c570c7bfcb7d3f3aaa032b97f44dfa7fa8ff5e56c5cbf967841f9c15eccc"
+      "bytes": 7411,
+      "linhas": 169,
+      "sha256": "1b7a46a52b98ec523b5fee02ca799b8e5dd9ee45d370409f6540f9518eadd65b"
     },
     {
       "arquivo": "SECURITY.md",
@@ -207,9 +207,9 @@
     },
     {
       "arquivo": ".github/workflows/ci.yml",
-      "bytes": 7460,
-      "linhas": 186,
-      "sha256": "c57dafb06c996d0d5dbc0ff8f1801719acc6e9de59092a8adc7839a1cccd414e"
+      "bytes": 8970,
+      "linhas": 217,
+      "sha256": "e5d2acc282a789236d698bf9e7de0557a2b8acad5dedb1720472fce7274badd5"
     }
   ]
 }
