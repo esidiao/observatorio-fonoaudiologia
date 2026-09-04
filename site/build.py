@@ -34,6 +34,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import catalogo  # noqa: E402
 import estatistica  # noqa: E402
+import planilha  # noqa: E402
 
 try:
     from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -425,6 +426,9 @@ def construir(caminho_dados, saida, templates):
     shutil.copy(caminho_dados, saida / "dados" / "nacional.json")
     (saida / "dados" / "indicadores.csv").write_text(
         exportar_csv(ufs), encoding="utf-8-sig")
+    xlsx = planilha.gerar(saida / "dados" / "observatorio-fonoaudiologia.xlsx",
+                          Path(caminho_dados).parent, NOMES_UF)
+    print(f"[BUILD] planilha XLSX ({xlsx.stat().st_size // 1024} KB)")
     for nome in ("_proveniencia.json", "qualidade.json", "cobertura_cnes.json",
                  "registro_autoral.json"):
         origem = Path(caminho_dados).parent / nome
@@ -444,6 +448,7 @@ ESSENCIAIS_CACHE = [
     "index.html", "comparar.html", "correlacoes.html", "indice.html",
     "glossario.html", "serie.html", "offline.html", "manifest.json",
     "static/css/style.css", "static/js/app.js", "static/js/indicadores.js",
+    "static/js/xlsx.js",
     "static/fonts/fonts.css",
 ]
 

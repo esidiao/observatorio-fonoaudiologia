@@ -158,6 +158,8 @@
     <h3>{{ municipios | length }} municípios com curso ou polo</h3>
     <button class="botao" data-exportar="#tabela-mun"
             data-nome="municipios-{{ sigla }}-fonoaudiologia.csv">Baixar CSV</button>
+    <button class="botao botao-fantasma" data-exportar-xlsx="#tabela-mun"
+            data-nome="municipios-{{ sigla }}-fonoaudiologia.xlsx" data-aba="Municípios">Baixar XLSX</button>
   </div>
   <div class="tabela-rolagem">
     <table id="tabela-mun" data-ordenavel>

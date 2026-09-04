@@ -8,8 +8,8 @@
     "obra": "Observatório Nacional da Formação em Fonoaudiologia",
     "descricao": "Sítio estático data-driven com indicadores de acesso territorial, qualidade e cobertura assistencial dos cursos de Fonoaudiologia no Brasil: formulação e cálculo dos índices ICT, E, IAF, ICAF e ICRE, catálogo de indicadores, textos e desenho editorial."
   },
-  "registrado_em": "2026-09-04T19:25:13+00:00",
-  "git_commit_ancora": "70966871fa34628f0a89d4eca7ae6b1acdbf02f4",
+  "registrado_em": "2026-09-04T19:34:43+00:00",
+  "git_commit_ancora": "f9a990cb5c162d666627ae12984908114fc543fc",
   "algoritmo": "SHA-256 sobre o conteúdo com fim de linha normalizado em LF",
   "fundamento": "Lei 9.610/1998 (direitos autorais) e Lei 9.609/1998 (programa de computador). O resumo combinado é impressão digital única do conjunto; o commit Git ancora a data no histórico versionado.",
   "como_verificar": [
@@ -22,9 +22,9 @@
   ],
   "natureza": "Declaração datada de conteúdo, com anterioridade ancorada no histórico do repositório. Permite comparar uma cópia com o original arquivo a arquivo. Não é registro em cartório nem depósito no INPI, e não substitui nenhum dos dois.",
   "escopo": "Apenas material autoral: código, textos, templates e o desenho dos índices. Não inclui os dados públicos (INEP, DATASUS, IBGE), que pertencem às respectivas fontes, nem bibliotecas de terceiros.",
-  "n_arquivos": 35,
-  "bytes_totais": 361132,
-  "sha256_combinado": "278fb3e849c180ebff0d792f7eb80155e5760f732b2a7ddb19a98c5689e4c8a3",
+  "n_arquivos": 36,
+  "bytes_totais": 375210,
+  "sha256_combinado": "0f4f22c6d6ff418a39a1134bd18d685faa0ca4616f0aa538ce6660d5a4526fa5",
   "arquivos": [
     {
       "arquivo": "README.md",
@@ -46,9 +46,9 @@
     },
     {
       "arquivo": "requirements.txt",
-      "bytes": 39,
-      "linhas": 4,
-      "sha256": "33229d3a778e4971495cc409e7377b68ca2ce5e31353df6ecfe8f04b987af40c"
+      "bytes": 53,
+      "linhas": 5,
+      "sha256": "325aba1644cc021819905cabaa7473c23636cee816db383ee213715a43db9f53"
     },
     {
       "arquivo": "etl/consolidar.py",
@@ -112,9 +112,9 @@
     },
     {
       "arquivo": "site/build.py",
-      "bytes": 24107,
-      "linhas": 588,
-      "sha256": "ac1f1d95c0368e08c852a030b9f7718aa713483d0058ddd12094f53882488411"
+      "bytes": 24377,
+      "linhas": 593,
+      "sha256": "13dc0c050a1a347b5850540f2f19bc625300a5e09fb1adcef22551593c7a9ba9"
     },
     {
       "arquivo": "site/catalogo.py",
@@ -127,6 +127,12 @@
       "bytes": 10337,
       "linhas": 286,
       "sha256": "2dfa4e93700327d59ed102654d44fe9908adf73b09dd1f98d1806427c8edbe10"
+    },
+    {
+      "arquivo": "site/planilha.py",
+      "bytes": 12941,
+      "linhas": 309,
+      "sha256": "939de8e62b22297ef50cfa09ad56df58390081e222cfabd8fc3c47e1b141af18"
     },
     {
       "arquivo": "site/templates/autor.html.j2",
@@ -142,15 +148,15 @@
     },
     {
       "arquivo": "site/templates/base.html.j2",
-      "bytes": 4266,
-      "linhas": 104,
-      "sha256": "0c4d44a17909d423a44bc6b102f366c0669be3d4c421c39d5d34a25b68e3881a"
+      "bytes": 4425,
+      "linhas": 106,
+      "sha256": "6debb954b9ebfc00aba39ffe87f5168e836455f9da53c155647973e88aefdb26"
     },
     {
       "arquivo": "site/templates/comparar.html.j2",
-      "bytes": 11044,
-      "linhas": 313,
-      "sha256": "fb342d5012a15efd3641f5d0e49f9355e198b57d45c5f314aac5edb27277ee0b"
+      "bytes": 11223,
+      "linhas": 315,
+      "sha256": "09911158612342147094fa29c26ba2ea523d6fdb7fa36446e3862bb58ffef861"
     },
     {
       "arquivo": "site/templates/correlacoes.html.j2",
@@ -166,15 +172,15 @@
     },
     {
       "arquivo": "site/templates/index.html.j2",
-      "bytes": 8952,
-      "linhas": 239,
-      "sha256": "9016dfedb77ee07faa712c8bc1c400221e70c137eac8bf72d0df8cfd6fcca11d"
+      "bytes": 9114,
+      "linhas": 241,
+      "sha256": "79935cf89991d8c3aa67fdb8614852acc6c2cb0af811737603cd7ae544f79f82"
     },
     {
       "arquivo": "site/templates/indice.html.j2",
-      "bytes": 7503,
-      "linhas": 217,
-      "sha256": "5f9f23104d6ccaa848218e74a02877db565a47ebc37b81342304a8bd6259c965"
+      "bytes": 7671,
+      "linhas": 219,
+      "sha256": "0077d8f297895e7d131ed95ac3cf7c4179758d8f029e7f6b8a81fe36268f0422"
     },
     {
       "arquivo": "site/templates/municipio.html.j2",
@@ -196,9 +202,9 @@
     },
     {
       "arquivo": "site/templates/uf.html.j2",
-      "bytes": 11901,
-      "linhas": 299,
-      "sha256": "f1d3e647ef45987dbda6eb5d47f90f604d844788df6a98a4f5f653b2230dc238"
+      "bytes": 12086,
+      "linhas": 301,
+      "sha256": "8dd2237ba5c3b17c084ff31baf0088fbfbbd2ea2bd31c966f47cb3a74c8b81dd"
     },
     {
       "arquivo": "site/static/css/style.css",
