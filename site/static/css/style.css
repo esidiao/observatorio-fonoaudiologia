@@ -1,5 +1,5 @@
 /* ============================================================
-   OBSERVATÓRIO NACIONAL DA FONOAUDIOLOGIA
+   OBSERVATÓRIO NACIONAL DA FORMAÇÃO EM FONOAUDIOLOGIA
    Design tokens.
 
    Mesmo sistema de design do Observatório da Formação Farmacêutica —
@@ -15,6 +15,13 @@
   --deep:  #123F3A;
   --mid:   #2A7D74;
   --warm:  #C0562F;
+
+  /* Variante clara do destaque, para uso SOBRE fundo escuro.
+     O terracota institucional tem contraste 2,57 contra o verde-escuro — abaixo
+     do mínimo de 3,0 para texto grande. Como ele marca justamente o número da
+     manchete, o elemento mais visível do site ficava sendo o menos legível.
+     Esta variante mede 5,1 contra o mesmo fundo. */
+  --warm-claro: #F0956A;
 
   /* Estado: sem dados.
      Cinza neutro, deliberadamente fora da paleta: um estado cinza no mapa
@@ -121,9 +128,13 @@ code, pre { font-family: var(--font-mono); font-size: 0.9em; }
 .marca-sub { font-size: 0.76rem; color: var(--text-muted); letter-spacing: 0.02em; }
 
 .nav { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
+/* Alvo de toque de 44px de altura, o mínimo confortável no dedo. O padding
+   sozinho dava 34px, e num item de menu isso é a diferença entre acertar e
+   errar o link ao lado. */
 .nav a {
   color: var(--deep); font-size: 0.9rem; font-weight: 500;
   padding: 6px 11px; border-radius: 7px;
+  min-height: 44px; display: inline-flex; align-items: center;
   transition: background 0.12s, color 0.12s;
 }
 .nav a:hover { background: var(--accent-soft); color: var(--accent); text-decoration: none; }
@@ -172,20 +183,20 @@ main { max-width: 1180px; margin: 0 auto; padding: 0 24px 64px; }
 .heroi-interno { max-width: 1180px; margin: 0 auto; padding: 52px 0 46px; }
 .heroi-etiqueta {
   font-size: 0.76rem; letter-spacing: 0.09em; text-transform: uppercase;
-  color: #8FBDB4; margin-bottom: 14px;
+  color: #A9CFC7; margin-bottom: 14px;
 }
 .heroi-manchete {
   font-size: clamp(1.85rem, 4.2vw, 3rem);
   line-height: 1.14; color: #FFFFFF; max-width: 20ch; margin-bottom: 20px;
 }
-.heroi-manchete strong { color: var(--warm); font-weight: 600; }
+.heroi-manchete strong { color: var(--warm-claro); font-weight: 600; }
 .heroi-lede {
   font-size: 1.06rem; line-height: 1.65; max-width: 62ch;
   color: #D6E5E1; margin-bottom: 16px;
 }
 .heroi-nota {
-  font-size: 0.88rem; color: #9CC0B8; max-width: 62ch;
-  border-left: 3px solid var(--warm); padding-left: 14px;
+  font-size: 0.88rem; color: #B8D4CE; max-width: 62ch;
+  border-left: 3px solid var(--warm-claro); padding-left: 14px;
 }
 .heroi-nota em { color: #D6E5E1; font-style: normal; }
 
@@ -449,3 +460,177 @@ td.parcial { color: var(--warm); }
   .topo, .rodape, .botao, .painel, .nav { display: none; }
   .mapa, .grafico-caixa { break-inside: avoid; }
 }
+
+/* ============================================================
+   PÁGINA DE AUTORIA
+   ============================================================ */
+.autor-topo {
+  display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 11px; padding: 24px;
+}
+.autor-retrato { flex-shrink: 0; text-align: center; }
+.autor-retrato img {
+  width: 200px; height: 200px; object-fit: cover; object-position: center top;
+  border-radius: 50%; border: 4px solid var(--mid); display: block;
+}
+.autor-lattes {
+  display: inline-block; margin-top: 12px; font-size: 0.8rem;
+  font-weight: 600; color: var(--mid); letter-spacing: 0.02em;
+}
+.autor-identidade { flex: 1 1 300px; }
+.autor-identidade h2 {
+  font-size: 1.5rem; color: var(--deep); margin-bottom: 6px;
+}
+.autor-cargo {
+  font-size: 0.94rem; color: var(--accent); font-weight: 500;
+  line-height: 1.55; margin-bottom: 16px;
+}
+.autor-etiquetas { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 16px; }
+.autor-etiqueta {
+  background: var(--accent-soft); color: var(--accent);
+  border-radius: 20px; padding: 3px 13px; font-size: 0.76rem; font-weight: 600;
+}
+.autor-numeros { margin-top: 20px; }
+.autor-numeros .kpi { text-align: center; }
+.autor-numeros .kpi-valor { font-size: 1.5rem; }
+
+.citacao {
+  background: var(--surface); border-left: 4px solid var(--mid);
+  border-radius: 0 9px 9px 0; padding: 14px 18px; margin: 12px 0;
+  font-size: 0.9rem; line-height: 1.7; max-width: 82ch;
+}
+
+.secao h3 {
+  font-size: 1.05rem; color: var(--deep); margin: 22px 0 8px;
+}
+
+@media (max-width: 760px) {
+  .autor-topo { padding: 18px; gap: 20px; }
+  .autor-retrato { width: 100%; }
+  .autor-retrato img { margin: 0 auto; width: 160px; height: 160px; }
+}
+.rodape-copyright { color: #7FA9A1; }
+.rodape-copyright a { color: #C3D9D4; text-decoration: underline; }
+
+/* ============================================================
+   ACESSIBILIDADE E TOQUE
+   Correções vindas da auditoria: 51 alvos abaixo de 44px e os
+   controles do Leaflet com contraste 1,75.
+   ============================================================ */
+
+/* Controles de zoom do mapa: o padrão do Leaflet é #bbb sobre #f4f4f4 — 1,75
+   de contraste, ilegível. Também eram 30px, abaixo do alvo de toque. */
+.leaflet-touch .leaflet-bar a,
+.leaflet-bar a {
+  width: 44px; height: 44px; line-height: 44px;
+  color: var(--deep); background: var(--surface);
+  border-bottom-color: var(--border); font-size: 1.25rem;
+}
+.leaflet-bar a:hover { background: var(--accent-soft); color: var(--accent); }
+.leaflet-bar a.leaflet-disabled { color: var(--text-muted); background: var(--zebra); }
+
+/* Botões, chips e campos: altura confortável sem inchar o desktop. */
+.botao { min-height: 44px; display: inline-flex; align-items: center; }
+.chip { min-height: 36px; display: inline-flex; align-items: center; }
+.campo select,
+.campo input[type="search"] { min-height: 44px; }
+thead th.ordenavel { padding-top: 14px; padding-bottom: 14px; }
+.rodape-bloco li { margin-bottom: 2px; }
+.rodape-bloco a { display: inline-block; padding: 7px 0; }
+.migalhas a { display: inline-block; padding: 6px 2px; }
+
+/* Legenda de tabela: presente para leitor de tela, invisível na tela. Não use
+   display:none — isso a remove também da árvore de acessibilidade. */
+.so-leitor {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* Aviso de rolagem lateral. Uma tabela de 910px dentro de 375px rola, mas nada
+   na tela diz isso — o leitor conclui que faltam colunas. */
+.tabela-rolagem { position: relative; }
+.tabela-dica {
+  display: none; font-size: 0.78rem; color: var(--text-muted);
+  margin: 6px 2px 0;
+}
+
+/* Quem pediu menos movimento recebe menos movimento. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 760px) {
+  /* O cabeçalho fixo ocupava 181px — 22% da tela de um telefone, o tempo
+     todo. Aqui ele deixa de ser fixo e devolve a altura ao conteúdo; a
+     navegação continua a um toque de distância pelo topo da página. */
+  .topo { position: static; }
+  .topo-interno { padding: 12px 16px 8px; gap: 10px; }
+  .marca-nome { font-size: 1.02rem; }
+  .nav {
+    width: 100%; margin-left: 0; gap: 2px;
+    overflow-x: auto; flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { white-space: nowrap; padding: 6px 10px; }
+
+  .heroi-interno { padding: 34px 0 30px; }
+  .heroi-lede { font-size: 1rem; }
+
+  /* O mapa é o conteúdo principal desta página; 380px num telefone deixava o
+     Brasil pequeno demais para distinguir estado. */
+  .mapa { height: 62vh; min-height: 420px; }
+  .grafico-caixa { height: 58vh; min-height: 320px; }
+
+  .kpis { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .kpis-compacto { grid-template-columns: 1fr 1fr; }
+  .kpi { padding: 13px 14px; }
+  .kpi-valor { font-size: 1.42rem; }
+
+  .tabela-dica { display: block; }
+  .secao { margin: 34px 0; }
+  .secao-cabecalho { gap: 10px; }
+  .autor-numeros { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Duas colunas continuam legíveis a 375px e cortam pela metade a rolagem até
+   o mapa, que é o conteúdo principal da home. Só abaixo de 340px, onde o
+   número e o rótulo começam a quebrar feio, cai para uma. */
+@media (max-width: 400px) {
+  .heroi-manchete { font-size: 1.72rem; }
+  .kpi-nota { font-size: 0.72rem; }
+}
+
+@media (max-width: 339px) {
+  .kpis, .kpis-compacto { grid-template-columns: 1fr; }
+}
+
+/* A navegação rola de lado no telefone; sem um sinal na borda, o leitor não
+   descobre que existem Série e Glossário depois de Correlações. */
+@media (max-width: 760px) {
+  .topo-interno { position: relative; }
+  .nav {
+    -webkit-mask-image: linear-gradient(to right, #000 88%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 88%, transparent 100%);
+    padding-right: 18px;
+  }
+}
+
+/* Links dentro de tabela: 17px de altura é alvo pequeno demais para o dedo.
+   O padding vertical leva a ~29px, acima do mínimo de 24px da WCAG 2.5.8, sem
+   inflar a altura da linha a ponto de reduzir quantas cabem na tela. */
+td a { display: inline-block; padding: 6px 0; }
+
+/* Link inline do rodapé: 16px de altura. A WCAG isenta links em meio a frase,
+   mas 24px custa quatro pixels de padding e não desalinha o parágrafo. */
+.rodape-copyright a { display: inline-block; padding: 4px 0; }

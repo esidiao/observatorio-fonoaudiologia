@@ -1,5 +1,5 @@
 {% extends "base.html.j2" %}
-{% block titulo %}{{ nome_uf }} — Observatório Nacional da Fonoaudiologia{% endblock %}
+{% block titulo %}{{ nome_uf }} — Observatório Nacional da Formação em Fonoaudiologia{% endblock %}
 {% block descricao %}Indicadores de formação e cobertura assistencial em Fonoaudiologia no estado de {{ nome_uf }}.{% endblock %}
 
 {% block cabeca %}
@@ -161,15 +161,16 @@
   </div>
   <div class="tabela-rolagem">
     <table id="tabela-mun" data-ordenavel>
+      <caption class="so-leitor">Municípios do estado com curso presencial ou polo de EaD</caption>
       <thead>
         <tr>
-          <th>Município</th>
-          <th>Vagas presenciais</th>
-          <th>Cursos</th>
-          <th>Matrículas</th>
-          <th>Concluintes</th>
-          <th>Polos EaD</th>
-          <th>Fonoaudiólogos no SUS</th>
+          <th scope="col">Município</th>
+          <th scope="col">Vagas presenciais</th>
+          <th scope="col">Cursos</th>
+          <th scope="col">Matrículas</th>
+          <th scope="col">Concluintes</th>
+          <th scope="col">Polos EaD</th>
+          <th scope="col">Fonoaudiólogos no SUS</th>
         </tr>
       </thead>
       <tbody>

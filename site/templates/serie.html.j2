@@ -1,5 +1,5 @@
 {% extends "base.html.j2" %}
-{% block titulo %}Série histórica — Observatório Nacional da Fonoaudiologia{% endblock %}
+{% block titulo %}Série histórica — Observatório Nacional da Formação em Fonoaudiologia{% endblock %}
 {% block descricao %}Como a oferta de Fonoaudiologia mudou entre as edições do Censo da Educação Superior.{% endblock %}
 
 {% block conteudo %}
@@ -30,9 +30,9 @@
     <table class="tabela-simples">
       <thead>
         <tr>
-          <th>Indicador</th>
-          {% for ano in serie.anos %}<th>{{ ano }}</th>{% endfor %}
-          <th>Variação</th>
+          <th scope="col">Indicador</th>
+          {% for ano in serie.anos %}<th scope="col">{{ ano }}</th>{% endfor %}
+          <th scope="col">Variação</th>
         </tr>
       </thead>
       <tbody id="corpo-brasil"></tbody>
@@ -51,16 +51,18 @@
   <div class="grafico-caixa"><canvas id="grafico-serie"></canvas></div>
   <div class="tabela-rolagem">
     <table id="tabela-serie" data-ordenavel>
+      <caption class="so-leitor">Série histórica por estado, entre edições do Censo</caption>
       <thead>
         <tr>
-          <th>Estado</th>
-          {% for ano in serie.anos %}<th>{{ ano }}</th>{% endfor %}
-          <th>Variação</th>
+          <th scope="col">Estado</th>
+          {% for ano in serie.anos %}<th scope="col">{{ ano }}</th>{% endfor %}
+          <th scope="col">Variação</th>
         </tr>
       </thead>
       <tbody id="corpo-serie"></tbody>
     </table>
   </div>
+  <p class="tabela-dica">Role a tabela para o lado para ver as demais colunas.</p>
   <p class="nota">
     Variação em pontos percentuais quando o indicador já é percentual; em
     percentual do valor anterior nos demais casos. Estados que não tinham o

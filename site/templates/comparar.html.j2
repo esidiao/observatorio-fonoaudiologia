@@ -1,5 +1,5 @@
 {% extends "base.html.j2" %}
-{% block titulo %}Comparar estados — Observatório Nacional da Fonoaudiologia{% endblock %}
+{% block titulo %}Comparar estados — Observatório Nacional da Formação em Fonoaudiologia{% endblock %}
 {% block descricao %}Compare estados em qualquer indicador: tabela ordenável, barras e radar normalizado.{% endblock %}
 
 {% block conteudo %}
@@ -42,7 +42,8 @@
   </div>
   <div class="tabela-rolagem">
     <table id="tabela-comparar" data-ordenavel>
-      <thead><tr id="cabecalho-comparar"><th>Estado</th></tr></thead>
+      <caption class="so-leitor">Comparação de indicadores entre os estados selecionados</caption>
+      <thead><tr id="cabecalho-comparar"><th scope="col">Estado</th></tr></thead>
       <tbody id="corpo-comparar"></tbody>
     </table>
   </div>
@@ -141,7 +142,7 @@ function montarEscolhas() {
 
 function montarTabela() {
   const cabecalho = document.getElementById('cabecalho-comparar');
-  cabecalho.innerHTML = '<th>Estado</th>';
+  cabecalho.innerHTML = '<th scope="col">Estado</th>';
   indicadoresSel.forEach(function (k) {
     const th = document.createElement('th');
     th.textContent = rotulo(k);

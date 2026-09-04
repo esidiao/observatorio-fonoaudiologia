@@ -10,14 +10,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% block titulo %}Observatório Nacional da Fonoaudiologia{% endblock %}</title>
+<title>{% block titulo %}Observatório Nacional da Formação em Fonoaudiologia{% endblock %}</title>
 <meta name="description" content="{% block descricao %}Indicadores de acesso territorial, qualidade e cobertura assistencial dos cursos de Fonoaudiologia no Brasil.{% endblock %}">
 <meta name="theme-color" content="#123F3A">
 <link rel="manifest" href="{{ depth }}manifest.json">
 <link rel="icon" href="{{ depth }}static/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{{ depth }}static/fonts/fonts.css">
-<link rel="stylesheet" href="{{ depth }}static/css/style.css">
+{# As folhas de terceiros entram ANTES da do projeto.
+   O leaflet.css declara `.leaflet-touch .leaflet-bar a { width:30px }` com a
+   mesma especificidade das nossas regras; carregado depois, ele vencia por
+   ordem e os controles de zoom continuavam em 30px, abaixo do alvo de toque. #}
 {% block cabeca %}{% endblock %}
+<link rel="stylesheet" href="{{ depth }}static/css/style.css">
 </head>
 <body>
 
@@ -26,7 +30,7 @@
 <header class="topo">
   <div class="topo-interno">
     <a class="marca" href="{{ depth }}index.html">
-      <span class="marca-nome">Observatório Nacional da Fonoaudiologia</span>
+      <span class="marca-nome">Observatório Nacional da Formação em Fonoaudiologia</span>
       <span class="marca-sub">Censo {{ panorama.ano_censo }} · CPC 2023 · CNES</span>
     </a>
     <nav class="nav" aria-label="Navegação principal">
@@ -66,7 +70,7 @@
     <div class="rodape-bloco">
       <h3>Sobre</h3>
       <ul>
-        <li><a href="{{ depth }}autor.html">Autoria</a></li>
+        <li><a href="{{ depth }}autor.html">Autoria e direitos</a></li>
         <li><a href="{{ depth }}aviso-legal.html">Aviso legal</a></li>
         <li><a href="{{ depth }}glossario.html">Glossário dos indicadores</a></li>
       </ul>
@@ -76,6 +80,13 @@
     Nenhum indicador é estimado ou preenchido por analogia. Sem fonte oficial
     para um recorte, o valor aparece como <strong>sem dados</strong> — nunca
     como zero. Gerado em {{ gerado_em }}.
+  </p>
+  <p class="rodape-nota rodape-copyright">
+    © {{ gerado_em[:4] }} <strong>Edson Sidião de Souza Júnior</strong> —
+    obra autoral protegida pelas Leis 9.610/1998 e 9.609/1998.
+    Dados primários do INEP, do Ministério da Saúde e do IBGE, de domínio
+    público. Indicadores calculados liberados para reúso com citação.
+    <a href="{{ depth }}autor.html">Autoria e direitos</a>.
   </p>
 </footer>
 

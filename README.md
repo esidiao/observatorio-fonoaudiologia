@@ -1,4 +1,4 @@
-# Observatório Nacional da Fonoaudiologia
+# Observatório Nacional da Formação em Fonoaudiologia
 
 Site estático data-driven com indicadores de acesso territorial, qualidade e cobertura
 assistencial dos cursos de Fonoaudiologia no Brasil.
@@ -162,7 +162,18 @@ Isso pesa mais aqui do que no observatório de Farmácia: com 24 UFs e 74 cursos
 as lacunas são proporcionalmente maiores e a tentação de preencher por analogia é
 constante.
 
-## Licença e autoria
+## Autoria e direitos
 
-Ver [`SECURITY.md`](SECURITY.md), a página de aviso legal do site e o registro de
-anterioridade autoral em `data/registro_autoral.json`.
+**Edson Sidião de Souza Júnior** — sidiao@i9educar.com ·
+[Lattes](http://lattes.cnpq.br/9464330669014306)
+Farmacêutico, Mestre e Doutor em Medicina Tropical (UFG), avaliador *ad hoc*
+INEP/MEC há mais de quinze anos.
+
+© 2026, todos os direitos reservados sobre a obra autoral (Leis 9.610/1998 e
+9.609/1998). Os **dados primários** são públicos e pertencem ao INEP, ao
+Ministério da Saúde e ao IBGE; os **indicadores calculados** são liberados para
+reúso com citação.
+
+Termos completos, forma de citação e registro de anterioridade em
+[`DIREITOS.md`](DIREITOS.md). Ver também [`SECURITY.md`](SECURITY.md) e a
+página de aviso legal do site.

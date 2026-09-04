@@ -1,5 +1,5 @@
 /* ============================================================
- * Observatório Nacional da Fonoaudiologia
+ * Observatório Nacional da Formação em Fonoaudiologia
  * Formatação, escalas de cor, mapas, tabelas e glossário.
  *
  * Depende de `indicadores.js`, GERADO por site/catalogo.py, que traz
@@ -331,6 +331,10 @@ function ativarTabelasOrdenaveis() {
     celulas.forEach(function (celula, i) {
       celula.tabIndex = 0;
       celula.classList.add('ordenavel');
+      /* Cabecalho criado em JS nao passa pelo template e chegaria sem `scope`.
+         Sem ele o leitor de tela le os numeros soltos, sem dizer de que coluna
+         sao — numa tabela de oito indicadores, a diferenca entre dado e ruido. */
+      if (!celula.getAttribute('scope')) celula.setAttribute('scope', 'col');
       let ascendente = false;
       const acionar = function () {
         ascendente = !ascendente;

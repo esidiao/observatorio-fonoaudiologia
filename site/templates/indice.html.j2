@@ -1,5 +1,5 @@
 {% extends "base.html.j2" %}
-{% block titulo %}Índice sintético e ranking — Observatório Nacional da Fonoaudiologia{% endblock %}
+{% block titulo %}Índice sintético e ranking — Observatório Nacional da Formação em Fonoaudiologia{% endblock %}
 {% block descricao %}Índice sintético dos estados, com pesos ajustáveis pelo leitor.{% endblock %}
 
 {% block conteudo %}
@@ -41,17 +41,19 @@
   </div>
   <div class="tabela-rolagem">
     <table id="tabela-indice" data-ordenavel>
+      <caption class="so-leitor">Ranking dos estados pelo índice sintético</caption>
       <thead>
         <tr id="cabecalho-indice">
-          <th>#</th>
-          <th>Estado</th>
-          <th>Índice</th>
-          <th>Componentes usados</th>
+          <th scope="col">#</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Índice</th>
+          <th scope="col">Componentes usados</th>
         </tr>
       </thead>
       <tbody id="corpo-indice"></tbody>
     </table>
   </div>
+  <p class="tabela-dica">Role a tabela para o lado para ver as demais colunas.</p>
   <p class="nota">
     Os valores de cada componente são normalizados de 0 a 100 sobre os 27
     estados, com a direção do indicador já aplicada — 100 é sempre o melhor

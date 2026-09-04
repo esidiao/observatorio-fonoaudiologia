@@ -1,5 +1,5 @@
 {% extends "base.html.j2" %}
-{% block titulo %}Observatório Nacional da Fonoaudiologia{% endblock %}
+{% block titulo %}Observatório Nacional da Formação em Fonoaudiologia{% endblock %}
 
 {% block cabeca %}
 <link rel="stylesheet" href="{{ depth }}static/vendor/leaflet/leaflet.css">
@@ -120,16 +120,17 @@
   </div>
   <div class="tabela-rolagem">
     <table id="tabela-ufs" data-ordenavel>
+      <caption class="so-leitor">Indicadores de Fonoaudiologia por unidade da federação</caption>
       <thead>
         <tr>
-          <th>UF</th>
-          <th>Vagas totais</th>
-          <th>% EaD</th>
-          <th>Municípios com curso</th>
-          <th>ICT</th>
-          <th>IAF</th>
-          <th>CPC</th>
-          <th>ICAF</th>
+          <th scope="col">UF</th>
+          <th scope="col">Vagas totais</th>
+          <th scope="col">% EaD</th>
+          <th scope="col">Municípios com curso</th>
+          <th scope="col">ICT</th>
+          <th scope="col">IAF</th>
+          <th scope="col">CPC</th>
+          <th scope="col">ICAF</th>
         </tr>
       </thead>
       <tbody>
@@ -150,6 +151,7 @@
       </tbody>
     </table>
   </div>
+  <p class="tabela-dica">Role a tabela para o lado para ver as demais colunas.</p>
   <p class="nota">
     Os três estados sem curso presencial aparecem na tabela de propósito.
     Omiti-los faria o país parecer coberto.

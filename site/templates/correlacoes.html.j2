@@ -1,5 +1,5 @@
 {% extends "base.html.j2" %}
-{% block titulo %}Correlações — Observatório Nacional da Fonoaudiologia{% endblock %}
+{% block titulo %}Correlações — Observatório Nacional da Formação em Fonoaudiologia{% endblock %}
 {% block descricao %}Correlações de Spearman entre indicadores estaduais, com significância e n declarados, e duas regressões múltiplas.{% endblock %}
 
 {% block conteudo %}
@@ -33,18 +33,20 @@
   </div>
   <div class="tabela-rolagem">
     <table id="tabela-correlacoes" data-ordenavel>
+      <caption class="so-leitor">Correlações de Spearman entre pares de indicadores</caption>
       <thead>
         <tr>
-          <th>Indicador A</th>
-          <th>Indicador B</th>
-          <th>ρ (Spearman)</th>
-          <th>p</th>
-          <th>n</th>
+          <th scope="col">Indicador A</th>
+          <th scope="col">Indicador B</th>
+          <th scope="col">ρ (Spearman)</th>
+          <th scope="col">p</th>
+          <th scope="col">n</th>
         </tr>
       </thead>
       <tbody id="corpo-correlacoes"></tbody>
     </table>
   </div>
+  <p class="tabela-dica">Role a tabela para o lado para ver as demais colunas.</p>
   <p class="nota">
     {{ correlacoes | length }} pares calculados entre {{ eixos | length }}
     indicadores. A lista é curta de propósito: cruzar todos os 60 indicadores
@@ -80,7 +82,7 @@
       {% if m.r2_ajustado is not none %}· R² ajustado = {{ '%.3f'|format(m.r2_ajustado) }}{% endif %}
     </p>
     <table class="tabela-simples">
-      <thead><tr><th>Variável</th><th>Coeficiente</th></tr></thead>
+      <thead><tr><th scope="col">Variável</th><th scope="col">Coeficiente</th></tr></thead>
       <tbody>
         <tr><td>Intercepto</td><td class="num">{{ '%.4f'|format(m.intercepto) }}</td></tr>
         {% for c in m.coeficientes %}

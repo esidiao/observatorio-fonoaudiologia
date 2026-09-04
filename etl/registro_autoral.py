@@ -38,20 +38,65 @@ REPO = Path(__file__).resolve().parent.parent
 SAIDA = REPO / "data" / "registro_autoral.json"
 
 AUTOR = {
-    "nome": "Sidiao",
+    "nome": "Edson Sidião de Souza Júnior",
     "contato": "sidiao@i9educar.com",
-    "obra": "Observatório Nacional da Fonoaudiologia",
+    "lattes": "http://lattes.cnpq.br/9464330669014306",
+    "vinculo": "I9 Educar — Consultoria em Gestão Educacional",
+    "qualificacao": (
+        "Farmacêutico (UFG), Mestre e Doutor em Medicina Tropical (UFG); "
+        "avaliador ad hoc do INEP/MEC há mais de quinze anos e avaliador do "
+        "Conselho Estadual de Educação de Goiás."
+    ),
+    "obra": "Observatório Nacional da Formação em Fonoaudiologia",
     "descricao": (
         "Sítio estático data-driven com indicadores de acesso territorial, "
         "qualidade e cobertura assistencial dos cursos de Fonoaudiologia no "
-        "Brasil, incluindo a formulação dos índices ICT, E, IAF, ICAF e ICRE."
+        "Brasil: formulação e cálculo dos índices ICT, E, IAF, ICAF e ICRE, "
+        "catálogo de indicadores, textos e desenho editorial."
     ),
 }
+
+FUNDAMENTO = (
+    "Lei 9.610/1998 (direitos autorais) e Lei 9.609/1998 (programa de "
+    "computador). O resumo combinado é impressão digital única do conjunto; o "
+    "commit Git ancora a data no histórico versionado."
+)
+
+COMO_VERIFICAR = [
+    "1. Obtenha os arquivos listados em 'arquivos'.",
+    "2. Normalize o fim de linha de cada um para LF.",
+    "3. Calcule o SHA-256 de cada arquivo normalizado e compare com o campo "
+    "'sha256' da respectiva entrada.",
+    "4. Para o conjunto: concatene, na ordem em que aparecem em 'arquivos', o "
+    "caminho seguido do seu resumo, sem separador, e calcule o SHA-256 do "
+    "resultado. Deve ser igual a 'sha256_combinado'.",
+    "5. Ou, direto: rode `python etl/registro_autoral.py --verificar`.",
+    "6. O commit indicado em 'git_commit_ancora' comprova a data no histórico "
+    "do repositório.",
+]
+
+
+def _commit_ancora():
+    """
+    Commit do HEAD, para ancorar a data do registro no histórico.
+
+    Devolve None fora de um repositório git — o registro continua válido como
+    declaração datada, só perde a âncora. Inventar um identificador aqui seria
+    pior que não ter nenhum.
+    """
+    import subprocess
+    try:
+        r = subprocess.run(["git", "rev-parse", "HEAD"], cwd=str(REPO),
+                           capture_output=True, text=True)
+        return r.stdout.strip() or None if r.returncode == 0 else None
+    except Exception:                                          # noqa: BLE001
+        return None
 
 # Diretórios e padrões varridos, na ordem em que aparecem no registro.
 PADROES = [
     "README.md",
     "SECURITY.md",
+    "DIREITOS.md",
     "requirements.txt",
     "etl/*.py",
     "site/*.py",
@@ -118,12 +163,15 @@ def gerar():
     return {
         "autor": AUTOR,
         "registrado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "git_commit_ancora": _commit_ancora(),
         "algoritmo": "SHA-256 sobre o conteúdo com fim de linha normalizado em LF",
+        "fundamento": FUNDAMENTO,
+        "como_verificar": COMO_VERIFICAR,
         "natureza": (
-            "Declaração datada de conteúdo. Permite comparar uma cópia com o "
+            "Declaração datada de conteúdo, com anterioridade ancorada no "
+            "histórico do repositório. Permite comparar uma cópia com o "
             "original arquivo a arquivo. Não é registro em cartório nem "
-            "depósito no INPI, e não constitui, por si só, prova oponível a "
-            "terceiros."
+            "depósito no INPI, e não substitui nenhum dos dois."
         ),
         "escopo": (
             "Apenas material autoral: código, textos, templates e o desenho "

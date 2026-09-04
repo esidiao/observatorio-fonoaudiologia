@@ -1,6 +1,6 @@
 """
 etl/indices.py
-Fórmulas canônicas do Observatório Nacional da Fonoaudiologia e o portão GO.
+Fórmulas canônicas do Observatório Nacional da Formação em Fonoaudiologia e o portão GO.
 
 Uso:
     python etl/indices.py --autoteste

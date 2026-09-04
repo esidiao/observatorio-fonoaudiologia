@@ -1,6 +1,6 @@
 """
 site/build.py
-Gerador do site estático do Observatório Nacional da Fonoaudiologia.
+Gerador do site estático do Observatório Nacional da Formação em Fonoaudiologia.
 
 Uso:
     python site/build.py
@@ -418,6 +418,7 @@ def construir(caminho_dados, saida, templates):
            serie=serie, serie_json=_json(serie))
     render("autor.html.j2", "autor.html", depth="")
     render("aviso-legal.html.j2", "aviso-legal.html", depth="")
+    render("offline.html.j2", "offline.html", depth="")
 
     # Dados abertos: o site publica o que consome.
     (saida / "dados").mkdir(exist_ok=True)
@@ -441,26 +442,59 @@ def construir(caminho_dados, saida, templates):
 # chave do cache.
 ESSENCIAIS_CACHE = [
     "index.html", "comparar.html", "correlacoes.html", "indice.html",
-    "glossario.html", "serie.html", "manifest.json",
+    "glossario.html", "serie.html", "offline.html", "manifest.json",
     "static/css/style.css", "static/js/app.js", "static/js/indicadores.js",
+    "static/fonts/fonts.css",
 ]
 
 
 def escrever_pwa(saida, panorama):
     manifesto = {
-        "name": "Observatório Nacional da Fonoaudiologia",
-        "short_name": "Obs. Fonoaudiologia",
+        # `id` fixa a identidade do app entre instalações. Sem ele, mudar
+        # start_url faz o sistema tratar como OUTRO aplicativo e o usuário
+        # termina com dois ícones do mesmo site.
+        "id": "/observatorio-fonoaudiologia/",
+        "name": "Observatório Nacional da Formação em Fonoaudiologia",
+        "short_name": "Obs. Fono",
+        "lang": "pt-BR",
+        "dir": "ltr",
         "start_url": "./index.html",
+        "scope": "./",
         "display": "standalone",
+        "display_override": ["standalone", "minimal-ui", "browser"],
+        "orientation": "any",
         "background_color": "#FBFAF8",
         "theme_color": "#123F3A",
-        "description": "Indicadores de acesso, qualidade e cobertura "
-                       "assistencial dos cursos de Fonoaudiologia no Brasil.",
+        "categories": ["education", "government", "medical"],
+        "description": "Indicadores de acesso territorial, qualidade e "
+                       "cobertura assistencial dos cursos de Fonoaudiologia "
+                       "no Brasil, a partir do Censo da Educação Superior, do "
+                       "CPC e do CNES.",
         "icons": [
-            {"src": "static/img/icon-192.png", "sizes": "192x192", "type": "image/png"},
-            {"src": "static/img/icon-512.png", "sizes": "512x512", "type": "image/png"},
+            {"src": "static/img/icon-192.png", "sizes": "192x192",
+             "type": "image/png", "purpose": "any"},
+            {"src": "static/img/icon-512.png", "sizes": "512x512",
+             "type": "image/png", "purpose": "any"},
+            # `maskable` separado do `any`: declarar os dois no mesmo ícone faz
+            # o Android recortar a arte que não tem zona de segurança.
+            {"src": "static/img/icon-maskable-192.png", "sizes": "192x192",
+             "type": "image/png", "purpose": "maskable"},
+            {"src": "static/img/icon-maskable-512.png", "sizes": "512x512",
+             "type": "image/png", "purpose": "maskable"},
+        ],
+        "shortcuts": [
+            {"name": "Comparar estados", "short_name": "Comparar",
+             "url": "./comparar.html",
+             "icons": [{"src": "static/img/icon-192.png", "sizes": "192x192"}]},
+            {"name": "Índice e ranking", "short_name": "Índice",
+             "url": "./indice.html",
+             "icons": [{"src": "static/img/icon-192.png", "sizes": "192x192"}]},
+            {"name": "Glossário dos indicadores", "short_name": "Glossário",
+             "url": "./glossario.html",
+             "icons": [{"src": "static/img/icon-192.png", "sizes": "192x192"}]},
         ],
     }
+
     (saida / "manifest.json").write_text(
         json.dumps(manifesto, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -514,12 +548,19 @@ self.addEventListener('fetch', e => {{
     }})));
     return;
   }}
+  /* Rede primeiro para as páginas, com dois níveis de queda: a própria página
+     em cache e, se nem isso houver, a página offline. Sem o segundo nível o
+     leitor sem conexão recebe o erro cru do navegador, que não diz o que ainda
+     funciona. */
   e.respondWith(
     fetch(e.request).then(resp => {{
       const copia = resp.clone();
       caches.open(CACHE).then(c => c.put(e.request, copia));
       return resp;
-    }}).catch(() => caches.match(e.request))
+    }}).catch(() => caches.match(e.request).then(
+      r => r || (e.request.mode === 'navigate'
+                 ? caches.match('./offline.html')
+                 : undefined)))
   );
 }});
 """, encoding="utf-8")
