@@ -1,0 +1,236 @@
+{% extends "base.html.j2" %}
+{% block titulo %}Observatório Nacional da Fonoaudiologia{% endblock %}
+
+{% block cabeca %}
+<link rel="stylesheet" href="{{ depth }}static/vendor/leaflet/leaflet.css">
+{% endblock %}
+
+{% block conteudo %}
+
+{#
+  Herói editorial. Os números vêm todos de `panorama`, nunca escritos à mão no
+  texto: uma manchete com número digitado sobrevive à mudança do dado e vira a
+  primeira coisa errada que o leitor encontra.
+#}
+<section class="heroi">
+  <div class="heroi-interno">
+    <p class="heroi-etiqueta">Censo da Educação Superior {{ panorama.ano_censo }} · CPC 2023 · CNES</p>
+    <h1 class="heroi-manchete">
+      A Fonoaudiologia se ensina em
+      <strong>{{ panorama.municipios_oferta | numero }}</strong>
+      dos {{ panorama.municipios_total | numero }} municípios brasileiros.
+    </h1>
+    <p class="heroi-lede">
+      São {{ panorama.vagas_total | numero }} vagas anuais
+      em {{ panorama.n_ufs_com_oferta }} das 27 unidades da federação —
+      {% if panorama.ufs_sem_oferta %}
+      {{ panorama.ufs_sem_oferta | join(', ') }} não têm nenhum curso presencial.
+      {% endif %}
+      {% if panorama.pct_ead is not none %}
+      {{ panorama.pct_ead | numero }}% dessas vagas são a distância,
+      registradas na sede da mantenedora e atendidas por
+      {{ panorama.polos_registros | numero }} polos
+      espalhados por {{ panorama.polos_municipios | numero }} municípios.
+      {% endif %}
+    </p>
+    <p class="heroi-nota">
+      Este observatório não estima nada. Onde não há fonte oficial para um
+      recorte, a página diz <em>sem dados</em> — e o mapa fica cinza.
+    </p>
+  </div>
+</section>
+
+<section class="secao">
+  <h2 class="secao-titulo">Panorama nacional</h2>
+  <div class="kpis">
+    <div class="kpi">
+      <span class="kpi-valor">{{ panorama.vagas_total | numero }}</span>
+      <span class="kpi-rotulo">Vagas anuais</span>
+      <span class="kpi-nota">{{ panorama.vagas_presencial | numero }} presenciais ·
+        {{ panorama.vagas_ead | numero }} EaD</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-valor">{{ panorama.matriculas | numero }}</span>
+      <span class="kpi-rotulo">Matrículas</span>
+      <span class="kpi-nota">{{ panorama.concluintes | numero }} concluintes no ano</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-valor">{{ panorama.municipios_oferta }}</span>
+      <span class="kpi-rotulo">Municípios com curso presencial</span>
+      <span class="kpi-nota">{{ panorama.municipios_deserto | numero }} sem nenhum</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-valor">{{ panorama.cursos_avaliados }}</span>
+      <span class="kpi-rotulo">Cursos avaliados no CPC 2023</span>
+      <span class="kpi-nota">em 23 UFs</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-valor">
+        {%- if panorama.municipios_com_fonoaudiologo -%}
+          {{ panorama.municipios_com_fonoaudiologo | numero }}
+        {%- else -%}<span class="sem-dados">sem dados</span>{%- endif -%}
+      </span>
+      <span class="kpi-rotulo">Municípios com fonoaudiólogo no SUS</span>
+      <span class="kpi-nota">CNES — força de trabalho</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-valor">
+        {%- if panorama.municipios_com_servico_fono -%}
+          {{ panorama.municipios_com_servico_fono | numero }}
+        {%- else -%}<span class="sem-dados">sem dados</span>{%- endif -%}
+      </span>
+      <span class="kpi-rotulo">Municípios com serviço fonoaudiológico</span>
+      <span class="kpi-nota">CNES — rede especializada</span>
+    </div>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="secao-cabecalho">
+    <h2 class="secao-titulo">Mapa nacional</h2>
+    <label class="campo">
+      Indicador
+      <select id="seletor-mapa">
+        {% for cat in categorias %}
+        <optgroup label="{{ cat }}">
+          {% for ind in catalogo if ind.cat == cat %}
+          <option value="{{ ind.key }}"{% if ind.key == 'ICT' %} selected{% endif %}>{{ ind.nome }}</option>
+          {% endfor %}
+        </optgroup>
+        {% endfor %}
+      </select>
+    </label>
+  </div>
+  <p id="mapa-explicacao" class="secao-lede"></p>
+  <div id="mapa" class="mapa"></div>
+  <div id="legenda" class="legenda"></div>
+  <p class="nota">
+    Malhas territoriais do IBGE, servidas localmente — o mapa não carrega
+    imagem de terceiros e funciona offline depois da primeira visita. Clique
+    num estado para abrir a página dele.
+  </p>
+</section>
+
+<section class="secao">
+  <div class="secao-cabecalho">
+    <h2 class="secao-titulo">Estados</h2>
+    <button class="botao" data-exportar="#tabela-ufs" data-nome="ufs-fonoaudiologia.csv">
+      Baixar CSV
+    </button>
+  </div>
+  <div class="tabela-rolagem">
+    <table id="tabela-ufs" data-ordenavel>
+      <thead>
+        <tr>
+          <th>UF</th>
+          <th>Vagas totais</th>
+          <th>% EaD</th>
+          <th>Municípios com curso</th>
+          <th>ICT</th>
+          <th>IAF</th>
+          <th>CPC</th>
+          <th>ICAF</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for sigla, d in ufs_ordenadas %}
+        <tr{% if not d.tem_oferta_presencial %} class="linha-sem-oferta"{% endif %}>
+          <td data-valor="{{ sigla }}">
+            <a href="{{ depth }}uf/{{ sigla }}.html">{{ nomes_uf[sigla] }}</a>
+            {% if not d.tem_oferta_presencial %}
+            <span class="marca-sem-oferta" title="Sem curso presencial de Fonoaudiologia">sem oferta presencial</span>
+            {% endif %}
+          </td>
+          {% for campo in ['vagas_total', 'pct_ead', 'municipios_oferta', 'ICT', 'IAF', 'CPC', 'ICAF'] %}
+          <td class="num" data-valor="{{ d[campo] if d[campo] is not none else '' }}"
+              data-campo="{{ campo }}">{{ '' }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="nota">
+    Os três estados sem curso presencial aparecem na tabela de propósito.
+    Omiti-los faria o país parecer coberto.
+  </p>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ depth }}static/vendor/leaflet/leaflet.js"></script>
+<script>
+const UFS = {{ ufs_json }};
+const DEPTH = {{ depth | tojson }};
+const NOMES_UF = {{ nomes_uf | json }};
+
+/* Preenche as células a partir do catálogo, em vez de formatar no Jinja.
+   Formatar no template exigiria repetir as casas decimais de cada indicador
+   no HTML — que é exatamente a duplicação que o catálogo existe para evitar. */
+document.querySelectorAll('td[data-campo]').forEach(function (td) {
+  const campo = td.dataset.campo;
+  const bruto = td.dataset.valor;
+  const valor = bruto === '' ? null : parseFloat(bruto);
+  td.textContent = fmt(valor, campo);
+  if (valor === null) td.classList.add('sem-dados');
+});
+
+const mapaEl = document.getElementById('mapa');
+const seletor = document.getElementById('seletor-mapa');
+const legendaEl = document.getElementById('legenda');
+const explicacaoEl = document.getElementById('mapa-explicacao');
+let mapa = null;
+let camada = null;
+let malha = null;
+
+function siglaDaFeicao(f) {
+  const p = f.properties || {};
+  return (p.sigla || p.SIGLA || p.sigla_uf || p.SIGLA_UF || '').toUpperCase();
+}
+
+function redesenhar() {
+  const chave = seletor.value;
+  const valores = Object.keys(UFS).map(s => UFS[s][chave]);
+  const meta = INDICADOR_META[chave] || {};
+  const usaEscalaDinamica = meta.min === null || meta.min === undefined;
+  const corDinamica = usaEscalaDinamica ? escalaDinamica(valores) : null;
+
+  const item = GLOSSARIO.filter(g => g.key === chave)[0];
+  explicacaoEl.textContent = item ? item.oque : '';
+
+  if (camada) { camada.remove(); camada = null; }
+  camada = desenharMalha(mapa, malha, {
+    chave: chave,
+    valorDe: f => {
+      const uf = UFS[siglaDaFeicao(f)];
+      return uf ? uf[chave] : null;
+    },
+    rotuloDe: f => {
+      const p = f.properties || {};
+      const sigla = siglaDaFeicao(f);
+      return NOMES_UF[sigla] || sigla;
+    },
+    corDe: corDinamica ? corDinamica : undefined,
+    aoClicar: f => {
+      const sigla = siglaDaFeicao(f);
+      if (sigla) window.location.href = DEPTH + 'uf/' + sigla + '.html';
+    },
+  });
+  montarLegenda(legendaEl, chave, valores);
+}
+
+fetch(DEPTH + 'static/geo/brasil.json')
+  .then(r => r.json())
+  .then(function (geo) {
+    malha = geo;
+    mapa = criarMapa(mapaEl);
+    redesenhar();
+    seletor.addEventListener('change', redesenhar);
+  })
+  .catch(function () {
+    mapaEl.innerHTML = '<p class="vazio">Não foi possível carregar a malha ' +
+      'territorial. Os dados continuam disponíveis na tabela abaixo.</p>';
+  });
+</script>
+{% endblock %}

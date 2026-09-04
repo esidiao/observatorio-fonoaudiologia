@@ -1,0 +1,103 @@
+{% extends "base.html.j2" %}
+{% block titulo %}Autoria — Observatório Nacional da Fonoaudiologia{% endblock %}
+{% block descricao %}Autoria, método e registro de anterioridade do Observatório Nacional da Fonoaudiologia.{% endblock %}
+
+{% block conteudo %}
+
+<section class="cabecalho-uf">
+  <h1>Autoria e método</h1>
+</section>
+
+<section class="secao">
+  <h2 class="secao-titulo">O que este observatório é</h2>
+  <p>
+    Um site estático que lê fontes públicas oficiais, calcula indicadores de
+    acesso territorial, qualidade e cobertura assistencial dos cursos de
+    Fonoaudiologia no Brasil, e publica o resultado junto com os dados brutos
+    que o originaram.
+  </p>
+  <p>
+    É projeto irmão — e independente — do
+    <a href="https://github.com/esidiao/observatorio-formacao-farmaceutica">Observatório
+    Nacional da Formação Farmacêutica</a>. Compartilha o método e o sistema de
+    design; não compartilha código, dados nem dependências.
+  </p>
+</section>
+
+<section class="secao">
+  <h2 class="secao-titulo">O princípio que governa tudo</h2>
+  <p class="destaque">
+    Nenhum indicador é estimado, interpolado ou preenchido por analogia. Sem
+    fonte oficial para um recorte, o valor é nulo e aparece como
+    <span class="sem-dados">sem dados</span> — nunca zero, nunca média
+    plausível, nunca o valor de um estado vizinho.
+  </p>
+  <p>
+    Isso pesa mais aqui do que no observatório de Farmácia. Com 24 estados com
+    oferta presencial e 74 cursos avaliados, as lacunas são proporcionalmente
+    maiores, e a tentação de preencher por analogia é constante. Um mapa com
+    estados cinza é informação: diz onde a política pública não produziu dado.
+  </p>
+</section>
+
+<section class="secao">
+  <h2 class="secao-titulo">Como os números são conferidos</h2>
+  <ul class="lista">
+    <li>
+      <strong>Portão de qualidade.</strong> Antes de qualquer publicação, as
+      fórmulas dos índices são conferidas contra um estado sintético cujos
+      valores foram calculados à mão. Se uma fórmula mudar de resultado, o
+      build para.
+    </li>
+    <li>
+      <strong>Âncoras de regressão.</strong> Os totais conhecidos do Censo 2024
+      e do CPC 2023 são testados a cada execução. Se o pipeline passar a
+      produzir outro número, o mais provável é defeito no pipeline — e o teste
+      falha antes de o número chegar à tela.
+    </li>
+    <li>
+      <strong>Catálogo fechado.</strong> Todo indicador publicado tem entrada de
+      glossário e regra de formatação, e as duas saem da mesma estrutura. Um
+      campo novo sem registro derruba o build.
+    </li>
+    <li>
+      <strong>Guarda de riqueza.</strong> O pipeline compara o número de campos
+      por estado com o da versão anterior e aborta se o resultado novo for mais
+      pobre. Perder campos em silêncio é a falha mais fácil de não notar: os
+      testes continuam verdes porque nenhum deles checa presença.
+    </li>
+    <li>
+      <strong>Proveniência.</strong> Todo número carrega fonte, ano e data de
+      extração, e o ano vem do arquivo lido — nunca do calendário.
+    </li>
+  </ul>
+</section>
+
+<section class="secao">
+  <h2 class="secao-titulo">Registro de anterioridade</h2>
+  <p>
+    O conteúdo autoral deste observatório — a formulação dos índices, os textos
+    e o desenho editorial — tem registro de anterioridade em
+    <code>data/registro_autoral.json</code>, publicado junto com os dados.
+    O registro guarda o resumo criptográfico de cada arquivo autoral e a data
+    em que foi calculado, de modo que qualquer cópia possa ser comparada com o
+    original.
+  </p>
+  <p>
+    <a class="botao" href="{{ depth }}dados/registro_autoral.json">Ver o registro</a>
+  </p>
+</section>
+
+<section class="secao">
+  <h2 class="secao-titulo">Reprodutibilidade</h2>
+  <p>
+    Todo o pipeline roda a partir de fontes públicas, sem credencial. Não há
+    arquivo manual, planilha intermediária nem passo que dependa da máquina de
+    quem publica.
+  </p>
+  <pre class="codigo"><code>pip install -r requirements.txt
+python etl/pipeline.py --ano {{ panorama.ano_censo }}
+python site/build.py</code></pre>
+</section>
+
+{% endblock %}

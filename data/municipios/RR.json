@@ -1,0 +1,21 @@
+{
+ "uf": "RR",
+ "municipios": [
+  {
+   "codigo": "1400100",
+   "nome": "Boa Vista",
+   "uf": "RR",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 5,
+   "matriculas_ead": 5,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  }
+ ]
+}

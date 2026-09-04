@@ -1,0 +1,451 @@
+/* ============================================================
+   OBSERVATÓRIO NACIONAL DA FONOAUDIOLOGIA
+   Design tokens.
+
+   Mesmo sistema de design do Observatório da Formação Farmacêutica —
+   mesma tipografia, mesma grade, mesmos componentes — com paleta própria,
+   para que os dois se leiam como parentes sem se confundirem um com o outro.
+
+   Paleta: verde-petróleo profundo (institucional), teal médio (secundária)
+   e terracota (destaque editorial). Três matizes, não mais: cada matiz a
+   mais é uma decisão que o leitor precisa interpretar.
+   ============================================================ */
+:root {
+  /* Cores institucionais */
+  --deep:  #123F3A;
+  --mid:   #2A7D74;
+  --warm:  #C0562F;
+
+  /* Estado: sem dados.
+     Cinza neutro, deliberadamente fora da paleta: um estado cinza no mapa
+     precisa ser lido como ausência de dado, nunca como valor baixo. */
+  --nodata: #C9CDD2;
+
+  /* SWOT */
+  --swot-strength:    #3F6B2E;
+  --swot-weakness:    #B23A2E;
+  --swot-opportunity: #2A7D74;
+  --swot-threat:      #C0562F;
+
+  /* Acento de identidade (editorial/científico) */
+  --accent:      #2A7D74;
+  --accent-soft: #E6F1EF;
+
+  /* Superfícies — tom papel quente (editorial) */
+  --bg:        #FBFAF8;
+  --surface:   #FFFFFF;
+  --border:    #E7E3DC;
+  --text:      #1B2530;
+  --text-muted:#6B7280;
+
+  /* Neutros derivados, usados em tabelas e realces */
+  --zebra:     #F5F8F7;
+  --realce:    #E9F2F0;
+
+  /* Escala divergente RdBu — sempre RdBu, nunca RdYlGn.
+     Vermelho-verde é a combinação que o daltonismo mais comum apaga, e um
+     mapa que some para 8% dos homens não é um mapa. */
+  --rdbu-1: #2166AC;
+  --rdbu-2: #4393C3;
+  --rdbu-3: #92C5DE;
+  --rdbu-4: #D1E5F0;
+  --rdbu-5: #F7F7F7;
+  --rdbu-6: #FDDBC7;
+  --rdbu-7: #F4A582;
+  --rdbu-8: #D6604D;
+  --rdbu-9: #B2182B;
+
+  /* Escala sequencial (indicadores sem ponto médio natural) */
+  --seq-1: #EDF6F4;
+  --seq-2: #CFE7E3;
+  --seq-3: #A6D3CC;
+  --seq-4: #74B8AF;
+  --seq-5: #479B92;
+  --seq-6: #2A7D74;
+  --seq-7: #1B6259;
+  --seq-8: #123F3A;
+
+  /* Tipografia — Inter (UI/dados) + Lora (títulos editoriais) */
+  --font: 'Inter', 'Segoe UI', system-ui, Arial, sans-serif;
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-mono: 'Cascadia Mono', 'Consolas', monospace;
+}
+/* ============================================================
+   RESET E BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--mid); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+h1, h2, h3 { font-family: var(--font-serif); font-weight: 600; letter-spacing: -0.01em; }
+
+code, pre { font-family: var(--font-mono); font-size: 0.9em; }
+
+:focus-visible { outline: 2px solid var(--warm); outline-offset: 2px; }
+
+.pular {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--deep); color: #fff; padding: 10px 16px; z-index: 999;
+}
+.pular:focus { left: 8px; top: 8px; }
+
+/* ============================================================
+   TOPO
+   ============================================================ */
+.topo {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 500;
+}
+.topo-interno {
+  max-width: 1180px; margin: 0 auto; padding: 14px 24px;
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.marca { display: flex; flex-direction: column; line-height: 1.2; color: inherit; }
+.marca:hover { text-decoration: none; }
+.marca-nome {
+  font-family: var(--font-serif); font-weight: 600;
+  font-size: 1.16rem; color: var(--deep);
+}
+.marca-sub { font-size: 0.76rem; color: var(--text-muted); letter-spacing: 0.02em; }
+
+.nav { display: flex; gap: 4px; flex-wrap: wrap; margin-left: auto; }
+.nav a {
+  color: var(--deep); font-size: 0.9rem; font-weight: 500;
+  padding: 6px 11px; border-radius: 7px;
+  transition: background 0.12s, color 0.12s;
+}
+.nav a:hover { background: var(--accent-soft); color: var(--accent); text-decoration: none; }
+
+/* ============================================================
+   ESTRUTURA
+   ============================================================ */
+main { max-width: 1180px; margin: 0 auto; padding: 0 24px 64px; }
+
+.secao { margin: 48px 0; }
+.secao-titulo {
+  font-size: 1.5rem; color: var(--deep);
+  padding-bottom: 8px; border-bottom: 2px solid var(--accent-soft);
+  margin-bottom: 18px;
+}
+.secao-cabecalho {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap; margin-bottom: 14px;
+}
+.secao-cabecalho .secao-titulo { margin-bottom: 0; flex: 1 1 auto; }
+.secao-lede { color: var(--text-muted); max-width: 68ch; margin-bottom: 16px; }
+.nota { font-size: 0.85rem; color: var(--text-muted); margin-top: 12px; max-width: 78ch; }
+.lista { margin: 12px 0 0 20px; }
+.lista li { margin-bottom: 10px; max-width: 78ch; }
+.destaque {
+  font-size: 1.06rem; border-left: 4px solid var(--warm);
+  padding: 12px 0 12px 18px; margin: 16px 0; max-width: 70ch;
+}
+.codigo {
+  background: var(--deep); color: #E8F0EE; padding: 16px 18px;
+  border-radius: 10px; overflow-x: auto; margin-top: 12px;
+}
+
+.migalhas { font-size: 0.85rem; color: var(--text-muted); padding: 18px 0 0; }
+.migalhas a { color: var(--mid); }
+
+/* ============================================================
+   HERÓI EDITORIAL
+   ============================================================ */
+.heroi {
+  background: linear-gradient(160deg, var(--deep) 0%, #0C2E2A 100%);
+  color: #F2F7F5;
+  margin: 0 -24px 8px;
+  padding: 0 24px;
+}
+.heroi-interno { max-width: 1180px; margin: 0 auto; padding: 52px 0 46px; }
+.heroi-etiqueta {
+  font-size: 0.76rem; letter-spacing: 0.09em; text-transform: uppercase;
+  color: #8FBDB4; margin-bottom: 14px;
+}
+.heroi-manchete {
+  font-size: clamp(1.85rem, 4.2vw, 3rem);
+  line-height: 1.14; color: #FFFFFF; max-width: 20ch; margin-bottom: 20px;
+}
+.heroi-manchete strong { color: var(--warm); font-weight: 600; }
+.heroi-lede {
+  font-size: 1.06rem; line-height: 1.65; max-width: 62ch;
+  color: #D6E5E1; margin-bottom: 16px;
+}
+.heroi-nota {
+  font-size: 0.88rem; color: #9CC0B8; max-width: 62ch;
+  border-left: 3px solid var(--warm); padding-left: 14px;
+}
+.heroi-nota em { color: #D6E5E1; font-style: normal; }
+
+/* ============================================================
+   CARTÕES DE INDICADOR
+   ============================================================ */
+.kpis {
+  display: grid; gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+.kpis-compacto { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+
+.kpi {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 11px; padding: 16px 18px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.kpi-valor {
+  font-family: var(--font-serif); font-size: 1.72rem;
+  font-weight: 600; color: var(--deep); line-height: 1.1;
+}
+.kpi-rotulo { font-size: 0.86rem; color: var(--text); font-weight: 500; }
+.kpi-nota { font-size: 0.78rem; color: var(--text-muted); }
+.kpi-link { color: var(--text-muted); }
+.kpi-link:hover { color: var(--accent); }
+
+/* Ausência tem tratamento visual PRÓPRIO — não é um número pequeno nem um
+   traço discreto. Precisa se ler como "não existe dado aqui" à primeira
+   passada, senão o leitor a confunde com valor baixo. */
+.sem-dados {
+  color: var(--text-muted) !important;
+  font-style: italic;
+  font-family: var(--font) !important;
+  font-size: 0.92rem !important;
+  font-weight: 400 !important;
+}
+
+/* ============================================================
+   MAPAS E LEGENDAS
+   ============================================================ */
+.mapa {
+  height: 540px; border: 1px solid var(--border); border-radius: 11px;
+  background: var(--surface); overflow: hidden;
+}
+.leaflet-container { background: var(--surface); font-family: var(--font); }
+
+.legenda {
+  display: flex; flex-wrap: wrap; gap: 4px 14px;
+  margin-top: 12px; font-size: 0.78rem; color: var(--text-muted);
+}
+.legenda-item { display: inline-flex; align-items: center; gap: 5px; }
+.legenda-item i {
+  width: 15px; height: 15px; border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.08); display: inline-block;
+}
+.legenda-ausente { margin-left: 8px; font-style: italic; }
+
+.tooltip-mapa { font-size: 0.85rem; line-height: 1.4; }
+.tooltip-mapa strong { color: var(--deep); }
+
+/* ============================================================
+   TABELAS
+   ============================================================ */
+.tabela-rolagem { overflow-x: auto; border: 1px solid var(--border); border-radius: 11px; }
+table { width: 100%; border-collapse: collapse; background: var(--surface); font-size: 0.9rem; }
+.tabela-simples { border: 1px solid var(--border); border-radius: 11px; overflow: hidden; }
+
+thead th {
+  background: var(--deep); color: #F2F7F5; text-align: left;
+  padding: 11px 14px; font-weight: 600; font-size: 0.82rem;
+  letter-spacing: 0.02em; white-space: nowrap; position: relative;
+}
+thead th.ordenavel { cursor: pointer; user-select: none; padding-right: 26px; }
+thead th.ordenavel::after {
+  content: '⇅'; position: absolute; right: 10px; opacity: 0.4; font-size: 0.9em;
+}
+thead th.ordenado-asc::after { content: '↑'; opacity: 1; }
+thead th.ordenado-desc::after { content: '↓'; opacity: 1; }
+
+tbody td { padding: 9px 14px; border-top: 1px solid var(--border); }
+tbody tr:nth-child(even) { background: var(--zebra); }
+tbody tr:hover { background: var(--realce); }
+td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.celula-cor { color: #10231F; font-weight: 600; }
+td.nao-significativo { color: var(--text-muted); }
+td.parcial { color: var(--warm); }
+
+.variacao-alta { color: #2F6B4F; font-weight: 600; }
+.variacao-baixa { color: #B2182B; font-weight: 600; }
+
+.linha-sem-oferta td:first-child { border-left: 3px solid var(--nodata); }
+.marca-sem-oferta {
+  display: inline-block; margin-left: 8px; padding: 1px 8px;
+  border-radius: 10px; background: var(--nodata); color: #3C4550;
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.02em;
+  vertical-align: middle;
+}
+
+/* ============================================================
+   CONTROLES
+   ============================================================ */
+.botao {
+  display: inline-block; background: var(--deep); color: #F2F7F5;
+  border: 1px solid var(--deep); border-radius: 8px;
+  padding: 8px 15px; font-size: 0.86rem; font-weight: 500;
+  cursor: pointer; font-family: var(--font);
+}
+.botao:hover { background: var(--mid); border-color: var(--mid); text-decoration: none; }
+.botao-fantasma { background: transparent; color: var(--deep); border-color: var(--border); }
+.botao-fantasma:hover { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+
+.campo {
+  display: inline-flex; flex-direction: column; gap: 5px;
+  font-size: 0.8rem; color: var(--text-muted); font-weight: 500;
+}
+.campo select, .campo input[type="search"] {
+  font-family: var(--font); font-size: 0.92rem; color: var(--text);
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 8px 11px; min-width: 230px;
+}
+.campo-busca input { min-width: 320px; }
+.campo input[type="checkbox"] { margin-right: 6px; }
+.contador { font-size: 0.82rem; color: var(--text-muted); }
+
+.painel {
+  display: flex; gap: 20px; flex-wrap: wrap;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 11px; padding: 18px;
+}
+.painel-bloco { border: 0; flex: 1 1 320px; }
+.painel-bloco legend {
+  font-size: 0.8rem; font-weight: 600; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px;
+}
+.acoes-linha { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.chips-titulo {
+  width: 100%; font-size: 0.72rem; text-transform: uppercase;
+  letter-spacing: 0.06em; color: var(--text-muted); margin-top: 8px;
+}
+.chip {
+  border: 1px solid var(--border); background: var(--surface);
+  color: var(--text); border-radius: 20px; padding: 4px 12px;
+  font-size: 0.8rem; cursor: pointer; font-family: var(--font);
+}
+.chip:hover { border-color: var(--accent); color: var(--accent); }
+.chip-ativo { background: var(--deep); color: #F2F7F5; border-color: var(--deep); }
+.chip-ativo:hover { background: var(--mid); border-color: var(--mid); color: #fff; }
+.chip-sem-oferta { border-style: dashed; }
+
+.pesos { display: flex; flex-direction: column; gap: 12px; max-width: 640px; }
+.peso-linha { display: grid; grid-template-columns: 1fr 200px 42px; gap: 12px; align-items: center; }
+.peso-rotulo { font-size: 0.9rem; }
+.peso-valor { font-variant-numeric: tabular-nums; text-align: right; color: var(--text-muted); }
+.peso-linha input[type="range"] { accent-color: var(--mid); width: 100%; }
+
+/* ============================================================
+   AVISOS E BLOCOS EDITORIAIS
+   ============================================================ */
+.aviso {
+  background: var(--accent-soft); border-left: 4px solid var(--accent);
+  border-radius: 0 9px 9px 0; padding: 14px 18px; margin: 16px 0;
+  font-size: 0.92rem; max-width: 80ch;
+}
+.aviso-destaque { background: #FBEFE8; border-left-color: var(--warm); }
+
+.cabecalho-uf { padding: 26px 0 6px; }
+.cabecalho-uf h1 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); color: var(--deep); }
+.sigla-uf {
+  font-family: var(--font); font-size: 0.9rem; font-weight: 600;
+  background: var(--accent-soft); color: var(--accent);
+  padding: 3px 9px; border-radius: 6px; vertical-align: middle; margin-left: 6px;
+}
+.linha-contexto { color: var(--text-muted); font-size: 0.92rem; margin-top: 8px; }
+
+.grafico-caixa {
+  height: 420px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 11px; padding: 14px; margin-top: 14px;
+}
+
+.modelo {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 11px; padding: 20px; margin-bottom: 18px;
+}
+.modelo h3 { font-size: 1.1rem; color: var(--deep); margin-bottom: 8px; max-width: 70ch; }
+.modelo-resposta { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 14px; }
+.modelo table { margin-top: 6px; max-width: 460px; }
+
+.vazio { color: var(--text-muted); font-style: italic; padding: 24px; text-align: center; }
+
+/* ============================================================
+   GLOSSÁRIO
+   ============================================================ */
+.glossario-cat { margin-bottom: 34px; }
+.glossario-cat h2 {
+  font-size: 1.24rem; color: var(--deep);
+  border-bottom: 2px solid var(--accent-soft); padding-bottom: 6px; margin-bottom: 14px;
+}
+.verbete {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 11px; padding: 16px 18px; margin-bottom: 12px;
+}
+.verbete:target { border-color: var(--warm); box-shadow: 0 0 0 3px #FBEFE8; }
+.verbete h3 { font-size: 1.02rem; color: var(--deep); margin-bottom: 6px; }
+.verbete-sigla {
+  font-family: var(--font); font-size: 0.74rem; font-weight: 700;
+  background: var(--deep); color: #F2F7F5; padding: 2px 8px;
+  border-radius: 5px; margin-right: 7px; vertical-align: middle;
+}
+.verbete p { font-size: 0.92rem; max-width: 82ch; color: var(--text); }
+.verbete-meta {
+  display: flex; flex-wrap: wrap; gap: 6px 24px; margin-top: 10px;
+  font-size: 0.8rem; color: var(--text-muted);
+}
+.verbete-meta div { display: flex; gap: 6px; }
+.verbete-meta dt { font-weight: 600; }
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+.rodape {
+  background: var(--deep); color: #C3D9D4;
+  margin-top: 64px; padding: 40px 24px 28px;
+}
+.rodape-interno {
+  max-width: 1180px; margin: 0 auto;
+  display: grid; gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+.rodape-bloco h3 {
+  font-family: var(--font); font-size: 0.76rem; text-transform: uppercase;
+  letter-spacing: 0.09em; color: #7FA9A1; margin-bottom: 10px;
+}
+.rodape-bloco ul { list-style: none; }
+.rodape-bloco li { font-size: 0.86rem; margin-bottom: 6px; }
+.rodape-bloco a { color: #E2EDEA; }
+.rodape-nota {
+  max-width: 1180px; margin: 26px auto 0; padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  font-size: 0.82rem; color: #8FBDB4; max-width: 90ch;
+}
+.rodape-nota strong { color: #E2EDEA; }
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 760px) {
+  main { padding: 0 16px 48px; }
+  .heroi { margin: 0 -16px 8px; padding: 0 16px; }
+  .topo-interno { padding: 12px 16px; }
+  .nav { margin-left: 0; width: 100%; }
+  .mapa { height: 380px; }
+  .grafico-caixa { height: 340px; }
+  .peso-linha { grid-template-columns: 1fr 1fr 40px; }
+  .campo select, .campo input[type="search"], .campo-busca input { min-width: 0; width: 100%; }
+  .campo { width: 100%; }
+}
+
+@media print {
+  .topo, .rodape, .botao, .painel, .nav { display: none; }
+  .mapa, .grafico-caixa { break-inside: avoid; }
+}

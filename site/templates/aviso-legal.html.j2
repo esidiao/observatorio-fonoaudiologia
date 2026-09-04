@@ -1,0 +1,121 @@
+{% extends "base.html.j2" %}
+{% block titulo %}Aviso legal — Observatório Nacional da Fonoaudiologia{% endblock %}
+{% block descricao %}Origem dos dados, limites de uso e limitações conhecidas deste observatório.{% endblock %}
+
+{% block conteudo %}
+
+<section class="cabecalho-uf">
+  <h1>Aviso legal</h1>
+</section>
+
+<section class="secao">
+  <h2 class="secao-titulo">Origem dos dados</h2>
+  <p>
+    Todos os dados vêm de fontes públicas oficiais brasileiras, acessadas sem
+    credencial e sem contrato:
+  </p>
+  <ul class="lista">
+    <li>
+      <strong>Censo da Educação Superior {{ panorama.ano_censo }}</strong> —
+      INEP. Cadastro de cursos e de instituições.
+    </li>
+    <li>
+      <strong>Conceito Preliminar de Curso 2023</strong> — INEP. Área de
+      avaliação FONOAUDIOLOGIA.
+    </li>
+    <li>
+      <strong>Cadastro Nacional de Estabelecimentos de Saúde</strong> —
+      DATASUS/Ministério da Saúde. Vínculos profissionais e serviços
+      especializados.
+    </li>
+    <li>
+      <strong>Localidades e estimativas populacionais</strong> — IBGE.
+    </li>
+  </ul>
+  <p>
+    Este site não é produzido, mantido, revisado nem endossado por nenhuma
+    dessas instituições. Os dados originais pertencem a elas; a organização, o
+    cálculo dos índices e a apresentação são deste projeto — e qualquer erro de
+    cálculo é deste projeto, não da fonte.
+  </p>
+</section>
+
+<section class="secao">
+  <h2 class="secao-titulo">Limitações conhecidas</h2>
+  <p>
+    Estas limitações não são ressalvas de rodapé: elas mudam o que se pode
+    concluir das páginas.
+  </p>
+  <ul class="lista">
+    <li>
+      <strong>Não há indicador de CER.</strong> A habilitação de Centro
+      Especializado em Reabilitação não é publicada na base do CNES. Os códigos
+      existem na tabela de domínio, mas nenhuma tabela-fato os relaciona a
+      estabelecimento ou município. O indicador simplesmente não existe aqui, e
+      nenhuma aproximação foi colocada no lugar dele.
+    </li>
+    <li>
+      <strong>A cobertura assistencial é declaratória.</strong> O CNES registra
+      o que o estabelecimento declara. Um município pode ter serviço prestado e
+      não declarado, ou declarado e não prestado. O indicador mede o cadastro,
+      não a assistência efetivamente entregue.
+    </li>
+    <li>
+      <strong>Vínculo não é profissional em atividade.</strong> A contagem de
+      fonoaudiólogos usa profissionais distintos com vínculo registrado no
+      CNES; não afere carga horária efetiva nem presença no posto.
+    </li>
+    <li>
+      <strong>A taxa de conclusão é um retrato pontual.</strong> Divide
+      concluintes por matriculados no mesmo ano; não acompanha uma turma ao
+      longo do tempo e não deve ser lida como taxa de evasão.
+    </li>
+    <li>
+      <strong>As vagas de EaD ficam na sede da mantenedora.</strong> É onde o
+      Censo as registra. Um estado com muitas vagas de EaD não necessariamente
+      forma esses alunos em seu território — eles estão nos polos, que aparecem
+      em indicador separado.
+    </li>
+    <li>
+      <strong>A significância estatística usa aproximação declarada.</strong> Os
+      valores de p vêm da aproximação t de Student sobre o ρ de Spearman, com n
+      em torno de 24. Servem para separar estrutura de ruído, não para
+      inferência de precisão.
+    </li>
+    <li>
+      <strong>O índice sintético é uma escolha, não uma medida.</strong> Os
+      pesos são arbitrários por natureza; por isso são ajustáveis pelo leitor e
+      o ranking se refaz com eles.
+    </li>
+  </ul>
+</section>
+
+<section class="secao">
+  <h2 class="secao-titulo">Uso</h2>
+  <p>
+    Os dados e indicadores podem ser reutilizados livremente, inclusive para
+    fins comerciais, desde que a fonte primária (INEP, DATASUS, IBGE) e este
+    observatório sejam citados. Os arquivos completos estão em
+    <a href="{{ depth }}dados/nacional.json">nacional.json</a> e
+    <a href="{{ depth }}dados/indicadores.csv">indicadores.csv</a>.
+  </p>
+  <p>
+    Este site não presta orientação profissional, clínica, jurídica ou de
+    investimento, e não deve ser usado como base única para decisão de
+    matrícula, contratação, abertura de curso ou política pública. Antes de
+    qualquer decisão dessas, confira os números contra a fonte primária — que
+    está linkada em cada indicador.
+  </p>
+</section>
+
+<section class="secao">
+  <h2 class="secao-titulo">Correções</h2>
+  <p>
+    Erros acontecem, e a resposta certa a um número errado é corrigi-lo e dizer
+    que foi corrigido. Se você encontrar divergência entre este site e a fonte
+    primária, abra uma issue no repositório com o indicador, o estado e o valor
+    que a fonte traz.
+  </p>
+</section>
+
+{% endblock %}

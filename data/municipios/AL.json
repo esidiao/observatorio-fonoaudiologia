@@ -1,0 +1,69 @@
+{
+ "uf": "AL",
+ "municipios": [
+  {
+   "codigo": "2704302",
+   "nome": "Maceió",
+   "uf": "AL",
+   "vagas_presencial": 336,
+   "cursos_presencial": 2,
+   "n_ies": 2,
+   "matriculas": 346,
+   "matriculas_ead": 7,
+   "concluintes": 24,
+   "polos_ead": 2,
+   "tem_curso_presencial": true,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  },
+  {
+   "codigo": "2700300",
+   "nome": "Arapiraca",
+   "uf": "AL",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 11,
+   "matriculas_ead": 11,
+   "concluintes": 0,
+   "polos_ead": 2,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  },
+  {
+   "codigo": "2702603",
+   "nome": "Feira Grande",
+   "uf": "AL",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 1,
+   "matriculas_ead": 1,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  },
+  {
+   "codigo": "2706307",
+   "nome": "Palmeira dos Índios",
+   "uf": "AL",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 2,
+   "matriculas_ead": 2,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  }
+ ]
+}

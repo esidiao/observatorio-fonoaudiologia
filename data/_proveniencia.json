@@ -1,0 +1,51 @@
+{
+  "gerado_em": "2026-09-04",
+  "fontes": {
+    "censo": {
+      "presente": true,
+      "fonte": "Censo da Educação Superior (INEP)",
+      "url": "https://download.inep.gov.br/microdados/microdados_censo_da_educacao_superior_2024.zip",
+      "ano_censo": 2024,
+      "membro_cursos": "microdados_censo_da_educacao_superior_2024/dados/MICRODADOS_CADASTRO_CURSOS_2024.CSV",
+      "membro_ies": "microdados_censo_da_educacao_superior_2024/dados/MICRODADOS_ED_SUP_IES_2024.CSV",
+      "rotulo_cine": "Fonoaudiologia",
+      "md5_publicado": "dbe25e67857aa68b12beaeffa194f53f *MICRODADOS_CADASTRO_IES_2024.csv\r\n4ada15841c698a47ec19d6cb53ac2c13 *MICRODADOS_CADASTRO_CURSOS_2024.csv",
+      "linhas_cadastro": 720349,
+      "linhas_curso": 939,
+      "ies_cadastradas": 2561,
+      "extraido_em": "2026-09-04"
+    },
+    "cpc": {
+      "presente": true,
+      "fonte": "Conceito Preliminar de Curso (INEP)",
+      "url": "https://download.inep.gov.br/educacao_superior/indicadores/resultados/2023/CPC_2023.xlsx",
+      "ciclo": "2023",
+      "area_avaliacao": "FONOAUDIOLOGIA",
+      "match": "igualdade sobre o rótulo normalizado, nunca substring",
+      "ponderacao": "média ponderada por concluintes participantes, 3 casas",
+      "componente_q_do_iaf": "CPC (Faixa), escala 1 a 5",
+      "cursos_avaliados": 74,
+      "ufs_avaliadas": 23,
+      "extraido_em": "2026-09-04"
+    },
+    "cnes": {
+      "presente": false,
+      "motivo": "data/cobertura_cnes.json não gerado"
+    },
+    "ibge_municipios": {
+      "fonte": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios?view=nivelado",
+      "total": 5571
+    },
+    "ibge_populacao": {
+      "agregado": 6579,
+      "variavel": 9324,
+      "nivel": "N3",
+      "ano": "2026"
+    }
+  },
+  "limitacoes_conhecidas": [
+    "A habilitação de Centro Especializado em Reabilitação (CER) não é publicada na base do CNES; o indicador não existe e não foi substituído por aproximação.",
+    "Amapá, Mato Grosso do Sul e Roraima não têm curso presencial de Fonoaudiologia. Os indicadores que dependem de oferta presencial ficam nulos nessas UFs, não zerados.",
+    "Tocantins tem oferta presencial e nenhum curso no ciclo do CPC 2023; os indicadores de qualidade ficam nulos."
+  ]
+}

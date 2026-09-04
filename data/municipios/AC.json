@@ -1,0 +1,69 @@
+{
+ "uf": "AC",
+ "municipios": [
+  {
+   "codigo": "1200401",
+   "nome": "Rio Branco",
+   "uf": "AC",
+   "vagas_presencial": 210,
+   "cursos_presencial": 1,
+   "n_ies": 1,
+   "matriculas": 67,
+   "matriculas_ead": 0,
+   "concluintes": 1,
+   "polos_ead": 0,
+   "tem_curso_presencial": true,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  },
+  {
+   "codigo": "1200013",
+   "nome": "Acrelândia",
+   "uf": "AC",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 1,
+   "matriculas_ead": 1,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  },
+  {
+   "codigo": "1200203",
+   "nome": "Cruzeiro do Sul",
+   "uf": "AC",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 1,
+   "matriculas_ead": 1,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  },
+  {
+   "codigo": "1200500",
+   "nome": "Sena Madureira",
+   "uf": "AC",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 1,
+   "matriculas_ead": 1,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  }
+ ]
+}

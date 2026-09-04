@@ -1,0 +1,185 @@
+{
+  "autor": {
+    "nome": "Sidiao",
+    "contato": "sidiao@i9educar.com",
+    "obra": "Observatório Nacional da Fonoaudiologia",
+    "descricao": "Sítio estático data-driven com indicadores de acesso territorial, qualidade e cobertura assistencial dos cursos de Fonoaudiologia no Brasil, incluindo a formulação dos índices ICT, E, IAF, ICAF e ICRE."
+  },
+  "registrado_em": "2026-09-04T16:15:05+00:00",
+  "algoritmo": "SHA-256",
+  "natureza": "Declaração datada de conteúdo. Permite comparar uma cópia com o original arquivo a arquivo. Não é registro em cartório nem depósito no INPI, e não constitui, por si só, prova oponível a terceiros.",
+  "escopo": "Apenas material autoral: código, textos, templates e o desenho dos índices. Não inclui os dados públicos (INEP, DATASUS, IBGE), que pertencem às respectivas fontes, nem bibliotecas de terceiros.",
+  "n_arquivos": 28,
+  "bytes_totais": 296020,
+  "sha256_combinado": "8aacc118f5c4b78dae2153c7ee798fad6824abdd845bf4ea552c1b48cc2ba1cb",
+  "arquivos": [
+    {
+      "arquivo": "README.md",
+      "bytes": 5379,
+      "linhas": 128,
+      "sha256": "f793f3f762e031966b78953d4ecfc174fd4d57fe04a5222fac2634a24c40742c"
+    },
+    {
+      "arquivo": "requirements.txt",
+      "bytes": 39,
+      "linhas": 4,
+      "sha256": "33229d3a778e4971495cc409e7377b68ca2ce5e31353df6ecfe8f04b987af40c"
+    },
+    {
+      "arquivo": "etl/consolidar.py",
+      "bytes": 9309,
+      "linhas": 227,
+      "sha256": "593c7cd77ca8299b1980beea36bfdfa6ab3303d447e52acde0a1627b942b3d54"
+    },
+    {
+      "arquivo": "etl/extrair_censo.py",
+      "bytes": 8716,
+      "linhas": 213,
+      "sha256": "9d7e0d2ca83ba1d366436e790fb8f6e1daf7c45c55838ff942f671fd0f29c67e"
+    },
+    {
+      "arquivo": "etl/extrair_cnes.py",
+      "bytes": 19097,
+      "linhas": 439,
+      "sha256": "4f5aeb94e0fd26e52d22a04c2afefcedcf7577ae3888692bcbe113c591f7ead1"
+    },
+    {
+      "arquivo": "etl/extrair_cpc.py",
+      "bytes": 12556,
+      "linhas": 296,
+      "sha256": "013589c519bd2162d378b6225cc5a1bd7f263bbf599b0cacce72e4b8037cb4c5"
+    },
+    {
+      "arquivo": "etl/indices.py",
+      "bytes": 14770,
+      "linhas": 385,
+      "sha256": "528d0fbb2c9a14550365ebb53884214620602351992ba99554a08915dd83019f"
+    },
+    {
+      "arquivo": "etl/ingestao.py",
+      "bytes": 17821,
+      "linhas": 437,
+      "sha256": "d0f4c8644e80110aef1d1d36334118e1cb0be3a993c28086a2fbe91cfecf1cd7"
+    },
+    {
+      "arquivo": "etl/rede.py",
+      "bytes": 19897,
+      "linhas": 506,
+      "sha256": "0b68195a5099a0a9a305db529ce11e323f722fbb89fb6b91741cb074ac2a238c"
+    },
+    {
+      "arquivo": "etl/registro_autoral.py",
+      "bytes": 6246,
+      "linhas": 174,
+      "sha256": "d967416d566153e8f387ad1f164afbb0ba7dbbfeb1191712b7065c41cb0cef72"
+    },
+    {
+      "arquivo": "site/build.py",
+      "bytes": 20782,
+      "linhas": 515,
+      "sha256": "0535b3b1dda61d0745bdcda7697ca8216d80da8f013196c2130195e750a948cd"
+    },
+    {
+      "arquivo": "site/catalogo.py",
+      "bytes": 25125,
+      "linhas": 498,
+      "sha256": "fae4eac699c4f39f4f48bc8580ab548784c2a5aa22d4cf1c2a65370404a1eeb9"
+    },
+    {
+      "arquivo": "site/estatistica.py",
+      "bytes": 10622,
+      "linhas": 286,
+      "sha256": "cbf7dba7f9265c82887227ed5b724bd06cfba292ccb7da432ab84377452260a9"
+    },
+    {
+      "arquivo": "site/templates/autor.html.j2",
+      "bytes": 4214,
+      "linhas": 104,
+      "sha256": "4ecc7f648bbfaa369cf49220e0953df2c8933a9ca7f400093bfacf50f058cba0"
+    },
+    {
+      "arquivo": "site/templates/aviso-legal.html.j2",
+      "bytes": 4839,
+      "linhas": 122,
+      "sha256": "7059bd43ab314f25aa7388c67a8d2c5af266dc5c95a996918895ee2dff9b0a92"
+    },
+    {
+      "arquivo": "site/templates/base.html.j2",
+      "bytes": 3534,
+      "linhas": 93,
+      "sha256": "59c9a3b6c2149b696120b7a479c6cfe89943c974a1e569eb1bce3ecab7ec0d49"
+    },
+    {
+      "arquivo": "site/templates/comparar.html.j2",
+      "bytes": 10905,
+      "linhas": 312,
+      "sha256": "cf440c46e99e24c61231ae26108d245b100362beeb3a4d6cd675eae355901a4e"
+    },
+    {
+      "arquivo": "site/templates/correlacoes.html.j2",
+      "bytes": 8700,
+      "linhas": 242,
+      "sha256": "4fafe3a2c9b1e55c5e66febfa79160e3a4946deca2006ef97c875067a9d54a6f"
+    },
+    {
+      "arquivo": "site/templates/glossario.html.j2",
+      "bytes": 2602,
+      "linhas": 65,
+      "sha256": "db12027ad7f879b91b1edf29313b7b7455a2d563578ad871cec5b86614dc7d06"
+    },
+    {
+      "arquivo": "site/templates/index.html.j2",
+      "bytes": 8895,
+      "linhas": 237,
+      "sha256": "b7afa9800f8b11eb7a6447f98f6459bccd54acc4a05b0974e3297e9de03079d9"
+    },
+    {
+      "arquivo": "site/templates/indice.html.j2",
+      "bytes": 7271,
+      "linhas": 215,
+      "sha256": "42b871aecfb890233308cf67d8f2548ffe2bfa69aac28d0cc68a175cce59b704"
+    },
+    {
+      "arquivo": "site/templates/municipio.html.j2",
+      "bytes": 3370,
+      "linhas": 90,
+      "sha256": "c75d75a814530a3dc2e12e0a920987209ba487641f3eefe182c66fe83d88c2f9"
+    },
+    {
+      "arquivo": "site/templates/serie.html.j2",
+      "bytes": 6213,
+      "linhas": 194,
+      "sha256": "b70451433d1759ff69bd5b1b40fa8cd2a861e107b074be32e0159a92841eaee0"
+    },
+    {
+      "arquivo": "site/templates/uf.html.j2",
+      "bytes": 11999,
+      "linhas": 298,
+      "sha256": "736b158d647c4b9e11d8fe05553212a470844bc50666d455496f7e42cb9ce0e7"
+    },
+    {
+      "arquivo": "site/static/css/style.css",
+      "bytes": 21974,
+      "linhas": 759,
+      "sha256": "ec5a2313f3e954d034d0a655cc0b81bb65f3c5aaf33beb932923cd5f641549f3"
+    },
+    {
+      "arquivo": "site/static/js/app.js",
+      "bytes": 16015,
+      "linhas": 442,
+      "sha256": "ae519388faae206a8c746351fc21d212f58ca4907542417228ca9acee2f2d2ee"
+    },
+    {
+      "arquivo": "tests/test_catalogo.py",
+      "bytes": 4773,
+      "linhas": 129,
+      "sha256": "0d2610d290b368cf4ed7714251024b86f2327d135bac2c69d0d5034cf18db201"
+    },
+    {
+      "arquivo": "tests/test_validacao.py",
+      "bytes": 10357,
+      "linhas": 277,
+      "sha256": "96aa5c2ba03d3d6fa1bfb74ac0388a96f614c014e12fa8919864f22fbe4d6181"
+    }
+  ]
+}

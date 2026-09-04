@@ -1,0 +1,64 @@
+{% extends "base.html.j2" %}
+{% block titulo %}Glossário dos indicadores — Observatório Nacional da Fonoaudiologia{% endblock %}
+{% block descricao %}O que cada indicador mede, em que escala, em que direção e de que fonte vem.{% endblock %}
+
+{% block conteudo %}
+
+<section class="cabecalho-uf">
+  <h1>Glossário dos indicadores</h1>
+  <p class="secao-lede">
+    Cada verbete diz o que o indicador mede, em que escala, se um valor alto é
+    bom ou ruim, e de onde o número vem. Não há indicador neste site fora desta
+    lista: o glossário e a formatação das páginas saem da mesma estrutura, e o
+    build falha se alguma delas ficar para trás.
+  </p>
+</section>
+
+<section class="secao">
+  <div class="secao-cabecalho">
+    <label class="campo campo-busca">
+      Buscar
+      <input type="search" id="busca-glossario" placeholder="ICT, cobertura, EaD, doutores…"
+             autocomplete="off">
+    </label>
+    <span id="glossario-contador" class="contador"></span>
+  </div>
+  <div id="glossario"></div>
+</section>
+
+<section class="secao">
+  <h2 class="secao-titulo">Como ler as ausências</h2>
+  <p>
+    Onde não existe fonte oficial para um recorte, a página escreve
+    <span class="sem-dados">sem dados</span> e o mapa fica cinza. Isso nunca é
+    substituído por zero, por média nacional ou pelo valor de um estado vizinho.
+    Um valor ausente e um valor zero dizem coisas diferentes, e apagar essa
+    diferença é a maneira mais silenciosa de um observatório mentir.
+  </p>
+  <h3>Ausências conhecidas deste ciclo</h3>
+  <ul class="lista">
+    <li>
+      <strong>Centro Especializado em Reabilitação (CER).</strong> A habilitação
+      não é publicada na base do CNES. Os códigos existem na tabela de domínio,
+      mas nenhuma tabela-fato os liga a estabelecimento ou município. O
+      indicador não existe aqui, e não foi substituído por aproximação.
+    </li>
+    <li>
+      <strong>Amapá, Mato Grosso do Sul e Roraima.</strong> Sem curso presencial
+      de Fonoaudiologia. Todos os indicadores que dependem de oferta presencial
+      ficam sem dados nesses estados.
+    </li>
+    <li>
+      <strong>Tocantins.</strong> Tem curso presencial e nenhum curso avaliado
+      no ciclo do CPC 2023, então os indicadores de qualidade — e o IAF, que
+      depende deles — ficam sem dados.
+    </li>
+    <li>
+      <strong>IDD.</strong> Seis dos setenta e quatro cursos avaliados não têm
+      IDD, porque o indicador depende de nota de ingresso que nem todo curso
+      reúne em quantidade suficiente.
+    </li>
+  </ul>
+</section>
+
+{% endblock %}

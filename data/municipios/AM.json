@@ -1,0 +1,37 @@
+{
+ "uf": "AM",
+ "municipios": [
+  {
+   "codigo": "1302603",
+   "nome": "Manaus",
+   "uf": "AM",
+   "vagas_presencial": 1100,
+   "cursos_presencial": 3,
+   "n_ies": 3,
+   "matriculas": 703,
+   "matriculas_ead": 17,
+   "concluintes": 57,
+   "polos_ead": 2,
+   "tem_curso_presencial": true,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  },
+  {
+   "codigo": "1301902",
+   "nome": "Itacoatiara",
+   "uf": "AM",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 0,
+   "matriculas_ead": 0,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  }
+ ]
+}

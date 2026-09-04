@@ -1,0 +1,69 @@
+{
+ "uf": "RN",
+ "municipios": [
+  {
+   "codigo": "2408102",
+   "nome": "Natal",
+   "uf": "RN",
+   "vagas_presencial": 92,
+   "cursos_presencial": 2,
+   "n_ies": 2,
+   "matriculas": 335,
+   "matriculas_ead": 48,
+   "concluintes": 66,
+   "polos_ead": 2,
+   "tem_curso_presencial": true,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  },
+  {
+   "codigo": "2402600",
+   "nome": "Ceará-Mirim",
+   "uf": "RN",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 1,
+   "matriculas_ead": 1,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  },
+  {
+   "codigo": "2408003",
+   "nome": "Mossoró",
+   "uf": "RN",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 2,
+   "matriculas_ead": 2,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  },
+  {
+   "codigo": "2403251",
+   "nome": "Parnamirim",
+   "uf": "RN",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 1,
+   "matriculas_ead": 1,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  }
+ ]
+}

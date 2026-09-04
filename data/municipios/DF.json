@@ -1,0 +1,21 @@
+{
+ "uf": "DF",
+ "municipios": [
+  {
+   "codigo": "5300108",
+   "nome": "Brasília",
+   "uf": "DF",
+   "vagas_presencial": 861,
+   "cursos_presencial": 3,
+   "n_ies": 3,
+   "matriculas": 1153,
+   "matriculas_ead": 404,
+   "concluintes": 164,
+   "polos_ead": 5,
+   "tem_curso_presencial": true,
+   "fonoaudiologos_sus": null,
+   "estabelecimentos_servico_fono": null,
+   "servicos_fono": null
+  }
+ ]
+}
