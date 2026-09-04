@@ -66,6 +66,24 @@ EXCLUIR = ("site/static/vendor", "site/static/fonts", "etl/dados",
            "site/dist", "__pycache__")
 
 
+def _normalizar(conteudo):
+    """
+    Bytes com fim de linha normalizado em LF, antes de resumir.
+
+    O registro precisa identificar CONTEÚDO, não a tradução de fim de linha da
+    máquina que o gerou. Sem isto ele só confere no sistema em que nasceu: o
+    Windows grava CRLF nos arquivos escritos em modo texto, o git guarda LF no
+    blob, e o mesmo arquivo produz dois resumos diferentes conforme onde é
+    lido. Foi o que aconteceu — o registro batia local e acusava doze arquivos
+    alterados no runner Linux do CI, sem que uma linha tivesse mudado.
+
+    Um registro de anterioridade que só confere na máquina do autor não serve
+    para nada: a razão de existir é permitir que OUTRA pessoa, em OUTRO
+    sistema, compare a cópia dela com o original.
+    """
+    return conteudo.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+
+
 def _autorais():
     vistos = set()
     for padrao in PADROES:
@@ -83,7 +101,7 @@ def gerar():
     arquivos = []
     combinado = hashlib.sha256()
     for relativo, caminho in _autorais():
-        conteudo = caminho.read_bytes()
+        conteudo = _normalizar(caminho.read_bytes())
         resumo = hashlib.sha256(conteudo).hexdigest()
         # A cadeia combinada inclui o CAMINHO, não só o conteúdo: sem isso,
         # renomear dois arquivos entre si daria o mesmo resumo global, e o
@@ -100,7 +118,7 @@ def gerar():
     return {
         "autor": AUTOR,
         "registrado_em": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "algoritmo": "SHA-256",
+        "algoritmo": "SHA-256 sobre o conteúdo com fim de linha normalizado em LF",
         "natureza": (
             "Declaração datada de conteúdo. Permite comparar uma cópia com o "
             "original arquivo a arquivo. Não é registro em cartório nem "
