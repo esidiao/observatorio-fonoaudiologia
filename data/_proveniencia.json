@@ -53,10 +53,12 @@
       }
     },
     "ibge_municipios": {
+      "presente": true,
       "fonte": "https://servicodados.ibge.gov.br/api/v1/localidades/municipios?view=nivelado",
       "total": 5571
     },
     "ibge_populacao": {
+      "presente": true,
       "agregado": 6579,
       "variavel": 9324,
       "nivel": "N3",

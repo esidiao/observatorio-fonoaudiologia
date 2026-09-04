@@ -151,8 +151,14 @@ def proveniencia(bruto, qualidade, cobertura):
         "cnes": ({"presente": True, **cobertura["metadados"]} if cobertura
                  else {"presente": False,
                        "motivo": "data/cobertura_cnes.json não gerado"}),
-        "ibge_municipios": bruto["metadados"].get("municipios_ibge"),
-        "ibge_populacao": bruto["metadados"].get("populacao_ibge"),
+        # As fontes do IBGE também declaram `presente`, como as demais. Sem o
+        # campo, elas ficam de fora de qualquer varredura que pergunte "quais
+        # fontes faltaram?" — e uma fonte que nunca aparece na resposta é uma
+        # fonte que ninguém percebe ter sumido.
+        "ibge_municipios": {"presente": True,
+                            **(bruto["metadados"].get("municipios_ibge") or {})},
+        "ibge_populacao": {"presente": True,
+                           **(bruto["metadados"].get("populacao_ibge") or {})},
     }
     return {
         "gerado_em": date.today().isoformat(),
