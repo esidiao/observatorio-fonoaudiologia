@@ -541,7 +541,13 @@ self.addEventListener('fetch', e => {{
   const estatico = /\\.(css|js|woff2|png|svg|jpg|webp|json)$/.test(url.pathname)
                    && !url.pathname.includes('/dados/');
   if (estatico) {{
-    e.respondWith(caches.match(e.request).then(r => r || fetch(e.request).then(resp => {{
+    /* Busca SO no cache da versao corrente, nao em `caches.match` global.
+       O global varre TODOS os caches, inclusive o da versao anterior que o
+       `activate` ainda nao apagou — e numa janela de poucos segundos apos o
+       deploy a pagina carregava o CSS velho junto com o HTML novo. O sintoma
+       foi a pagina de autoria sem estilo algum, com o arquivo novo publicado
+       e correto no servidor. */
+    e.respondWith(caches.open(CACHE).then(c => c.match(e.request)).then(r => r || fetch(e.request).then(resp => {{
       const copia = resp.clone();
       caches.open(CACHE).then(c => c.put(e.request, copia));
       return resp;
@@ -557,7 +563,7 @@ self.addEventListener('fetch', e => {{
       const copia = resp.clone();
       caches.open(CACHE).then(c => c.put(e.request, copia));
       return resp;
-    }}).catch(() => caches.match(e.request).then(
+    }}).catch(() => caches.open(CACHE).then(c => c.match(e.request)).then(
       r => r || (e.request.mode === 'navigate'
                  ? caches.match('./offline.html')
                  : undefined)))

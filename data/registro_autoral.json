@@ -8,8 +8,8 @@
     "obra": "Observatório Nacional da Formação em Fonoaudiologia",
     "descricao": "Sítio estático data-driven com indicadores de acesso territorial, qualidade e cobertura assistencial dos cursos de Fonoaudiologia no Brasil: formulação e cálculo dos índices ICT, E, IAF, ICAF e ICRE, catálogo de indicadores, textos e desenho editorial."
   },
-  "registrado_em": "2026-09-04T19:21:08+00:00",
-  "git_commit_ancora": "4ebe7a22b7e1db831a7a0e71307d6974d84dc48d",
+  "registrado_em": "2026-09-04T19:25:13+00:00",
+  "git_commit_ancora": "70966871fa34628f0a89d4eca7ae6b1acdbf02f4",
   "algoritmo": "SHA-256 sobre o conteúdo com fim de linha normalizado em LF",
   "fundamento": "Lei 9.610/1998 (direitos autorais) e Lei 9.609/1998 (programa de computador). O resumo combinado é impressão digital única do conjunto; o commit Git ancora a data no histórico versionado.",
   "como_verificar": [
@@ -23,8 +23,8 @@
   "natureza": "Declaração datada de conteúdo, com anterioridade ancorada no histórico do repositório. Permite comparar uma cópia com o original arquivo a arquivo. Não é registro em cartório nem depósito no INPI, e não substitui nenhum dos dois.",
   "escopo": "Apenas material autoral: código, textos, templates e o desenho dos índices. Não inclui os dados públicos (INEP, DATASUS, IBGE), que pertencem às respectivas fontes, nem bibliotecas de terceiros.",
   "n_arquivos": 35,
-  "bytes_totais": 360663,
-  "sha256_combinado": "3e0ae19215468c1aee0ded654387a8181dd8cffff49f2a66f6026bcb9a408c10",
+  "bytes_totais": 361132,
+  "sha256_combinado": "278fb3e849c180ebff0d792f7eb80155e5760f732b2a7ddb19a98c5689e4c8a3",
   "arquivos": [
     {
       "arquivo": "README.md",
@@ -112,9 +112,9 @@
     },
     {
       "arquivo": "site/build.py",
-      "bytes": 23638,
-      "linhas": 582,
-      "sha256": "a6be20052fcf36b9e19d6ebd367306b099114f9b4fcfe5009a5fe006a7f6c198"
+      "bytes": 24107,
+      "linhas": 588,
+      "sha256": "ac1f1d95c0368e08c852a030b9f7718aa713483d0058ddd12094f53882488411"
     },
     {
       "arquivo": "site/catalogo.py",
