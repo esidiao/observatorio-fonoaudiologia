@@ -8,8 +8,8 @@
     "obra": "Observatório Nacional da Formação em Fonoaudiologia",
     "descricao": "Sítio estático data-driven com indicadores de acesso territorial, qualidade e cobertura assistencial dos cursos de Fonoaudiologia no Brasil: formulação e cálculo dos índices ICT, E, IAF, ICAF e ICRE, catálogo de indicadores, textos e desenho editorial."
   },
-  "registrado_em": "2026-09-04T19:34:43+00:00",
-  "git_commit_ancora": "f9a990cb5c162d666627ae12984908114fc543fc",
+  "registrado_em": "2026-09-10T13:35:39+00:00",
+  "git_commit_ancora": "ebf806f3ea9df4a762749d933b3c0b780555af46",
   "algoritmo": "SHA-256 sobre o conteúdo com fim de linha normalizado em LF",
   "fundamento": "Lei 9.610/1998 (direitos autorais) e Lei 9.609/1998 (programa de computador). O resumo combinado é impressão digital única do conjunto; o commit Git ancora a data no histórico versionado.",
   "como_verificar": [
@@ -23,8 +23,8 @@
   "natureza": "Declaração datada de conteúdo, com anterioridade ancorada no histórico do repositório. Permite comparar uma cópia com o original arquivo a arquivo. Não é registro em cartório nem depósito no INPI, e não substitui nenhum dos dois.",
   "escopo": "Apenas material autoral: código, textos, templates e o desenho dos índices. Não inclui os dados públicos (INEP, DATASUS, IBGE), que pertencem às respectivas fontes, nem bibliotecas de terceiros.",
   "n_arquivos": 36,
-  "bytes_totais": 375210,
-  "sha256_combinado": "0f4f22c6d6ff418a39a1134bd18d685faa0ca4616f0aa538ce6660d5a4526fa5",
+  "bytes_totais": 376424,
+  "sha256_combinado": "b1dba654dcb8c57becc8a3ce281a075e1d8b5e00eb7b0d4ddb73916c50c82e21",
   "arquivos": [
     {
       "arquivo": "README.md",
@@ -214,9 +214,9 @@
     },
     {
       "arquivo": "site/static/js/app.js",
-      "bytes": 19399,
-      "linhas": 509,
-      "sha256": "36c85beec2f984ce42d9b4ffa514a59c80c79567d87711033c9d5893f6f5f8c1"
+      "bytes": 20613,
+      "linhas": 538,
+      "sha256": "3314479b0e8a035e2308172a565dfba0a2c07c475e4883901d31ebf10a3481ba"
     },
     {
       "arquivo": "tests/test_catalogo.py",
