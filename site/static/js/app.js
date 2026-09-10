@@ -11,12 +11,41 @@
 'use strict';
 
 const SEM_DADOS = 'sem dados';
-const COR_SEM_DADOS = '#C9CDD2';
+/* ── Cor: uma fonte só ───────────────────────────────────────
+   As escalas e as cores institucionais moram nas variáveis do CSS. Repeti-las
+   aqui como literal cria duas cópias da mesma informação, e duas cópias
+   divergem em silêncio: no observatório de Psicologia a paleta foi trocada no
+   CSS, esta cópia ficou para trás, e mapas e tabelas passaram a desenhar na
+   cor do projeto anterior sem erro nenhum no console.
 
-const RDBU = ['#2166AC', '#4393C3', '#92C5DE', '#D1E5F0', '#F7F7F7',
-              '#FDDBC7', '#F4A582', '#D6604D', '#B2182B'];
-const SEQ = ['#EDF6F4', '#CFE7E3', '#A6D3CC', '#74B8AF',
-             '#479B92', '#2A7D74', '#1B6259', '#123F3A'];
+   As listas literais abaixo permanecem só como socorro: se o CSS não tiver
+   carregado quando isto rodar, um mapa em cor aproximada é melhor que um mapa
+   cinza. */
+function corToken(nome, reserva) {
+  const v = getComputedStyle(document.documentElement)
+    .getPropertyValue('--' + nome).trim();
+  return v || reserva;
+}
+
+function escalaDoCss(prefixo, n, reserva) {
+  const raiz = getComputedStyle(document.documentElement);
+  const cores = [];
+  for (let i = 1; i <= n; i++) {
+    const c = raiz.getPropertyValue('--' + prefixo + '-' + i).trim();
+    if (!c) return reserva;
+    cores.push(c);
+  }
+  return cores;
+}
+
+const COR_SEM_DADOS = corToken('nodata', '#C9CDD2');
+
+const RDBU = escalaDoCss('rdbu', 9,
+  ['#2166AC', '#4393C3', '#92C5DE', '#D1E5F0', '#F7F7F7',
+   '#FDDBC7', '#F4A582', '#D6604D', '#B2182B']);
+const SEQ = escalaDoCss('seq', 8,
+  ['#EDF6F4', '#CFE7E3', '#A6D3CC', '#74B8AF',
+   '#479B92', '#2A7D74', '#1B6259', '#123F3A']);
 
 /* ------------------------------------------------------------------
  * Formatação
@@ -228,7 +257,7 @@ function desenharMalha(mapa, geojson, opcoes) {
       camadaFeicao.bindTooltip(div, { sticky: true });
 
       camadaFeicao.on('mouseover', function () {
-        this.setStyle({ weight: 2.5, color: '#123F3A' });
+        this.setStyle({ weight: 2.5, color: corToken('deep', '#123F3A') });
         this.bringToFront();
       });
       camadaFeicao.on('mouseout', function () {
