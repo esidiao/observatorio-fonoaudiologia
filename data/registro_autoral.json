@@ -8,8 +8,8 @@
     "obra": "Observatório Nacional da Formação em Fonoaudiologia",
     "descricao": "Sítio estático data-driven com indicadores de acesso territorial, qualidade e cobertura assistencial dos cursos de Fonoaudiologia no Brasil: formulação e cálculo dos índices ICT, E, IAF, ICAF e ICRE, catálogo de indicadores, textos e desenho editorial."
   },
-  "registrado_em": "2026-09-12T17:55:38+00:00",
-  "git_commit_ancora": "a6195173614affbb5811687d05e922ae5a6fd1ef",
+  "registrado_em": "2026-09-12T19:47:01+00:00",
+  "git_commit_ancora": "5fddbcd3cedb9d8e6c95714b99316e13d3147a77",
   "algoritmo": "SHA-256 sobre o conteúdo com fim de linha normalizado em LF",
   "fundamento": "Lei 9.610/1998 (direitos autorais) e Lei 9.609/1998 (programa de computador). O resumo combinado é impressão digital única do conjunto; o commit Git ancora a data no histórico versionado.",
   "como_verificar": [
@@ -22,9 +22,9 @@
   ],
   "natureza": "Declaração datada de conteúdo, com anterioridade ancorada no histórico do repositório. Permite comparar uma cópia com o original arquivo a arquivo. Não é registro em cartório nem depósito no INPI, e não substitui nenhum dos dois.",
   "escopo": "Apenas material autoral: código, textos, templates e o desenho dos índices. Não inclui os dados públicos (INEP, DATASUS, IBGE), que pertencem às respectivas fontes, nem bibliotecas de terceiros.",
-  "n_arquivos": 36,
-  "bytes_totais": 386767,
-  "sha256_combinado": "e28564d55654a9356e530e1015837d3fab87c617fb321aed56a0b29389d69102",
+  "n_arquivos": 37,
+  "bytes_totais": 393224,
+  "sha256_combinado": "c96aae5fa971acecb623cf4ff5727b3f8914daf26679396d58496a69cac2325a",
   "arquivos": [
     {
       "arquivo": "README.md",
@@ -231,6 +231,12 @@
       "sha256": "0d4d37a0c85c2d6d8c053d9f51e041aaa5d31ed1e6a3da113b3153284c9f12d4"
     },
     {
+      "arquivo": "tests/test_links.py",
+      "bytes": 6066,
+      "linhas": 154,
+      "sha256": "ec76fa2aad66e112cf3a98525bd2664ca6bea93e0ea4fa8cef9ae10de84635b6"
+    },
+    {
       "arquivo": "tests/test_validacao.py",
       "bytes": 13843,
       "linhas": 352,
@@ -238,9 +244,9 @@
     },
     {
       "arquivo": ".github/workflows/ci.yml",
-      "bytes": 8754,
-      "linhas": 217,
-      "sha256": "2cb42c91cf97a5f6c81d0bab54b2ac48eade270708094183c8fe34ad48e43d33"
+      "bytes": 9145,
+      "linhas": 224,
+      "sha256": "54c689a28869cc6629601da3243435acf3bc1e0c26e67687e9be09323f0f1419"
     }
   ]
 }
