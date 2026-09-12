@@ -358,6 +358,8 @@ def construir(caminho_dados, saida, templates):
         "cursos_avaliados": sum(d.get("n_cursos_avaliados") or 0 for d in ufs.values()),
         "municipios_com_fonoaudiologo": soma("municipios_com_fonoaudiologo"),
         "municipios_com_servico_fono": soma("municipios_com_servico_fono"),
+        "municipios_com_servico_fono_total": soma(
+            "municipios_com_servico_fono_total"),
         "fonoaudiologos_sus": soma("fonoaudiologos_sus"),
         "ano_censo": meta.get("ano_censo"),
     }

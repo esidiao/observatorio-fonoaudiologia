@@ -81,6 +81,7 @@ def juntar_cobertura(ufs, municipios_por_uf, cobertura):
     # vez de sair nulo: o campo não existia, e um campo ausente não aparece
     # como "sem dados" — some da página inteira, sem alarme nenhum.
     CAMPOS = ("municipios_com_fonoaudiologo", "municipios_com_servico_fono",
+              "municipios_com_servico_fono_total",
               "fonoaudiologos_sus", "fonoaudiologos_por_100k")
 
     if not cobertura:
@@ -91,6 +92,7 @@ def juntar_cobertura(ufs, municipios_por_uf, cobertura):
             for m in lista:
                 m["fonoaudiologos_sus"] = None
                 m["estabelecimentos_servico_fono"] = None
+                m["estabelecimentos_servico_fono_total"] = None
                 m["servicos_fono"] = None
         return ufs, municipios_por_uf
 
@@ -108,6 +110,7 @@ def juntar_cobertura(ufs, municipios_por_uf, cobertura):
 
     com_fono = defaultdict(int)
     com_servico = defaultdict(int)
+    com_servico_total = defaultdict(int)
     profissionais = defaultdict(int)
     for codigo, m in por_municipio.items():
         uf = codigo_uf.get(str(codigo)[:2])
@@ -118,10 +121,13 @@ def juntar_cobertura(ufs, municipios_por_uf, cobertura):
             profissionais[uf] += m["fonoaudiologos_sus"]
         if m.get("estabelecimentos_servico_fono"):
             com_servico[uf] += 1
+        if m.get("estabelecimentos_servico_fono_total"):
+            com_servico_total[uf] += 1
 
     for sigla, d in ufs.items():
         d["municipios_com_fonoaudiologo"] = com_fono.get(sigla, 0)
         d["municipios_com_servico_fono"] = com_servico.get(sigla, 0)
+        d["municipios_com_servico_fono_total"] = com_servico_total.get(sigla, 0)
         d["fonoaudiologos_sus"] = profissionais.get(sigla, 0) or None
         d["fonoaudiologos_por_100k"] = (
             round(100_000 * profissionais[sigla] / d["populacao"], 1)
@@ -134,6 +140,8 @@ def juntar_cobertura(ufs, municipios_por_uf, cobertura):
             m["fonoaudiologos_sus"] = cnes.get("fonoaudiologos_sus")
             m["estabelecimentos_servico_fono"] = cnes.get(
                 "estabelecimentos_servico_fono")
+            m["estabelecimentos_servico_fono_total"] = cnes.get(
+                "estabelecimentos_servico_fono_total")
             m["servicos_fono"] = cnes.get("servicos")
 
     return ufs, municipios_por_uf
@@ -172,6 +180,16 @@ def proveniencia(bruto, qualidade, cobertura):
             "ficam nulos nessas UFs, não zerados.",
             "Tocantins tem oferta presencial e nenhum curso no ciclo do CPC "
             "2023; os indicadores de qualidade ficam nulos.",
+            "A rede especializada conta apenas estabelecimentos que ofertam o "
+            "serviço AO SUS. O total declarado — que inclui a clínica privada "
+            "registrada no cadastro — é publicado ao lado, nos campos "
+            "terminados em `_total`: a distância entre os dois diz quanto da "
+            "rede especializada do município é acessível pelo SUS.",
+            "A coluna ST_ATIVO_SN de rlEstabServClass vem vazia em todas as "
+            "linhas deste export do CNES, então não há como excluir serviço "
+            "marcado como inativo. O filtro que existia no extrator lia coluna "
+            "sempre em branco e nunca excluiu nada; a limitação passou a ser "
+            "declarada em vez de disfarçada de filtro.",
         ],
     }
 

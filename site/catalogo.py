@@ -77,10 +77,12 @@ INDICADORES = [
        aliases=["icaf", "cobertura", "fonoaudiólogos por município"]),
 
     _i("ICRE", "ICRE", "Cobertura de Rede Especializada", "Cobertura",
-       "Fração dos municípios do estado com estabelecimento que declara "
-       "serviço fonoaudiológico ou de atenção à saúde auditiva no CNES. "
-       "NÃO é o CER: a habilitação de Centro Especializado em Reabilitação "
-       "não é publicada pelo CNES, e não foi substituída por aproximação.",
+       "Fração dos municípios do estado com estabelecimento que oferta AO SUS "
+       "serviço fonoaudiológico ou de atenção à saúde auditiva no CNES. Só o "
+       "que atende pelo SUS entra: clínica privada que declara o mesmo serviço "
+       "aparece no total declarado, à parte. NÃO é o CER: a habilitação de "
+       "Centro Especializado em Reabilitação não é publicada pelo CNES, e não "
+       "foi substituída por aproximação.",
        "0 a 1", "maior", "CNES/DATASUS", dec=3, min=0, max=1,
        aliases=["icre", "rede especializada", "cer"]),
 
@@ -223,10 +225,20 @@ INDICADORES = [
        "municípios", "maior", "CNES/DATASUS", dec=0),
 
     _i("municipios_com_servico_fono", "Municípios com serviço",
-       "Municípios com serviço fonoaudiológico", "Cobertura",
-       "Municípios com estabelecimento que declara serviço de atenção à saúde "
-       "auditiva ou reabilitação/atenção fonoaudiológica no CNES.",
+       "Municípios com serviço fonoaudiológico no SUS", "Cobertura",
+       "Municípios com estabelecimento que oferta ao SUS serviço de atenção à "
+       "saúde auditiva ou reabilitação/atenção fonoaudiológica no CNES.",
        "municípios", "maior", "CNES/DATASUS", dec=0),
+
+    _i("municipios_com_servico_fono_total", "Municípios — serviço declarado",
+       "Municípios com serviço fonoaudiológico declarado (SUS ou privado)",
+       "Cobertura",
+       "O mesmo serviço, sem o filtro de atendimento ao SUS: inclui a clínica "
+       "privada que declara atenção fonoaudiológica ou auditiva no cadastro. "
+       "Publicado ao lado do indicador público porque a distância entre os "
+       "dois diz quanto da rede especializada do município é acessível pelo "
+       "SUS.",
+       "municípios", "contextual", "CNES/DATASUS", dec=0),
 
     _i("fonoaudiologos_sus", "Fonoaudiólogos no SUS",
        "Fonoaudiólogos vinculados ao SUS", "Cobertura",
@@ -393,10 +405,16 @@ INDICADORES = [
        "registros", "contextual", "Censo INEP", dec=0),
 
     _i("estabelecimentos_servico_fono", "Estabelecimentos com serviço",
-       "Estabelecimentos com serviço fonoaudiológico", "Cobertura",
-       "Estabelecimentos do município que declaram no CNES serviço de atenção "
-       "à saúde auditiva ou reabilitação/atenção fonoaudiológica.",
+       "Estabelecimentos com serviço fonoaudiológico no SUS", "Cobertura",
+       "Estabelecimentos do município que ofertam ao SUS serviço de atenção à "
+       "saúde auditiva ou reabilitação/atenção fonoaudiológica no CNES.",
        "registros", "maior", "CNES/DATASUS", dec=0),
+
+    _i("estabelecimentos_servico_fono_total", "Estabelecimentos — declarado",
+       "Estabelecimentos com serviço fonoaudiológico declarado (SUS ou privado)",
+       "Cobertura",
+       "Os mesmos estabelecimentos, sem o filtro de atendimento ao SUS.",
+       "registros", "contextual", "CNES/DATASUS", dec=0),
 
     _i("pct_reserva_vaga", "% Reserva de vagas",
        "Matrículas por reserva de vagas", "Perfil",

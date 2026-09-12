@@ -86,7 +86,8 @@
   </p>
   <div class="kpis kpis-compacto" data-cartoes>
     {% for campo in ['ICAF', 'ICRE', 'municipios_com_fonoaudiologo',
-                     'municipios_com_servico_fono', 'fonoaudiologos_sus',
+                     'municipios_com_servico_fono',
+                     'municipios_com_servico_fono_total', 'fonoaudiologos_sus',
                      'fonoaudiologos_por_100k'] %}
     <div class="kpi" data-campo="{{ campo }}"
          data-valor="{{ d[campo] if d[campo] is not none else '' }}"></div>
@@ -143,7 +144,8 @@
         <option value="polos_ead">Polos EaD</option>
         <option value="concluintes">Concluintes</option>
         <option value="fonoaudiologos_sus">Fonoaudiólogos no SUS</option>
-        <option value="estabelecimentos_servico_fono">Estabelecimentos com serviço</option>
+        <option value="estabelecimentos_servico_fono">Estabelecimentos com serviço (SUS)</option>
+        <option value="estabelecimentos_servico_fono_total">Estabelecimentos com serviço (declarado)</option>
       </select>
     </label>
   </div>

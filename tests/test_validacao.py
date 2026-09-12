@@ -2,8 +2,8 @@
 tests/test_validacao.py
 Integridade do conjunto publicado, contra âncoras conhecidas.
 
-As âncoras foram apuradas no Censo 2024 e no CPC 2023 e conferidas contra o
-recorte bruto. Servem como teste de REGRESSÃO: se o pipeline passar a produzir
+As âncoras foram apuradas no Censo 2024, no CPC 2023 e no CNES 202607, e
+conferidas contra o recorte bruto. Servem como teste de REGRESSÃO: se o pipeline passar a produzir
 outra coisa, o mais provável é defeito no pipeline, não notícia nos dados. Uma
 edição nova do Censo muda os números de propósito — e aí estas constantes mudam
 junto, num commit que diz isso.
@@ -19,6 +19,7 @@ DATA = REPO / "data"
 
 CENSO = 2024
 CICLO_CPC = "2023"
+COMPETENCIA_CNES = "202607"
 
 # ------------------------------------------------------------------ âncoras
 REGISTROS_CENSO = 939
@@ -37,6 +38,16 @@ CURSOS_AVALIADOS = 74
 UFS_AVALIADAS = 23
 CURSOS_COM_CPC = 73
 CURSOS_COM_IDD = 68
+
+# --------------------------------------------------------- âncoras: CNES 202607
+# A cobertura assistencial nunca teve âncora neste projeto, e foi justamente
+# por isso que uma mudança de 2.230 para 2.118 municípios passaria despercebida.
+MUNICIPIOS_COM_FONOAUDIOLOGO = 4207
+FONOAUDIOLOGOS_SUS = 23760
+# Rede especializada: só o que é ofertado AO SUS entra no índice; o total
+# declarado, que inclui a clínica privada, fica ao lado.
+MUNICIPIOS_COM_SERVICO_FONO = 2118
+MUNICIPIOS_COM_SERVICO_FONO_TOTAL = 2230
 
 MUNICIPIOS_BRASIL = 5571          # IBGE, desde a instalação de Boa Esperança
 MUNICIPIOS_MT = 142               # do Norte (MT) em 01/01/2025
@@ -248,6 +259,70 @@ def test_proveniencia_vem_do_arquivo():
     assert prov.get("md5_publicado"), "sem md5 publicado pelo INEP na proveniência"
     assert str(CENSO) in prov.get("membro_cursos", ""), (
         "o membro lido não confere com o ano declarado")
+
+
+def test_ancoras_da_cobertura_do_cnes():
+    """
+    Totais conhecidos do CNES 202607, como teste de regressão.
+
+    Este projeto publicava cobertura assistencial sem nenhuma âncora: o número
+    podia mudar de uma execução para outra sem nada acusar. Foi assim que a
+    contagem da rede especializada ficou incluindo clínica privada até ser
+    corrigida — 2.230 municípios onde a rede pública alcança 2.118.
+    """
+    ufs = _ler("nacional.json")["ufs"]
+    for campo, esperado in [
+        ("municipios_com_fonoaudiologo", MUNICIPIOS_COM_FONOAUDIOLOGO),
+        ("fonoaudiologos_sus", FONOAUDIOLOGOS_SUS),
+        ("municipios_com_servico_fono", MUNICIPIOS_COM_SERVICO_FONO),
+        ("municipios_com_servico_fono_total", MUNICIPIOS_COM_SERVICO_FONO_TOTAL),
+    ]:
+        obtido = _soma(ufs, campo)
+        assert obtido == esperado, (
+            f"{campo}: esperado {esperado}, veio {obtido}")
+
+    prov = _ler("_proveniencia.json")["fontes"]["cnes"]
+    assert prov.get("competencia") == COMPETENCIA_CNES
+
+
+def test_rede_especializada_publica_e_menor_que_a_declarada():
+    """
+    O filtro de SUS precisa continuar existindo.
+
+    Sem ele, a clínica privada que declara serviço fonoaudiológico no cadastro
+    entra como rede pública: medido, isso leva a cobertura de 2.118 para 2.230
+    municípios e os estabelecimentos de 5.471 para 9.159 — 40% do que seria
+    contado como rede pública não atende pelo SUS. Se os dois números
+    empatarem, o filtro caiu.
+    """
+    ufs = _ler("nacional.json")["ufs"]
+    sus = _soma(ufs, "municipios_com_servico_fono")
+    total = _soma(ufs, "municipios_com_servico_fono_total")
+    assert sus < total, (
+        f"municípios com serviço ao SUS ({sus}) igualou o total declarado "
+        f"({total}) — o filtro CO_AMBULATORIAL_SUS/CO_HOSPITALAR_SUS caiu")
+
+
+def test_st_ativo_sn_nao_passa_por_filtro():
+    """
+    A coluna vem vazia no export, e isso precisa continuar declarado.
+
+    O extrator tinha um filtro que lia ST_ATIVO_SN e excluía o que estivesse
+    marcado como inativo. Medido: a coluna está em branco em 100% das linhas —
+    o filtro nunca excluiu nada, em nenhuma execução, e existia dando a
+    impressão de que a limpeza acontecia. Se uma competência futura passar a
+    preencher a coluna, este teste falha e a decisão volta a ser possível.
+    """
+    diag = (_ler("_proveniencia.json")["fontes"]["cnes"].get("diagnostico")
+            or {})
+    assert diag.get("st_ativo_sn_vazio_no_export") is True, (
+        "ST_ATIVO_SN deixou de vir vazia: "
+        f"{diag.get('servicos_com_situacao_preenchida')} linhas com situação "
+        "preenchida. Vale reavaliar se o filtro de serviço inativo deve voltar.")
+
+    texto = " ".join(_ler("_proveniencia.json")["limitacoes_conhecidas"]).lower()
+    assert "st_ativo_sn" in texto, (
+        "a limitação do ST_ATIVO_SN não está declarada na proveniência")
 
 
 def test_limitacoes_declaradas():
