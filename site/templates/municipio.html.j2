@@ -38,7 +38,8 @@
 <section class="secao">
   <h2 class="secao-titulo">Cobertura assistencial</h2>
   <div class="kpis kpis-compacto" data-cartoes>
-    {% for campo in ['fonoaudiologos_sus', 'estabelecimentos_servico_fono'] %}
+    {% for campo in ['fonoaudiologos_sus', 'estabelecimentos_servico_fono',
+                     'estabelecimentos_servico_fono_total'] %}
     <div class="kpi" data-campo="{{ campo }}"
          data-valor="{{ m[campo] if m[campo] is not none else '' }}"></div>
     {% endfor %}

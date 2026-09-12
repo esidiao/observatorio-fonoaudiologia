@@ -15,6 +15,7 @@
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 1,
    "estabelecimentos_servico_fono": null,
+   "estabelecimentos_servico_fono_total": null,
    "servicos_fono": null
   },
   {
@@ -30,7 +31,8 @@
    "polos_ead": 1,
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 1,
-   "estabelecimentos_servico_fono": 3,
+   "estabelecimentos_servico_fono": 2,
+   "estabelecimentos_servico_fono_total": 3,
    "servicos_fono": [
     "107/004",
     "135/010"
@@ -49,7 +51,8 @@
    "polos_ead": 1,
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 5,
-   "estabelecimentos_servico_fono": 3,
+   "estabelecimentos_servico_fono": 2,
+   "estabelecimentos_servico_fono_total": 3,
    "servicos_fono": [
     "107/006",
     "135/010"
@@ -68,7 +71,8 @@
    "polos_ead": 2,
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 126,
-   "estabelecimentos_servico_fono": 29,
+   "estabelecimentos_servico_fono": 13,
+   "estabelecimentos_servico_fono_total": 29,
    "servicos_fono": [
     "107/004",
     "107/005",
@@ -91,6 +95,7 @@
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 1,
    "estabelecimentos_servico_fono": 1,
+   "estabelecimentos_servico_fono_total": 1,
    "servicos_fono": [
     "135/010"
    ]
@@ -108,7 +113,8 @@
    "polos_ead": 2,
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 32,
-   "estabelecimentos_servico_fono": 6,
+   "estabelecimentos_servico_fono": 5,
+   "estabelecimentos_servico_fono_total": 6,
    "servicos_fono": [
     "107/004",
     "107/005",
@@ -130,6 +136,7 @@
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 1,
    "estabelecimentos_servico_fono": null,
+   "estabelecimentos_servico_fono_total": null,
    "servicos_fono": null
   },
   {
@@ -146,6 +153,7 @@
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 4,
    "estabelecimentos_servico_fono": 1,
+   "estabelecimentos_servico_fono_total": 1,
    "servicos_fono": [
     "107/004",
     "107/006",
@@ -166,6 +174,7 @@
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 2,
    "estabelecimentos_servico_fono": null,
+   "estabelecimentos_servico_fono_total": null,
    "servicos_fono": null
   },
   {
@@ -181,7 +190,8 @@
    "polos_ead": 1,
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 2,
-   "estabelecimentos_servico_fono": 3,
+   "estabelecimentos_servico_fono": 1,
+   "estabelecimentos_servico_fono_total": 3,
    "servicos_fono": [
     "107/004",
     "135/010"
@@ -201,6 +211,7 @@
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 3,
    "estabelecimentos_servico_fono": 2,
+   "estabelecimentos_servico_fono_total": 2,
    "servicos_fono": [
     "107/004",
     "135/010"
@@ -220,6 +231,7 @@
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 2,
    "estabelecimentos_servico_fono": 2,
+   "estabelecimentos_servico_fono_total": 2,
    "servicos_fono": [
     "135/010"
    ]
@@ -238,6 +250,7 @@
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 5,
    "estabelecimentos_servico_fono": 2,
+   "estabelecimentos_servico_fono_total": 2,
    "servicos_fono": [
     "107/004",
     "107/006"
@@ -256,7 +269,8 @@
    "polos_ead": 2,
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 9,
-   "estabelecimentos_servico_fono": 5,
+   "estabelecimentos_servico_fono": 3,
+   "estabelecimentos_servico_fono_total": 5,
    "servicos_fono": [
     "107/004",
     "135/010"

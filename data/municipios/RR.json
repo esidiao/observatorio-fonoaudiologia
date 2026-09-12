@@ -14,7 +14,8 @@
    "polos_ead": 1,
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 54,
-   "estabelecimentos_servico_fono": 8,
+   "estabelecimentos_servico_fono": 7,
+   "estabelecimentos_servico_fono_total": 8,
    "servicos_fono": [
     "107/004",
     "107/006",

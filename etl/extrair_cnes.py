@@ -204,9 +204,12 @@ def baixar_fatias(competencia, cache, rebaixar=False):
                         and classificacao in CLASSIF_REABILITACAO_FONO):
                     continue
                 linhas.append([_limpo(linha.get("CO_UNIDADE")), servico,
-                               classificacao, _limpo(linha.get("ST_ATIVO_SN"))])
+                               classificacao, _limpo(linha.get("ST_ATIVO_SN")),
+                               _limpo(linha.get("CO_AMBULATORIAL_SUS")),
+                               _limpo(linha.get("CO_HOSPITALAR_SUS"))])
         _escrever(alvos["servicos"],
-                  ["CO_UNIDADE", "CO_SERVICO", "CO_CLASSIFICACAO", "ST_ATIVO_SN"],
+                  ["CO_UNIDADE", "CO_SERVICO", "CO_CLASSIFICACAO", "ST_ATIVO_SN",
+                   "CO_AMBULATORIAL_SUS", "CO_HOSPITALAR_SUS"],
                   linhas)
         print(f"[CNES] {total} registros de serviço; {len(linhas)} "
               f"fonoaudiológicos/auditivos -> {alvos['servicos'].name}")
@@ -279,16 +282,34 @@ def forca_de_trabalho(caminho, ativos, conhecidos):
 
 
 def rede_especializada(caminho, ativos, conhecidos):
+    """
+    Estabelecimentos com serviço fonoaudiológico ou auditivo, por município.
+
+    SERVIÇO DECLARADO NÃO É SERVIÇO PÚBLICO. `rlEstabServClass` traz
+    `CO_AMBULATORIAL_SUS` e `CO_HOSPITALAR_SUS` (1 = sim, 2 = não), e sem
+    olhá-las a clínica privada que declara o serviço entra como rede pública.
+    Como a pergunta deste observatório é sobre a rede que absorve quem se
+    forma, o indicador conta apenas quem oferta AO SUS; o total declarado sai
+    ao lado, porque a distância entre os dois também é informação.
+
+    O ST_ATIVO_SN NUNCA FILTROU NADA. A coluna existe no layout e vem VAZIA em
+    100% das linhas deste export — medido aqui e no observatório de Odontologia,
+    onde o defeito foi descoberto. O filtro que havia aqui era decorativo: lia
+    uma coluna sempre em branco e nunca excluía registro algum. Em vez de
+    mantê-lo fingindo trabalhar, agora se CONTA quantas linhas trazem situação
+    preenchida e isso vai para o diagnóstico. Se uma competência futura passar
+    a preencher a coluna, o número aparece e a decisão volta a ser possível.
+    """
     por_municipio = defaultdict(set)
+    por_municipio_sus = defaultdict(set)
     detalhe = defaultdict(lambda: defaultdict(set))
     contadores = defaultdict(int)
-    total = inativos = 0
+    total = com_situacao = 0
     with open(caminho, encoding="utf-8") as f:
         for linha in csv.DictReader(f, delimiter=";"):
             total += 1
-            if linha["ST_ATIVO_SN"].upper() == "N":
-                inativos += 1
-                continue
+            if linha.get("ST_ATIVO_SN"):
+                com_situacao += 1
             municipio = _classificar(linha["CO_UNIDADE"], ativos, conhecidos,
                                      contadores)
             if not municipio:
@@ -296,9 +317,13 @@ def rede_especializada(caminho, ativos, conhecidos):
             rotulo = f"{linha['CO_SERVICO']}/{linha['CO_CLASSIFICACAO']}"
             por_municipio[municipio].add(linha["CO_UNIDADE"])
             detalhe[municipio][rotulo].add(linha["CO_UNIDADE"])
-    return por_municipio, detalhe, {
+            if (linha.get("CO_AMBULATORIAL_SUS") == "1"
+                    or linha.get("CO_HOSPITALAR_SUS") == "1"):
+                por_municipio_sus[municipio].add(linha["CO_UNIDADE"])
+    return por_municipio_sus, por_municipio, detalhe, {
         "servicos_fonoaudiologicos": total,
-        "servicos_marcados_inativos": inativos,
+        "servicos_com_situacao_preenchida": com_situacao,
+        "st_ativo_sn_vazio_no_export": com_situacao == 0,
         "servicos_em_estabelecimento_desabilitado": contadores["desabilitado"],
         "servicos_sem_cadastro": contadores["sem_cadastro"],
     }
@@ -339,13 +364,18 @@ def conferir_juncao(casos, limite=LIMITE_SEM_CADASTRO):
                          + "\n  - ".join(problemas))
 
 
-def montar(competencia, sus, todos, rede, detalhe, diagnostico):
+def montar(competencia, sus, todos, rede, rede_total, detalhe, diagnostico):
     municipios = {}
-    for codigo in set(sus) | set(todos) | set(rede):
+    for codigo in set(sus) | set(todos) | set(rede_total):
         municipios[codigo] = {
             "fonoaudiologos_sus": len(sus.get(codigo, ())) or None,
             "fonoaudiologos_total": len(todos.get(codigo, ())) or None,
+            # O indicador conta quem oferta ao SUS; o total declarado (público
+            # mais privado) fica ao lado, e a diferença diz quanto da rede
+            # especializada do município é acessível pelo SUS.
             "estabelecimentos_servico_fono": len(rede.get(codigo, ())) or None,
+            "estabelecimentos_servico_fono_total": len(
+                rede_total.get(codigo, ())) or None,
             "servicos": sorted(detalhe.get(codigo, {})) or None,
         }
     arquivo = PADRAO.format(competencia=competencia)
@@ -361,6 +391,19 @@ def montar(competencia, sus, todos, rede, detalhe, diagnostico):
                 "135/005": "Reabilitação auditiva",
                 "135/010": "Atenção fonoaudiológica",
             },
+            "servico_criterio_sus": (
+                "A rede especializada conta estabelecimentos que ofertam o "
+                "serviço AO SUS (CO_AMBULATORIAL_SUS ou CO_HOSPITALAR_SUS = 1). "
+                "O total declarado, que inclui a clínica privada, sai no campo "
+                "*_total: serviço declarado no cadastro não é serviço público."
+            ),
+            "st_ativo_sn_nao_filtra": (
+                "A coluna ST_ATIVO_SN de rlEstabServClass vem vazia em todas as "
+                "linhas deste export, então não há como excluir serviço "
+                "marcado como inativo. O filtro que existia aqui lia coluna "
+                "sempre em branco e nunca excluiu nada; agora a ausência é "
+                "contada e declarada em vez de passar por filtro que funciona."
+            ),
             "cer_indisponivel": (
                 "A habilitação de Centro Especializado em Reabilitação não é "
                 "publicada nesta base: os códigos existem em "
@@ -408,7 +451,8 @@ def main():
           f"{len(conhecidos)} cadastrados")
 
     sus, todos, diag_ch = forca_de_trabalho(fatias["vinculos"], ativos, conhecidos)
-    rede, detalhe, diag_sc = rede_especializada(fatias["servicos"], ativos, conhecidos)
+    rede, rede_total, detalhe, diag_sc = rede_especializada(
+        fatias["servicos"], ativos, conhecidos)
 
     conferir_juncao([
         ("vínculos de fonoaudiólogo",
@@ -421,7 +465,8 @@ def main():
          diag_sc["servicos_em_estabelecimento_desabilitado"]),
     ])
 
-    saida = montar(competencia, sus, todos, rede, detalhe, {**diag_ch, **diag_sc})
+    saida = montar(competencia, sus, todos, rede, rede_total, detalhe,
+                   {**diag_ch, **diag_sc})
     Path(args.saida).parent.mkdir(parents=True, exist_ok=True)
     Path(args.saida).write_text(
         json.dumps(saida, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -429,8 +474,11 @@ def main():
     n_forca = sum(1 for m in saida["municipios"].values() if m["fonoaudiologos_sus"])
     n_rede = sum(1 for m in saida["municipios"].values()
                  if m["estabelecimentos_servico_fono"])
+    n_rede_total = sum(1 for m in saida["municipios"].values()
+                       if m["estabelecimentos_servico_fono_total"])
     print(f"\n[CNES] municípios com fonoaudiólogo no SUS: {n_forca}")
-    print(f"[CNES] municípios com serviço fonoaudiológico: {n_rede}")
+    print(f"[CNES] municípios com serviço fonoaudiológico ofertado ao SUS: "
+          f"{n_rede} (declarado por qualquer natureza: {n_rede_total})")
     print(f"[CNES] -> {args.saida}")
 
 

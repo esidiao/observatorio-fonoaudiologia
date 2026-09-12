@@ -19,7 +19,8 @@ Compartilha o método e o design system; não compartilha código, dados nem dep
 | Polos EaD | 793 registros em 618 municípios |
 | Cursos avaliados no CPC 2023 | 74, em 23 UFs |
 | Municípios com fonoaudiólogo no SUS | 4.207 de 5.571 |
-| Municípios com serviço fonoaudiológico | 2.230 |
+| Municípios com serviço fonoaudiológico **ofertado ao SUS** | 2.118 |
+| Municípios com o mesmo serviço declarado (SUS ou privado) | 2.230 |
 | Fonoaudiólogos vinculados ao SUS | 23.760 |
 
 A especificação deste projeto trazia 616 municípios com polo. A apuração dá
@@ -63,13 +64,29 @@ metades que nenhuma fonte única responde:
 
 * **força de trabalho** — municípios com ao menos um vínculo de fonoaudiólogo no CNES
   (CBO `2238xx`);
-* **rede especializada** — municípios com estabelecimento que declara serviço
+* **rede especializada** — municípios com estabelecimento que oferta **ao SUS** serviço
   fonoaudiológico ou auditivo (CNES, serviço 107 *Atenção à Saúde Auditiva* e serviço 135
   classificações *Reabilitação auditiva* e *Atenção fonoaudiológica*).
 
 São publicados separadamente, com escalas próprias. Fundi-los num índice único exigiria
 um peso arbitrário entre "tem profissional" e "tem serviço habilitado" — e peso arbitrário
 é estimativa disfarçada.
+
+### Serviço declarado não é serviço público
+
+`rlEstabServClass` traz `CO_AMBULATORIAL_SUS` e `CO_HOSPITALAR_SUS`, e sem olhá-las o
+indicador conta clínica privada como rede pública. Medida a diferença: o serviço é
+**declarado** em 2.230 municípios por 9.159 estabelecimentos, e **ofertado ao SUS** em
+2.118 municípios por 5.471. Quarenta por cento do que se contava como rede especializada
+pública não atende pelo SUS.
+
+A cobertura pública é o que vira índice; o total declarado sai ao lado, nos campos
+terminados em `_total`, porque a distância entre os dois diz quanto da rede do município
+é acessível pelo SUS.
+
+Na mesma tabela, a coluna `ST_ATIVO_SN` vem **vazia em todas as linhas** deste export. O
+filtro de serviço inativo que existia no extrator lia coluna sempre em branco e nunca
+excluiu nada — agora a ausência é contada e declarada, em vez de disfarçada de filtro.
 
 **O que não foi possível medir:** a habilitação de Centro Especializado em Reabilitação
 (CER) não é publicada na base do CNES. Os códigos existem na tabela de domínio

@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-04",
+  "gerado_em": "2026-09-12",
   "fontes": {
     "censo": {
       "presente": true,
@@ -40,14 +40,17 @@
         "135/005": "Reabilitação auditiva",
         "135/010": "Atenção fonoaudiológica"
       },
+      "servico_criterio_sus": "A rede especializada conta estabelecimentos que ofertam o serviço AO SUS (CO_AMBULATORIAL_SUS ou CO_HOSPITALAR_SUS = 1). O total declarado, que inclui a clínica privada, sai no campo *_total: serviço declarado no cadastro não é serviço público.",
+      "st_ativo_sn_nao_filtra": "A coluna ST_ATIVO_SN de rlEstabServClass vem vazia em todas as linhas deste export, então não há como excluir serviço marcado como inativo. O filtro que existia aqui lia coluna sempre em branco e nunca excluiu nada; agora a ausência é contada e declarada em vez de passar por filtro que funciona.",
       "cer_indisponivel": "A habilitação de Centro Especializado em Reabilitação não é publicada nesta base: os códigos existem em tbSubGruposHabilitacao (2208-2211, 8223-8225) mas nenhuma tabela-fato os liga a estabelecimento ou município. O indicador de CER não existe e não foi substituído por proxy.",
-      "extraido_em": "2026-09-04",
+      "extraido_em": "2026-09-12",
       "diagnostico": {
         "vinculos_fonoaudiologia": 55883,
         "vinculos_em_estabelecimento_desabilitado": 87,
         "vinculos_sem_cadastro": 0,
         "servicos_fonoaudiologicos": 13959,
-        "servicos_marcados_inativos": 0,
+        "servicos_com_situacao_preenchida": 0,
+        "st_ativo_sn_vazio_no_export": true,
         "servicos_em_estabelecimento_desabilitado": 1484,
         "servicos_sem_cadastro": 0
       }
@@ -68,6 +71,8 @@
   "limitacoes_conhecidas": [
     "A habilitação de Centro Especializado em Reabilitação (CER) não é publicada na base do CNES; o indicador não existe e não foi substituído por aproximação.",
     "Amapá, Mato Grosso do Sul e Roraima não têm curso presencial de Fonoaudiologia. Os indicadores que dependem de oferta presencial ficam nulos nessas UFs, não zerados.",
-    "Tocantins tem oferta presencial e nenhum curso no ciclo do CPC 2023; os indicadores de qualidade ficam nulos."
+    "Tocantins tem oferta presencial e nenhum curso no ciclo do CPC 2023; os indicadores de qualidade ficam nulos.",
+    "A rede especializada conta apenas estabelecimentos que ofertam o serviço AO SUS. O total declarado — que inclui a clínica privada registrada no cadastro — é publicado ao lado, nos campos terminados em `_total`: a distância entre os dois diz quanto da rede especializada do município é acessível pelo SUS.",
+    "A coluna ST_ATIVO_SN de rlEstabServClass vem vazia em todas as linhas deste export do CNES, então não há como excluir serviço marcado como inativo. O filtro que existia no extrator lia coluna sempre em branco e nunca excluiu nada; a limitação passou a ser declarada em vez de disfarçada de filtro."
   ]
 }

@@ -14,7 +14,8 @@
    "polos_ead": 1,
    "tem_curso_presencial": true,
    "fonoaudiologos_sus": 22,
-   "estabelecimentos_servico_fono": 11,
+   "estabelecimentos_servico_fono": 8,
+   "estabelecimentos_servico_fono_total": 11,
    "servicos_fono": [
     "107/004",
     "135/005",
@@ -34,7 +35,8 @@
    "polos_ead": 0,
    "tem_curso_presencial": true,
    "fonoaudiologos_sus": 9,
-   "estabelecimentos_servico_fono": 12,
+   "estabelecimentos_servico_fono": 5,
+   "estabelecimentos_servico_fono_total": 12,
    "servicos_fono": [
     "107/004",
     "107/006",
@@ -55,7 +57,8 @@
    "polos_ead": 1,
    "tem_curso_presencial": true,
    "fonoaudiologos_sus": 192,
-   "estabelecimentos_servico_fono": 40,
+   "estabelecimentos_servico_fono": 23,
+   "estabelecimentos_servico_fono_total": 40,
    "servicos_fono": [
     "107/004",
     "107/005",
@@ -77,7 +80,8 @@
    "polos_ead": 1,
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 20,
-   "estabelecimentos_servico_fono": 7,
+   "estabelecimentos_servico_fono": 3,
+   "estabelecimentos_servico_fono_total": 7,
    "servicos_fono": [
     "107/004",
     "135/010"
@@ -96,7 +100,8 @@
    "polos_ead": 1,
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 29,
-   "estabelecimentos_servico_fono": 19,
+   "estabelecimentos_servico_fono": 7,
+   "estabelecimentos_servico_fono_total": 19,
    "servicos_fono": [
     "107/004",
     "135/005",
@@ -117,6 +122,7 @@
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": null,
    "estabelecimentos_servico_fono": null,
+   "estabelecimentos_servico_fono_total": null,
    "servicos_fono": null
   },
   {
@@ -132,7 +138,8 @@
    "polos_ead": 1,
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 3,
-   "estabelecimentos_servico_fono": 4,
+   "estabelecimentos_servico_fono": 2,
+   "estabelecimentos_servico_fono_total": 4,
    "servicos_fono": [
     "107/004",
     "135/010"
@@ -151,7 +158,8 @@
    "polos_ead": 1,
    "tem_curso_presencial": false,
    "fonoaudiologos_sus": 7,
-   "estabelecimentos_servico_fono": 6,
+   "estabelecimentos_servico_fono": 3,
+   "estabelecimentos_servico_fono_total": 6,
    "servicos_fono": [
     "107/004",
     "135/005",

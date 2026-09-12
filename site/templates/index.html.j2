@@ -80,7 +80,8 @@
         {%- else -%}<span class="sem-dados">sem dados</span>{%- endif -%}
       </span>
       <span class="kpi-rotulo">Municípios com serviço fonoaudiológico</span>
-      <span class="kpi-nota">CNES — rede especializada</span>
+      <span class="kpi-nota">CNES — rede especializada, ofertada ao SUS{% if panorama.municipios_com_servico_fono_total %}
+        · {{ panorama.municipios_com_servico_fono_total | numero }} contando o privado{% endif %}</span>
     </div>
   </div>
 </section>
