@@ -8,8 +8,8 @@
     "obra": "Observatório Nacional da Formação em Fonoaudiologia",
     "descricao": "Sítio estático data-driven com indicadores de acesso territorial, qualidade e cobertura assistencial dos cursos de Fonoaudiologia no Brasil: formulação e cálculo dos índices ICT, E, IAF, ICAF e ICRE, catálogo de indicadores, textos e desenho editorial."
   },
-  "registrado_em": "2026-10-23T23:00:30+00:00",
-  "git_commit_ancora": "36066cd2b6168dd0abad3c68ea9c1de0bef9c3ec",
+  "registrado_em": "2026-10-23T23:06:17+00:00",
+  "git_commit_ancora": "1ebf388558cc14e1ffa57505cc318180ade35c75",
   "algoritmo": "SHA-256 sobre o conteúdo com fim de linha normalizado em LF",
   "fundamento": "Lei 9.610/1998 (direitos autorais) e Lei 9.609/1998 (programa de computador). O resumo combinado é impressão digital única do conjunto; o commit Git ancora a data no histórico versionado.",
   "como_verificar": [
@@ -23,14 +23,14 @@
   "natureza": "Declaração datada de conteúdo, com anterioridade ancorada no histórico do repositório. Permite comparar uma cópia com o original arquivo a arquivo. Não é registro em cartório nem depósito no INPI, e não substitui nenhum dos dois.",
   "escopo": "Apenas material autoral: código, textos, templates e o desenho dos índices. Não inclui os dados públicos (INEP, DATASUS, IBGE), que pertencem às respectivas fontes, nem bibliotecas de terceiros.",
   "n_arquivos": 37,
-  "bytes_totais": 394500,
-  "sha256_combinado": "e2f8e174607c9e38a35601547c180091881dc92067c6943303db7a8b48e3964d",
+  "bytes_totais": 394827,
+  "sha256_combinado": "82f19edbb8c4c30c0fc200e0382216129da25f8736bc3bc74ad5385255012119",
   "arquivos": [
     {
       "arquivo": "README.md",
-      "bytes": 8786,
+      "bytes": 8813,
       "linhas": 197,
-      "sha256": "ed384b0cdeeb1eb4dee00131543668c3b350e0db16c85a7022eff2ccd5fa9e99"
+      "sha256": "5136483e7695aee5341a31bff0e245d6bc8b19c082cb37293ed554bf4be32601"
     },
     {
       "arquivo": "SECURITY.md",
@@ -66,7 +66,7 @@
       "arquivo": "etl/extrair_cnes.py",
       "bytes": 22152,
       "linhas": 487,
-      "sha256": "23aad0a2b2d762e1a3181a742d0b84392cae634293a4751c43440b6bfd24f664"
+      "sha256": "3663559ba58196f6f5b69de39fdbe42ec1934cc73fa861c1414d1a0037868ed5"
     },
     {
       "arquivo": "etl/extrair_cpc.py",
@@ -238,9 +238,9 @@
     },
     {
       "arquivo": "tests/test_validacao.py",
-      "bytes": 13843,
-      "linhas": 352,
-      "sha256": "a195497ebe2b4a6038f3e3dc1850a9dade4ec14ff727797adef99faa1380d762"
+      "bytes": 14143,
+      "linhas": 358,
+      "sha256": "abbb12f7b526663536e17e374279ce6fd48351f5714fc6e945cc203525269ad7"
     },
     {
       "arquivo": ".github/workflows/ci.yml",
