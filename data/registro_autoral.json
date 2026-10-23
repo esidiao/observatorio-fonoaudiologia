@@ -8,8 +8,8 @@
     "obra": "Observatório Nacional da Formação em Fonoaudiologia",
     "descricao": "Sítio estático data-driven com indicadores de acesso territorial, qualidade e cobertura assistencial dos cursos de Fonoaudiologia no Brasil: formulação e cálculo dos índices ICT, E, IAF, ICAF e ICRE, catálogo de indicadores, textos e desenho editorial."
   },
-  "registrado_em": "2026-09-12T19:47:14+00:00",
-  "git_commit_ancora": "bdaba1394810c80aa2ce988e81b62604b8fb0323",
+  "registrado_em": "2026-10-23T23:00:30+00:00",
+  "git_commit_ancora": "36066cd2b6168dd0abad3c68ea9c1de0bef9c3ec",
   "algoritmo": "SHA-256 sobre o conteúdo com fim de linha normalizado em LF",
   "fundamento": "Lei 9.610/1998 (direitos autorais) e Lei 9.609/1998 (programa de computador). O resumo combinado é impressão digital única do conjunto; o commit Git ancora a data no histórico versionado.",
   "como_verificar": [

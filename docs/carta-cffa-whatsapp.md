@@ -51,8 +51,8 @@ Alguns números do ciclo atual:
   Sul e Roraima não têm nenhum
 • *43% das vagas são a distância*, registradas na sede da mantenedora e atendidas
   por 793 polos em 618 municípios
-• Há fonoaudiólogo vinculado ao SUS em *4.207 municípios*, mas serviço
-  fonoaudiológico ou auditivo declarado em apenas *2.230*
+• Há fonoaudiólogo vinculado ao SUS em *4.244 municípios*, mas serviço
+  fonoaudiológico ou auditivo declarado em apenas *2.266*
 
 Uma observação que me parece devida: *não sou fonoaudiólogo*. Minha competência
 aqui é sobre como se mede a formação — Censo, SINAES, Diretrizes Curriculares —

@@ -56,9 +56,9 @@ originaram**. O ciclo atual traz:
 | Polos de EaD | 793 registros em 618 municípios |
 | Matrículas / concluintes | 22.996 / 2.027 |
 | Cursos avaliados no CPC 2023 | 74, em 23 UFs |
-| Municípios com fonoaudiólogo no SUS | 4.207 |
-| Municípios com serviço fonoaudiológico ou auditivo | 2.230 |
-| Fonoaudiólogos com vínculo no SUS | 23.760 |
+| Municípios com fonoaudiólogo no SUS | 4.244 |
+| Municípios com serviço fonoaudiológico ou auditivo | 2.266 |
+| Fonoaudiólogos com vínculo no SUS | 24.124 |
 
 O sítio oferece páginas para cada uma das 27 unidades da federação e para os
 629 municípios com curso ou polo, mapas com detalhamento municipal, comparação
@@ -83,8 +83,8 @@ concentração de mercado é medida sobre a capacidade total, São Paulo passa d
 concentrado em poucos grupos".
 
 **Formação e assistência não coincidem no território.** Há fonoaudiólogo
-vinculado ao SUS em 4.207 municípios, mas serviço fonoaudiológico ou auditivo
-declarado em apenas 2.230 — e curso presencial em 83. Publiquei os dois
+vinculado ao SUS em 4.244 municípios, mas serviço fonoaudiológico ou auditivo
+declarado em apenas 2.266 — e curso presencial em 83. Publiquei os dois
 indicadores de cobertura separadamente, porque fundi-los exigiria arbitrar um
 peso entre "há profissional" e "há serviço", e peso arbitrário é estimativa
 disfarçada.

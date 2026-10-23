@@ -1,5 +1,5 @@
 {
-  "gerado_em": "2026-09-12",
+  "gerado_em": "2026-10-23",
   "fontes": {
     "censo": {
       "presente": true,
@@ -31,9 +31,9 @@
     "cnes": {
       "presente": true,
       "fonte": "Cadastro Nacional de Estabelecimentos de Saúde (CNES/DATASUS)",
-      "arquivo": "BASE_DE_DADOS_CNES_202607.ZIP",
-      "url": "ftp://ftp.datasus.gov.br/cnes/BASE_DE_DADOS_CNES_202607.ZIP",
-      "competencia": "202607",
+      "arquivo": "BASE_DE_DADOS_CNES_202609.ZIP",
+      "url": "ftp://ftp.datasus.gov.br/cnes/BASE_DE_DADOS_CNES_202609.ZIP",
+      "competencia": "202609",
       "cbo_familia": "2238",
       "servicos_considerados": {
         "107": "Atenção à Saúde Auditiva (todas as classificações)",
@@ -43,15 +43,15 @@
       "servico_criterio_sus": "A rede especializada conta estabelecimentos que ofertam o serviço AO SUS (CO_AMBULATORIAL_SUS ou CO_HOSPITALAR_SUS = 1). O total declarado, que inclui a clínica privada, sai no campo *_total: serviço declarado no cadastro não é serviço público.",
       "st_ativo_sn_nao_filtra": "A coluna ST_ATIVO_SN de rlEstabServClass vem vazia em todas as linhas deste export, então não há como excluir serviço marcado como inativo. O filtro que existia aqui lia coluna sempre em branco e nunca excluiu nada; agora a ausência é contada e declarada em vez de passar por filtro que funciona.",
       "cer_indisponivel": "A habilitação de Centro Especializado em Reabilitação não é publicada nesta base: os códigos existem em tbSubGruposHabilitacao (2208-2211, 8223-8225) mas nenhuma tabela-fato os liga a estabelecimento ou município. O indicador de CER não existe e não foi substituído por proxy.",
-      "extraido_em": "2026-09-12",
+      "extraido_em": "2026-10-23",
       "diagnostico": {
-        "vinculos_fonoaudiologia": 55883,
-        "vinculos_em_estabelecimento_desabilitado": 87,
+        "vinculos_fonoaudiologia": 57002,
+        "vinculos_em_estabelecimento_desabilitado": 69,
         "vinculos_sem_cadastro": 0,
-        "servicos_fonoaudiologicos": 13959,
+        "servicos_fonoaudiologicos": 14204,
         "servicos_com_situacao_preenchida": 0,
         "st_ativo_sn_vazio_no_export": true,
-        "servicos_em_estabelecimento_desabilitado": 1484,
+        "servicos_em_estabelecimento_desabilitado": 1494,
         "servicos_sem_cadastro": 0
       }
     },

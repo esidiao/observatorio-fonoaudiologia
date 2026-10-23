@@ -2,7 +2,7 @@
 tests/test_validacao.py
 Integridade do conjunto publicado, contra âncoras conhecidas.
 
-As âncoras foram apuradas no Censo 2024, no CPC 2023 e no CNES 202607, e
+As âncoras foram apuradas no Censo 2024, no CPC 2023 e no CNES 202609, e
 conferidas contra o recorte bruto. Servem como teste de REGRESSÃO: se o pipeline passar a produzir
 outra coisa, o mais provável é defeito no pipeline, não notícia nos dados. Uma
 edição nova do Censo muda os números de propósito — e aí estas constantes mudam
@@ -19,7 +19,7 @@ DATA = REPO / "data"
 
 CENSO = 2024
 CICLO_CPC = "2023"
-COMPETENCIA_CNES = "202607"
+COMPETENCIA_CNES = "202609"
 
 # ------------------------------------------------------------------ âncoras
 REGISTROS_CENSO = 939
@@ -39,15 +39,20 @@ UFS_AVALIADAS = 23
 CURSOS_COM_CPC = 73
 CURSOS_COM_IDD = 68
 
-# --------------------------------------------------------- âncoras: CNES 202607
+# --------------------------------------------------------- âncoras: CNES 202609
 # A cobertura assistencial nunca teve âncora neste projeto, e foi justamente
-# por isso que uma mudança de 2.230 para 2.118 municípios passaria despercebida.
-MUNICIPIOS_COM_FONOAUDIOLOGO = 4207
-FONOAUDIOLOGOS_SUS = 23760
+# por isso que uma mudança de 2.230 para 2.118 municípios passaria despercebida
+# (números da 202607, quando o defeito foi encontrado).
+#
+# Ao trocar de competência, estes números MUDAM, e é por isso que a troca
+# falha o teste em vez de passar calada: cada valor abaixo foi reconferido
+# contra a competência declarada acima, não ajustado até o teste passar.
+MUNICIPIOS_COM_FONOAUDIOLOGO = 4244
+FONOAUDIOLOGOS_SUS = 24124
 # Rede especializada: só o que é ofertado AO SUS entra no índice; o total
 # declarado, que inclui a clínica privada, fica ao lado.
-MUNICIPIOS_COM_SERVICO_FONO = 2118
-MUNICIPIOS_COM_SERVICO_FONO_TOTAL = 2230
+MUNICIPIOS_COM_SERVICO_FONO = 2150
+MUNICIPIOS_COM_SERVICO_FONO_TOTAL = 2266
 
 MUNICIPIOS_BRASIL = 5571          # IBGE, desde a instalação de Boa Esperança
 MUNICIPIOS_MT = 142               # do Norte (MT) em 01/01/2025
@@ -263,7 +268,7 @@ def test_proveniencia_vem_do_arquivo():
 
 def test_ancoras_da_cobertura_do_cnes():
     """
-    Totais conhecidos do CNES 202607, como teste de regressão.
+    Totais conhecidos do CNES 202609, como teste de regressão.
 
     Este projeto publicava cobertura assistencial sem nenhuma âncora: o número
     podia mudar de uma execução para outra sem nada acusar. Foi assim que a
@@ -290,8 +295,9 @@ def test_rede_especializada_publica_e_menor_que_a_declarada():
     O filtro de SUS precisa continuar existindo.
 
     Sem ele, a clínica privada que declara serviço fonoaudiológico no cadastro
-    entra como rede pública: medido, isso leva a cobertura de 2.118 para 2.230
-    municípios e os estabelecimentos de 5.471 para 9.159 — 40% do que seria
+    entra como rede pública: medido na 202609, isso leva a cobertura de 2.150
+    para 2.266 municípios e os estabelecimentos de 5.568 para 9.354 — 40% do
+    que seria
     contado como rede pública não atende pelo SUS. Se os dois números
     empatarem, o filtro caiu.
     """

@@ -9,7 +9,7 @@ Compartilha o método e o design system; não compartilha código, dados nem dep
 
 ## O que este observatório mede
 
-| | Fonoaudiologia (Censo 2024) |
+| | Fonoaudiologia (Censo 2024 · CPC 2023 · CNES 202609) |
 |---|---|
 | Registros no Censo | 939 |
 | UFs com oferta **presencial** | **24** de 27 |
@@ -18,10 +18,10 @@ Compartilha o método e o design system; não compartilha código, dados nem dep
 | Vagas EaD (atribuídas à UF-sede) | 12.876 |
 | Polos EaD | 793 registros em 618 municípios |
 | Cursos avaliados no CPC 2023 | 74, em 23 UFs |
-| Municípios com fonoaudiólogo no SUS | 4.207 de 5.571 |
-| Municípios com serviço fonoaudiológico **ofertado ao SUS** | 2.118 |
-| Municípios com o mesmo serviço declarado (SUS ou privado) | 2.230 |
-| Fonoaudiólogos vinculados ao SUS | 23.760 |
+| Municípios com fonoaudiólogo no SUS | 4.244 de 5.571 |
+| Municípios com serviço fonoaudiológico **ofertado ao SUS** | 2.150 |
+| Municípios com o mesmo serviço declarado (SUS ou privado) | 2.266 |
+| Fonoaudiólogos vinculados ao SUS | 24.124 |
 
 A especificação deste projeto trazia 616 municípios com polo. A apuração dá
 **618**, e o número foi conferido de forma independente contra outro
@@ -76,8 +76,8 @@ um peso arbitrário entre "tem profissional" e "tem serviço habilitado" — e p
 
 `rlEstabServClass` traz `CO_AMBULATORIAL_SUS` e `CO_HOSPITALAR_SUS`, e sem olhá-las o
 indicador conta clínica privada como rede pública. Medida a diferença: o serviço é
-**declarado** em 2.230 municípios por 9.159 estabelecimentos, e **ofertado ao SUS** em
-2.118 municípios por 5.471. Quarenta por cento do que se contava como rede especializada
+**declarado** em 2.266 municípios por 9.354 estabelecimentos, e **ofertado ao SUS** em
+2.150 municípios por 5.568. Quarenta por cento do que se contava como rede especializada
 pública não atende pelo SUS.
 
 A cobertura pública é o que vira índice; o total declarado sai ao lado, nos campos
