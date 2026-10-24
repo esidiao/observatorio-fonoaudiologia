@@ -8,8 +8,8 @@
     "obra": "Observatório Nacional da Formação em Fonoaudiologia",
     "descricao": "Sítio estático data-driven com indicadores de acesso territorial, qualidade e cobertura assistencial dos cursos de Fonoaudiologia no Brasil: formulação e cálculo dos índices ICT, E, IAF, ICAF e ICRE, catálogo de indicadores, textos e desenho editorial."
   },
-  "registrado_em": "2026-10-23T23:06:17+00:00",
-  "git_commit_ancora": "1ebf388558cc14e1ffa57505cc318180ade35c75",
+  "registrado_em": "2026-10-24T12:09:24+00:00",
+  "git_commit_ancora": "c5449fe4b9f8f293aba6a5bd3f699f09b87d821a",
   "algoritmo": "SHA-256 sobre o conteúdo com fim de linha normalizado em LF",
   "fundamento": "Lei 9.610/1998 (direitos autorais) e Lei 9.609/1998 (programa de computador). O resumo combinado é impressão digital única do conjunto; o commit Git ancora a data no histórico versionado.",
   "como_verificar": [
@@ -23,14 +23,14 @@
   "natureza": "Declaração datada de conteúdo, com anterioridade ancorada no histórico do repositório. Permite comparar uma cópia com o original arquivo a arquivo. Não é registro em cartório nem depósito no INPI, e não substitui nenhum dos dois.",
   "escopo": "Apenas material autoral: código, textos, templates e o desenho dos índices. Não inclui os dados públicos (INEP, DATASUS, IBGE), que pertencem às respectivas fontes, nem bibliotecas de terceiros.",
   "n_arquivos": 37,
-  "bytes_totais": 394827,
-  "sha256_combinado": "82f19edbb8c4c30c0fc200e0382216129da25f8736bc3bc74ad5385255012119",
+  "bytes_totais": 395507,
+  "sha256_combinado": "5644dd80a5905b8eb2c0d6e738e14a13a25d79ed90e0a8c089d6d2b862e8b3f4",
   "arquivos": [
     {
       "arquivo": "README.md",
-      "bytes": 8813,
-      "linhas": 197,
-      "sha256": "5136483e7695aee5341a31bff0e245d6bc8b19c082cb37293ed554bf4be32601"
+      "bytes": 9493,
+      "linhas": 208,
+      "sha256": "d99e7d695939186a3cab4dc7017f222018c5a7fa49a3c6fe5b3d6392bc4abc66"
     },
     {
       "arquivo": "SECURITY.md",
