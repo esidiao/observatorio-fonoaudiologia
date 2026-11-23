@@ -22,6 +22,13 @@
      manchete, o elemento mais visível do site ficava sendo o menos legível.
      Esta variante mede 5,1 contra o mesmo fundo. */
   --warm-claro: #F0956A;
+  /* A terracota institucional mede 4,36 sobre o papel — abaixo dos 4,5 que a
+     WCAG pede para texto normal. Enquanto ela so pintava borda e realce isso
+     nao aparecia, mas `td.parcial` a usava como COR DE TEXTO, e a celula que
+     avisa "dado parcial" era justamente a menos legivel da tabela. Esta e a
+     mesma cor com 4% menos luminosidade: 4,82 sobre o papel, e a diferenca
+     nao se ve a olho. A institucional fica intacta onde e decoracao. */
+  --warm-forte: #B5512C;
 
   /* Estado: sem dados.
      Cinza neutro, deliberadamente fora da paleta: um estado cinza no mapa
@@ -282,7 +289,7 @@ tbody tr:hover { background: var(--realce); }
 td.num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
 td.celula-cor { color: #10231F; font-weight: 600; }
 td.nao-significativo { color: var(--text-muted); }
-td.parcial { color: var(--warm); }
+td.parcial { color: var(--warm-forte); }
 
 .variacao-alta { color: #2F6B4F; font-weight: 600; }
 .variacao-baixa { color: #B2182B; font-weight: 600; }

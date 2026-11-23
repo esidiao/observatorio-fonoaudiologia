@@ -528,6 +528,13 @@ def escrever_pwa(saida, panorama):
    chave velha faz o leitor recorrente ver o conteúdo anterior indefinidamente,
    e o site parece atualizado sem estar. */
 const CACHE = '{versao}';
+/* O prefixo delimita o que este service worker pode apagar.
+   Os observatórios irmãos moram na MESMA origem (sao project pages do mesmo
+   usuario no GitHub Pages) e o Cache Storage e por ORIGEM, nao por caminho.
+   Um `activate` que apagasse "toda chave que nao e a minha" apagaria o cache
+   offline dos irmaos a cada visita — foi o que acontecia, e foi medido: abrir
+   a Fonoaudiologia fazia a chave da Psicologia desaparecer da origem. */
+const PREFIXO = 'fono-';
 const ESSENCIAIS = {essenciais_js};
 
 self.addEventListener('install', e => {{
@@ -536,7 +543,7 @@ self.addEventListener('install', e => {{
 
 self.addEventListener('activate', e => {{
   e.waitUntil(caches.keys().then(chaves =>
-    Promise.all(chaves.filter(k => k !== CACHE).map(k => caches.delete(k)))
+    Promise.all(chaves.filter(k => k.startsWith(PREFIXO) && k !== CACHE).map(k => caches.delete(k)))
   ).then(() => self.clients.claim()));
 }});
 

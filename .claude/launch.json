@@ -3,9 +3,15 @@
   "configurations": [
     {
       "name": "observatorio-fono",
-      "runtimeExecutable": "C:\Users\User\AppData\Local\Programs\Python\Python312\python.exe",
-      "runtimeArgs": ["-m", "http.server", "7374", "--directory", "site/dist"],
-      "port": 7374,
+      "runtimeExecutable": "C:/Users/User/AppData/Local/Programs/Python/Python312/python.exe",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "7375",
+        "--directory",
+        "site/dist"
+      ],
+      "port": 7375,
       "autoPort": false
     }
   ]

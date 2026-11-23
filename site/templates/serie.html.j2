@@ -8,16 +8,21 @@
   <h1>Série histórica</h1>
   {% if serie and serie.anos %}
   <p class="secao-lede">
-    Comparação entre as edições {{ serie.anos | join(' e ') }} do Censo da
-    Educação Superior, restrita aos campos que são de fato comparáveis entre
-    edições. O INEP reclassificou os cursos na CINE e republicou as edições
-    anteriores, então o rótulo <em>Fonoaudiologia</em> significa a mesma coisa
-    nos dois anos — o que não vale para todo campo do cadastro.
+    Comparação entre as edições
+    {%- if serie.anos | length > 2 %} {{ serie.anos[:-1] | join(', ') }} e
+    {{ serie.anos[-1] }}{% else %} {{ serie.anos | join(' e ') }}{% endif %}
+    do Censo da Educação Superior, restrita aos campos que são de fato
+    comparáveis entre edições. O INEP reclassificou os cursos na CINE e
+    republicou as edições anteriores, então o rótulo <em>Fonoaudiologia</em>
+    significa a mesma coisa nas {{ serie.anos | length }} edições — o que não
+    vale para todo campo do cadastro.
   </p>
   {% else %}
   <p class="secao-lede">
-    A série ainda não foi gerada. Rode <code>python etl/serie.py</code> para
-    extrair as edições anteriores do Censo e preencher esta página.
+    <span class="sem-dados">sem dados</span> — esta edição do observatório não
+    publica série histórica. Quando as edições anteriores do Censo entram no
+    recorte, a comparação aparece aqui; até lá a página não estima nada nem
+    repete o ano corrente como se fosse série.
   </p>
   {% endif %}
 </section>
@@ -28,6 +33,7 @@
   <h2 class="secao-titulo">Brasil</h2>
   <div class="tabela-rolagem">
     <table class="tabela-simples">
+      <caption class="so-leitor">Totais do Brasil por edição do Censo da Educação Superior, e variação entre a primeira e a última</caption>
       <thead>
         <tr>
           <th scope="col">Indicador</th>

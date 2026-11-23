@@ -82,6 +82,9 @@
       {% if m.r2_ajustado is not none %}· R² ajustado = {{ '%.3f'|format(m.r2_ajustado) }}{% endif %}
     </p>
     <table class="tabela-simples">
+      <caption class="so-leitor">
+        Coeficientes da regressão de {{ m.resposta }}
+      </caption>
       <thead><tr><th scope="col">Variável</th><th scope="col">Coeficiente</th></tr></thead>
       <tbody>
         <tr><td>Intercepto</td><td class="num">{{ '%.4f'|format(m.intercepto) }}</td></tr>
