@@ -11,7 +11,7 @@ biblioteca, não do observatório.
 
 SPEARMAN, NÃO PEARSON
 ---------------------
-As distribuições aqui são pequenas (24 UFs com oferta), assimétricas e com
+As distribuições aqui são pequenas (26 UFs com oferta presencial), assimétricas e com
 outliers estruturais — São Paulo tem 10.070 vagas e Rondônia 347. Pearson mede
 associação linear e é dominado por esses extremos; Spearman opera sobre postos
 e responde à pergunta que interessa: quando um indicador sobe, o outro tende a

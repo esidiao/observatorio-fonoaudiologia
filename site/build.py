@@ -76,7 +76,7 @@ CODIGO_IBGE = {
 # aritmética de outro.
 EIXOS_CORRELACAO = [
     "ICT", "IAF", "ICAF", "ICRE", "CPC_cont", "IDD", "ENADE_cont",
-    "vagas_total", "vagas_por_100k", "pct_ead", "HHI_mantenedora",
+    "vagas_total", "vagas_por_100k", "pct_ead", "pct_nao_presencial", "HHI_mantenedora",
     "cobertura_municipal", "taxa_conclusao", "pct_doc_doutores",
     "pct_rede_publica", "populacao",
 ]
@@ -180,7 +180,43 @@ def normalizar(valores, maior_melhor):
 # Análises
 # --------------------------------------------------------------------------- #
 
+def eixos_sem_variancia(ufs, eixos):
+    """
+    Os eixos que valem o mesmo em toda UF, com o valor constante.
+
+    MEDIDO a cada build, em vez de listado à mão. Um eixo pode VIRAR constante
+    por mudança do mundo: `pct_ead` foi o eixo mais forte de observatórios
+    desta família até o Censo 2024 e passou a valer zero em todas as UFs no de
+    2025, onde o Decreto 12.456/2025 encerrou a modalidade. Nenhuma lista de
+    exclusões escrita à mão acompanha essa virada — quem troca o ano do Censo
+    não vai lembrar de reescrever a lista.
+
+    Variância zero não dá correlação fraca: dá correlação INDEFINIDA. Calcular
+    assim mesmo produz `nan` ou, pior, um rho vindo de empates desfeitos pela
+    ordem de leitura.
+    """
+    constantes = {}
+    for eixo in eixos:
+        valores = [ufs[s].get(eixo) for s in ufs]
+        presentes = {v for v in valores if v is not None}
+        if len(presentes) == 1:
+            constantes[eixo] = presentes.pop()
+        elif not presentes:
+            constantes[eixo] = None
+    return constantes
+
+
 def matriz_correlacao(ufs, eixos):
+    # O eixo constante sai da matriz e o motivo é PUBLICADO na tela do build,
+    # em vez de virar uma célula vazia que o leitor interpreta como "não
+    # mediram".
+    constantes = eixos_sem_variancia(ufs, eixos)
+    if constantes:
+        for eixo, valor in sorted(constantes.items()):
+            print(f"[BUILD] eixo fora da matriz: {eixo} — todas as UFs valem "
+                  f"{valor!r}, sem variância a correlacionar")
+        eixos = [e for e in eixos if e not in constantes]
+
     siglas = sorted(ufs)
     series = {k: [ufs[s].get(k) for s in siglas] for k in eixos}
     celulas = []
@@ -350,12 +386,34 @@ def construir(caminho_dados, saida, templates):
         "polos_registros": soma("ead_polos_registros"),
         "polos_municipios": soma("ead_polos_municipios"),
         "matriculas": soma("matriculas"),
+        "ingressos": soma("ingressos"),
         "concluintes": soma("concluintes"),
+        # Campos que só existem a partir do Censo 2025. `soma` devolve None
+        # quando o campo não está no conjunto, e é por isso que eles podem
+        # ficar aqui sem condicional: numa edição que não os tem, o template
+        # simplesmente não os mostra, em vez de mostrar zero — que seria
+        # afirmar que não há curso semipresencial, quando o certo é que a
+        # categoria não existia.
+        "vagas_semipresencial": soma("vagas_semipresencial"),
+        "n_cursos_semipresencial": soma("n_cursos_semipresencial"),
+        "matriculas_semipresencial": soma("matriculas_semipresencial"),
+        "vagas_em_extincao": soma("vagas_em_extincao"),
+        "n_cursos_em_extincao": soma("n_cursos_em_extincao"),
+        "matriculas_em_extincao": soma("matriculas_em_extincao"),
+        "ingressos_em_extincao": soma("ingressos_em_extincao"),
+        "polos_em_extincao": soma("polos_em_extincao"),
+        "polos_em_extincao_municipios": soma("polos_em_extincao_municipios"),
         "populacao": populacao,
         "vagas_por_100k": round(100_000 * vagas_total / populacao, 1) if populacao else None,
         "ict_mediana": mediana([d.get("ICT") for d in ufs.values()]),
         "iaf_mediana": mediana([d.get("IAF") for d in ufs.values()]),
         "cursos_avaliados": sum(d.get("n_cursos_avaliados") or 0 for d in ufs.values()),
+        # Quantas UFs têm curso avaliado. Estava escrito à mão no
+        # template ("em 23 UFs"): número digitado numa nota de KPI
+        # sobrevive à troca de fonte e vira a primeira coisa errada que
+        # o leitor vê.
+        "ufs_avaliadas": sum(1 for d in ufs.values()
+                             if d.get("n_cursos_avaliados")),
         "municipios_com_fonoaudiologo": soma("municipios_com_fonoaudiologo"),
         "municipios_com_servico_fono": soma("municipios_com_servico_fono"),
         "municipios_com_servico_fono_total": soma(

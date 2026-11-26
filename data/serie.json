@@ -4,15 +4,20 @@
   "curso": "Fonoaudiologia",
   "match": "igualdade sobre o rótulo CINE normalizado",
   "observacao": "Somente campos com significado estável entre edições. Campos de perfil e qualidade mudam de definição entre anos e não entram na série.",
-  "gerado_em": "2026-09-04"
+  "gerado_em": "2026-11-26"
  },
  "anos": [
+  "2021",
+  "2022",
   "2023",
-  "2024"
+  "2024",
+  "2025"
  ],
  "campos": [
   "vagas_presencial",
   "vagas_ead",
+  "vagas_semipresencial",
+  "vagas_em_extincao",
   "vagas_total",
   "n_cursos_presencial",
   "n_ies",
@@ -23,9 +28,39 @@
   "concluintes"
  ],
  "brasil": {
+  "2021": {
+   "vagas_presencial": 9960,
+   "vagas_ead": 3135,
+   "vagas_semipresencial": null,
+   "vagas_em_extincao": null,
+   "vagas_total": 13095,
+   "n_cursos_presencial": 89,
+   "n_ies": 130,
+   "municipios_oferta": 59,
+   "ead_polos_registros": 296,
+   "ead_polos_municipios": 258,
+   "matriculas": 12836,
+   "concluintes": 2294
+  },
+  "2022": {
+   "vagas_presencial": 10673,
+   "vagas_ead": 3851,
+   "vagas_semipresencial": null,
+   "vagas_em_extincao": null,
+   "vagas_total": 14524,
+   "n_cursos_presencial": 96,
+   "n_ies": 140,
+   "municipios_oferta": 62,
+   "ead_polos_registros": 431,
+   "ead_polos_municipios": 371,
+   "matriculas": 13428,
+   "concluintes": 2297
+  },
   "2023": {
    "vagas_presencial": 16864,
    "vagas_ead": 11870,
+   "vagas_semipresencial": null,
+   "vagas_em_extincao": null,
    "vagas_total": 28734,
    "n_cursos_presencial": 108,
    "n_ies": 169,
@@ -38,6 +73,8 @@
   "2024": {
    "vagas_presencial": 17028,
    "vagas_ead": 12876,
+   "vagas_semipresencial": null,
+   "vagas_em_extincao": null,
    "vagas_total": 29904,
    "n_cursos_presencial": 125,
    "n_ies": 182,
@@ -46,10 +83,48 @@
    "ead_polos_municipios": 618,
    "matriculas": 22996,
    "concluintes": 2027
+  },
+  "2025": {
+   "vagas_presencial": 23429,
+   "vagas_ead": null,
+   "vagas_semipresencial": 33256,
+   "vagas_em_extincao": 39580,
+   "vagas_total": 56685,
+   "n_cursos_presencial": 175,
+   "n_ies": 182,
+   "municipios_oferta": 119,
+   "ead_polos_registros": 3343,
+   "ead_polos_municipios": 1401,
+   "matriculas": 49505,
+   "concluintes": 2463
   }
  },
  "ufs": {
   "AC": {
+   "2021": {
+    "vagas_presencial": 200,
+    "vagas_ead": 0,
+    "vagas_total": 200,
+    "n_cursos_presencial": 1,
+    "n_ies": 2,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 69,
+    "concluintes": 22
+   },
+   "2022": {
+    "vagas_presencial": 240,
+    "vagas_ead": 0,
+    "vagas_total": 240,
+    "n_cursos_presencial": 1,
+    "n_ies": 2,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 2,
+    "ead_polos_municipios": 2,
+    "matriculas": 56,
+    "concluintes": 22
+   },
    "2023": {
     "vagas_presencial": 1400,
     "vagas_ead": 0,
@@ -73,9 +148,47 @@
     "ead_polos_municipios": 3,
     "matriculas": 70,
     "concluintes": 1
+   },
+   "2025": {
+    "vagas_presencial": 220,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 220,
+    "n_cursos_presencial": 1,
+    "n_ies": 1,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 11,
+    "ead_polos_municipios": 5,
+    "matriculas": 147,
+    "concluintes": 0
    }
   },
   "AL": {
+   "2021": {
+    "vagas_presencial": 32,
+    "vagas_ead": 0,
+    "vagas_total": 32,
+    "n_cursos_presencial": 1,
+    "n_ies": 2,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 121,
+    "concluintes": 34
+   },
+   "2022": {
+    "vagas_presencial": 36,
+    "vagas_ead": 0,
+    "vagas_total": 36,
+    "n_cursos_presencial": 1,
+    "n_ies": 2,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 2,
+    "ead_polos_municipios": 2,
+    "matriculas": 124,
+    "concluintes": 19
+   },
    "2023": {
     "vagas_presencial": 30,
     "vagas_ead": 0,
@@ -99,9 +212,47 @@
     "ead_polos_municipios": 4,
     "matriculas": 360,
     "concluintes": 24
+   },
+   "2025": {
+    "vagas_presencial": 615,
+    "vagas_ead": null,
+    "vagas_semipresencial": 83,
+    "vagas_em_extincao": 30,
+    "vagas_total": 698,
+    "n_cursos_presencial": 2,
+    "n_ies": 4,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 30,
+    "ead_polos_municipios": 17,
+    "matriculas": 751,
+    "concluintes": 25
    }
   },
   "AM": {
+   "2021": {
+    "vagas_presencial": 1246,
+    "vagas_ead": 0,
+    "vagas_total": 1246,
+    "n_cursos_presencial": 3,
+    "n_ies": 4,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 623,
+    "concluintes": 110
+   },
+   "2022": {
+    "vagas_presencial": 1212,
+    "vagas_ead": 0,
+    "vagas_total": 1212,
+    "n_cursos_presencial": 3,
+    "n_ies": 4,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 2,
+    "ead_polos_municipios": 2,
+    "matriculas": 488,
+    "concluintes": 106
+   },
    "2023": {
     "vagas_presencial": 1048,
     "vagas_ead": 0,
@@ -125,9 +276,47 @@
     "ead_polos_municipios": 2,
     "matriculas": 703,
     "concluintes": 57
+   },
+   "2025": {
+    "vagas_presencial": 1241,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 1241,
+    "n_cursos_presencial": 3,
+    "n_ies": 3,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 30,
+    "ead_polos_municipios": 11,
+    "matriculas": 913,
+    "concluintes": 119
    }
   },
   "AP": {
+   "2021": {
+    "vagas_presencial": 0,
+    "vagas_ead": 0,
+    "vagas_total": 0,
+    "n_cursos_presencial": 0,
+    "n_ies": 1,
+    "municipios_oferta": 0,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 1,
+    "concluintes": 0
+   },
+   "2022": {
+    "vagas_presencial": 0,
+    "vagas_ead": 0,
+    "vagas_total": 0,
+    "n_cursos_presencial": 0,
+    "n_ies": 1,
+    "municipios_oferta": 0,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 5,
+    "concluintes": 0
+   },
    "2023": {
     "vagas_presencial": 0,
     "vagas_ead": 0,
@@ -151,9 +340,34 @@
     "ead_polos_municipios": 2,
     "matriculas": 25,
     "concluintes": 0
-   }
+   },
+   "2025": null
   },
   "BA": {
+   "2021": {
+    "vagas_presencial": 658,
+    "vagas_ead": 100,
+    "vagas_total": 758,
+    "n_cursos_presencial": 6,
+    "n_ies": 8,
+    "municipios_oferta": 3,
+    "ead_polos_registros": 7,
+    "ead_polos_municipios": 6,
+    "matriculas": 729,
+    "concluintes": 109
+   },
+   "2022": {
+    "vagas_presencial": 759,
+    "vagas_ead": 600,
+    "vagas_total": 1359,
+    "n_cursos_presencial": 6,
+    "n_ies": 8,
+    "municipios_oferta": 3,
+    "ead_polos_registros": 14,
+    "ead_polos_municipios": 13,
+    "matriculas": 810,
+    "concluintes": 108
+   },
    "2023": {
     "vagas_presencial": 665,
     "vagas_ead": 740,
@@ -177,9 +391,47 @@
     "ead_polos_municipios": 25,
     "matriculas": 899,
     "concluintes": 99
+   },
+   "2025": {
+    "vagas_presencial": 904,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 323,
+    "vagas_total": 904,
+    "n_cursos_presencial": 8,
+    "n_ies": 10,
+    "municipios_oferta": 4,
+    "ead_polos_registros": 180,
+    "ead_polos_municipios": 108,
+    "matriculas": 1234,
+    "concluintes": 103
    }
   },
   "CE": {
+   "2021": {
+    "vagas_presencial": 416,
+    "vagas_ead": 0,
+    "vagas_total": 416,
+    "n_cursos_presencial": 3,
+    "n_ies": 4,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 330,
+    "concluintes": 61
+   },
+   "2022": {
+    "vagas_presencial": 489,
+    "vagas_ead": 0,
+    "vagas_total": 489,
+    "n_cursos_presencial": 3,
+    "n_ies": 5,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 8,
+    "ead_polos_municipios": 7,
+    "matriculas": 406,
+    "concluintes": 56
+   },
    "2023": {
     "vagas_presencial": 1385,
     "vagas_ead": 0,
@@ -203,9 +455,47 @@
     "ead_polos_municipios": 12,
     "matriculas": 961,
     "concluintes": 78
+   },
+   "2025": {
+    "vagas_presencial": 1823,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 1823,
+    "n_cursos_presencial": 9,
+    "n_ies": 8,
+    "municipios_oferta": 4,
+    "ead_polos_registros": 113,
+    "ead_polos_municipios": 55,
+    "matriculas": 1432,
+    "concluintes": 107
    }
   },
   "DF": {
+   "2021": {
+    "vagas_presencial": 577,
+    "vagas_ead": 0,
+    "vagas_total": 577,
+    "n_cursos_presencial": 2,
+    "n_ies": 3,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 850,
+    "concluintes": 147
+   },
+   "2022": {
+    "vagas_presencial": 707,
+    "vagas_ead": 0,
+    "vagas_total": 707,
+    "n_cursos_presencial": 3,
+    "n_ies": 4,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 864,
+    "concluintes": 148
+   },
    "2023": {
     "vagas_presencial": 697,
     "vagas_ead": 438,
@@ -229,9 +519,47 @@
     "ead_polos_municipios": 1,
     "matriculas": 1153,
     "concluintes": 164
+   },
+   "2025": {
+    "vagas_presencial": 913,
+    "vagas_ead": null,
+    "vagas_semipresencial": 4000,
+    "vagas_em_extincao": 21869,
+    "vagas_total": 4913,
+    "n_cursos_presencial": 4,
+    "n_ies": 12,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 74,
+    "ead_polos_municipios": 1,
+    "matriculas": 12957,
+    "concluintes": 259
    }
   },
   "ES": {
+   "2021": {
+    "vagas_presencial": 77,
+    "vagas_ead": 0,
+    "vagas_total": 77,
+    "n_cursos_presencial": 2,
+    "n_ies": 3,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 2,
+    "ead_polos_municipios": 2,
+    "matriculas": 376,
+    "concluintes": 46
+   },
+   "2022": {
+    "vagas_presencial": 71,
+    "vagas_ead": 160,
+    "vagas_total": 231,
+    "n_cursos_presencial": 2,
+    "n_ies": 4,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 3,
+    "ead_polos_municipios": 3,
+    "matriculas": 432,
+    "concluintes": 62
+   },
    "2023": {
     "vagas_presencial": 55,
     "vagas_ead": 299,
@@ -255,9 +583,47 @@
     "ead_polos_municipios": 19,
     "matriculas": 686,
     "concluintes": 57
+   },
+   "2025": {
+    "vagas_presencial": 63,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 128,
+    "vagas_total": 63,
+    "n_cursos_presencial": 2,
+    "n_ies": 3,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 46,
+    "ead_polos_municipios": 21,
+    "matriculas": 590,
+    "concluintes": 76
    }
   },
   "GO": {
+   "2021": {
+    "vagas_presencial": 100,
+    "vagas_ead": 0,
+    "vagas_total": 100,
+    "n_cursos_presencial": 1,
+    "n_ies": 3,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 4,
+    "ead_polos_municipios": 3,
+    "matriculas": 173,
+    "concluintes": 34
+   },
+   "2022": {
+    "vagas_presencial": 100,
+    "vagas_ead": 0,
+    "vagas_total": 100,
+    "n_cursos_presencial": 1,
+    "n_ies": 3,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 5,
+    "ead_polos_municipios": 4,
+    "matriculas": 177,
+    "concluintes": 46
+   },
    "2023": {
     "vagas_presencial": 90,
     "vagas_ead": 0,
@@ -281,9 +647,47 @@
     "ead_polos_municipios": 17,
     "matriculas": 249,
     "concluintes": 20
+   },
+   "2025": {
+    "vagas_presencial": 333,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 220,
+    "vagas_total": 333,
+    "n_cursos_presencial": 3,
+    "n_ies": 4,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 92,
+    "ead_polos_municipios": 44,
+    "matriculas": 584,
+    "concluintes": 40
    }
   },
   "MA": {
+   "2021": {
+    "vagas_presencial": 28,
+    "vagas_ead": 0,
+    "vagas_total": 28,
+    "n_cursos_presencial": 1,
+    "n_ies": 2,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 229,
+    "concluintes": 72
+   },
+   "2022": {
+    "vagas_presencial": 94,
+    "vagas_ead": 0,
+    "vagas_total": 94,
+    "n_cursos_presencial": 1,
+    "n_ies": 3,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 2,
+    "ead_polos_municipios": 2,
+    "matriculas": 188,
+    "concluintes": 79
+   },
    "2023": {
     "vagas_presencial": 53,
     "vagas_ead": 0,
@@ -307,9 +711,47 @@
     "ead_polos_municipios": 3,
     "matriculas": 230,
     "concluintes": 17
+   },
+   "2025": {
+    "vagas_presencial": 376,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 376,
+    "n_cursos_presencial": 2,
+    "n_ies": 2,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 84,
+    "ead_polos_municipios": 51,
+    "matriculas": 360,
+    "concluintes": 13
    }
   },
   "MG": {
+   "2021": {
+    "vagas_presencial": 428,
+    "vagas_ead": 0,
+    "vagas_total": 428,
+    "n_cursos_presencial": 7,
+    "n_ies": 10,
+    "municipios_oferta": 5,
+    "ead_polos_registros": 13,
+    "ead_polos_municipios": 11,
+    "matriculas": 754,
+    "concluintes": 158
+   },
+   "2022": {
+    "vagas_presencial": 535,
+    "vagas_ead": 0,
+    "vagas_total": 535,
+    "n_cursos_presencial": 7,
+    "n_ies": 10,
+    "municipios_oferta": 5,
+    "ead_polos_registros": 27,
+    "ead_polos_municipios": 25,
+    "matriculas": 710,
+    "concluintes": 127
+   },
    "2023": {
     "vagas_presencial": 514,
     "vagas_ead": 128,
@@ -333,9 +775,47 @@
     "ead_polos_municipios": 42,
     "matriculas": 1019,
     "concluintes": 91
+   },
+   "2025": {
+    "vagas_presencial": 1438,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 1438,
+    "n_cursos_presencial": 17,
+    "n_ies": 17,
+    "municipios_oferta": 15,
+    "ead_polos_registros": 347,
+    "ead_polos_municipios": 187,
+    "matriculas": 1197,
+    "concluintes": 98
    }
   },
   "MS": {
+   "2021": {
+    "vagas_presencial": 0,
+    "vagas_ead": 0,
+    "vagas_total": 0,
+    "n_cursos_presencial": 0,
+    "n_ies": 3,
+    "municipios_oferta": 0,
+    "ead_polos_registros": 15,
+    "ead_polos_municipios": 12,
+    "matriculas": 90,
+    "concluintes": 0
+   },
+   "2022": {
+    "vagas_presencial": 0,
+    "vagas_ead": 0,
+    "vagas_total": 0,
+    "n_cursos_presencial": 0,
+    "n_ies": 3,
+    "municipios_oferta": 0,
+    "ead_polos_registros": 16,
+    "ead_polos_municipios": 12,
+    "matriculas": 109,
+    "concluintes": 6
+   },
    "2023": {
     "vagas_presencial": 0,
     "vagas_ead": 0,
@@ -359,9 +839,47 @@
     "ead_polos_municipios": 14,
     "matriculas": 249,
     "concluintes": 20
+   },
+   "2025": {
+    "vagas_presencial": 261,
+    "vagas_ead": null,
+    "vagas_semipresencial": 50,
+    "vagas_em_extincao": 0,
+    "vagas_total": 311,
+    "n_cursos_presencial": 3,
+    "n_ies": 4,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 44,
+    "ead_polos_municipios": 21,
+    "matriculas": 173,
+    "concluintes": 0
    }
   },
   "MT": {
+   "2021": {
+    "vagas_presencial": 206,
+    "vagas_ead": 0,
+    "vagas_total": 206,
+    "n_cursos_presencial": 1,
+    "n_ies": 3,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 4,
+    "ead_polos_municipios": 4,
+    "matriculas": 69,
+    "concluintes": 16
+   },
+   "2022": {
+    "vagas_presencial": 208,
+    "vagas_ead": 164,
+    "vagas_total": 372,
+    "n_cursos_presencial": 1,
+    "n_ies": 3,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 9,
+    "ead_polos_municipios": 8,
+    "matriculas": 125,
+    "concluintes": 6
+   },
    "2023": {
     "vagas_presencial": 211,
     "vagas_ead": 268,
@@ -385,9 +903,47 @@
     "ead_polos_municipios": 11,
     "matriculas": 419,
     "concluintes": 13
+   },
+   "2025": {
+    "vagas_presencial": 715,
+    "vagas_ead": null,
+    "vagas_semipresencial": 523,
+    "vagas_em_extincao": 2391,
+    "vagas_total": 1238,
+    "n_cursos_presencial": 6,
+    "n_ies": 8,
+    "municipios_oferta": 7,
+    "ead_polos_registros": 53,
+    "ead_polos_municipios": 29,
+    "matriculas": 4316,
+    "concluintes": 184
    }
   },
   "PA": {
+   "2021": {
+    "vagas_presencial": 707,
+    "vagas_ead": 0,
+    "vagas_total": 707,
+    "n_cursos_presencial": 3,
+    "n_ies": 4,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 2,
+    "ead_polos_municipios": 2,
+    "matriculas": 212,
+    "concluintes": 39
+   },
+   "2022": {
+    "vagas_presencial": 457,
+    "vagas_ead": 0,
+    "vagas_total": 457,
+    "n_cursos_presencial": 3,
+    "n_ies": 4,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 6,
+    "ead_polos_municipios": 6,
+    "matriculas": 205,
+    "concluintes": 47
+   },
    "2023": {
     "vagas_presencial": 861,
     "vagas_ead": 0,
@@ -411,9 +967,47 @@
     "ead_polos_municipios": 7,
     "matriculas": 487,
     "concluintes": 29
+   },
+   "2025": {
+    "vagas_presencial": 1556,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 1556,
+    "n_cursos_presencial": 9,
+    "n_ies": 6,
+    "municipios_oferta": 7,
+    "ead_polos_registros": 128,
+    "ead_polos_municipios": 72,
+    "matriculas": 785,
+    "concluintes": 57
    }
   },
   "PB": {
+   "2021": {
+    "vagas_presencial": 328,
+    "vagas_ead": 0,
+    "vagas_total": 328,
+    "n_cursos_presencial": 3,
+    "n_ies": 4,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 3,
+    "ead_polos_municipios": 3,
+    "matriculas": 459,
+    "concluintes": 66
+   },
+   "2022": {
+    "vagas_presencial": 386,
+    "vagas_ead": 0,
+    "vagas_total": 386,
+    "n_cursos_presencial": 3,
+    "n_ies": 4,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 4,
+    "ead_polos_municipios": 4,
+    "matriculas": 477,
+    "concluintes": 50
+   },
    "2023": {
     "vagas_presencial": 786,
     "vagas_ead": 225,
@@ -437,9 +1031,47 @@
     "ead_polos_municipios": 10,
     "matriculas": 918,
     "concluintes": 89
+   },
+   "2025": {
+    "vagas_presencial": 1047,
+    "vagas_ead": null,
+    "vagas_semipresencial": 1600,
+    "vagas_em_extincao": 327,
+    "vagas_total": 2647,
+    "n_cursos_presencial": 7,
+    "n_ies": 8,
+    "municipios_oferta": 5,
+    "ead_polos_registros": 85,
+    "ead_polos_municipios": 24,
+    "matriculas": 1325,
+    "concluintes": 117
    }
   },
   "PE": {
+   "2021": {
+    "vagas_presencial": 296,
+    "vagas_ead": 0,
+    "vagas_total": 296,
+    "n_cursos_presencial": 3,
+    "n_ies": 5,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 5,
+    "ead_polos_municipios": 4,
+    "matriculas": 364,
+    "concluintes": 65
+   },
+   "2022": {
+    "vagas_presencial": 254,
+    "vagas_ead": 0,
+    "vagas_total": 254,
+    "n_cursos_presencial": 3,
+    "n_ies": 4,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 8,
+    "ead_polos_municipios": 8,
+    "matriculas": 379,
+    "concluintes": 99
+   },
    "2023": {
     "vagas_presencial": 633,
     "vagas_ead": 0,
@@ -463,9 +1095,47 @@
     "ead_polos_municipios": 13,
     "matriculas": 650,
     "concluintes": 20
+   },
+   "2025": {
+    "vagas_presencial": 1593,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 1593,
+    "n_cursos_presencial": 9,
+    "n_ies": 8,
+    "municipios_oferta": 4,
+    "ead_polos_registros": 91,
+    "ead_polos_municipios": 56,
+    "matriculas": 1073,
+    "concluintes": 27
    }
   },
   "PI": {
+   "2021": {
+    "vagas_presencial": 89,
+    "vagas_ead": 0,
+    "vagas_total": 89,
+    "n_cursos_presencial": 2,
+    "n_ies": 3,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 140,
+    "concluintes": 39
+   },
+   "2022": {
+    "vagas_presencial": 169,
+    "vagas_ead": 0,
+    "vagas_total": 169,
+    "n_cursos_presencial": 2,
+    "n_ies": 4,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 2,
+    "ead_polos_municipios": 2,
+    "matriculas": 109,
+    "concluintes": 47
+   },
    "2023": {
     "vagas_presencial": 734,
     "vagas_ead": 0,
@@ -489,9 +1159,47 @@
     "ead_polos_municipios": 3,
     "matriculas": 194,
     "concluintes": 8
+   },
+   "2025": {
+    "vagas_presencial": 658,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 658,
+    "n_cursos_presencial": 4,
+    "n_ies": 4,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 30,
+    "ead_polos_municipios": 19,
+    "matriculas": 368,
+    "concluintes": 16
    }
   },
   "PR": {
+   "2021": {
+    "vagas_presencial": 457,
+    "vagas_ead": 3035,
+    "vagas_total": 3492,
+    "n_cursos_presencial": 7,
+    "n_ies": 10,
+    "municipios_oferta": 7,
+    "ead_polos_registros": 165,
+    "ead_polos_municipios": 144,
+    "matriculas": 1331,
+    "concluintes": 143
+   },
+   "2022": {
+    "vagas_presencial": 344,
+    "vagas_ead": 2844,
+    "vagas_total": 3188,
+    "n_cursos_presencial": 7,
+    "n_ies": 10,
+    "municipios_oferta": 7,
+    "ead_polos_registros": 181,
+    "ead_polos_municipios": 154,
+    "matriculas": 1457,
+    "concluintes": 186
+   },
    "2023": {
     "vagas_presencial": 903,
     "vagas_ead": 2775,
@@ -515,9 +1223,47 @@
     "ead_polos_municipios": 172,
     "matriculas": 2803,
     "concluintes": 241
+   },
+   "2025": {
+    "vagas_presencial": 922,
+    "vagas_ead": null,
+    "vagas_semipresencial": 7000,
+    "vagas_em_extincao": 7000,
+    "vagas_total": 7922,
+    "n_cursos_presencial": 11,
+    "n_ies": 12,
+    "municipios_oferta": 7,
+    "ead_polos_registros": 428,
+    "ead_polos_municipios": 197,
+    "matriculas": 6851,
+    "concluintes": 101
    }
   },
   "RJ": {
+   "2021": {
+    "vagas_presencial": 601,
+    "vagas_ead": 0,
+    "vagas_total": 601,
+    "n_cursos_presencial": 6,
+    "n_ies": 9,
+    "municipios_oferta": 4,
+    "ead_polos_registros": 9,
+    "ead_polos_municipios": 9,
+    "matriculas": 1202,
+    "concluintes": 207
+   },
+   "2022": {
+    "vagas_presencial": 692,
+    "vagas_ead": 0,
+    "vagas_total": 692,
+    "n_cursos_presencial": 8,
+    "n_ies": 9,
+    "municipios_oferta": 4,
+    "ead_polos_registros": 18,
+    "ead_polos_municipios": 16,
+    "matriculas": 1276,
+    "concluintes": 187
+   },
    "2023": {
     "vagas_presencial": 738,
     "vagas_ead": 76,
@@ -541,9 +1287,47 @@
     "ead_polos_municipios": 32,
     "matriculas": 1619,
     "concluintes": 186
+   },
+   "2025": {
+    "vagas_presencial": 1284,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 150,
+    "vagas_total": 1284,
+    "n_cursos_presencial": 10,
+    "n_ies": 8,
+    "municipios_oferta": 7,
+    "ead_polos_registros": 208,
+    "ead_polos_municipios": 49,
+    "matriculas": 1903,
+    "concluintes": 210
    }
   },
   "RN": {
+   "2021": {
+    "vagas_presencial": 108,
+    "vagas_ead": 0,
+    "vagas_total": 108,
+    "n_cursos_presencial": 2,
+    "n_ies": 3,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 330,
+    "concluintes": 82
+   },
+   "2022": {
+    "vagas_presencial": 100,
+    "vagas_ead": 0,
+    "vagas_total": 100,
+    "n_cursos_presencial": 2,
+    "n_ies": 4,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 4,
+    "ead_polos_municipios": 3,
+    "matriculas": 298,
+    "concluintes": 79
+   },
    "2023": {
     "vagas_presencial": 74,
     "vagas_ead": 22,
@@ -567,9 +1351,47 @@
     "ead_polos_municipios": 4,
     "matriculas": 339,
     "concluintes": 66
+   },
+   "2025": {
+    "vagas_presencial": 244,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 244,
+    "n_cursos_presencial": 3,
+    "n_ies": 3,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 43,
+    "ead_polos_municipios": 19,
+    "matriculas": 305,
+    "concluintes": 43
    }
   },
   "RO": {
+   "2021": {
+    "vagas_presencial": 180,
+    "vagas_ead": 0,
+    "vagas_total": 180,
+    "n_cursos_presencial": 2,
+    "n_ies": 3,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 75,
+    "concluintes": 17
+   },
+   "2022": {
+    "vagas_presencial": 180,
+    "vagas_ead": 0,
+    "vagas_total": 180,
+    "n_cursos_presencial": 2,
+    "n_ies": 3,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 4,
+    "ead_polos_municipios": 4,
+    "matriculas": 65,
+    "concluintes": 28
+   },
    "2023": {
     "vagas_presencial": 780,
     "vagas_ead": 0,
@@ -593,9 +1415,36 @@
     "ead_polos_municipios": 4,
     "matriculas": 42,
     "concluintes": 0
+   },
+   "2025": {
+    "vagas_presencial": 349,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 349,
+    "n_cursos_presencial": 3,
+    "n_ies": 3,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 33,
+    "ead_polos_municipios": 18,
+    "matriculas": 150,
+    "concluintes": 1
    }
   },
   "RR": {
+   "2021": null,
+   "2022": {
+    "vagas_presencial": 0,
+    "vagas_ead": 0,
+    "vagas_total": 0,
+    "n_cursos_presencial": 0,
+    "n_ies": 1,
+    "municipios_oferta": 0,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 2,
+    "concluintes": 0
+   },
    "2023": {
     "vagas_presencial": 0,
     "vagas_ead": 0,
@@ -619,9 +1468,47 @@
     "ead_polos_municipios": 1,
     "matriculas": 5,
     "concluintes": 0
+   },
+   "2025": {
+    "vagas_presencial": 144,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 144,
+    "n_cursos_presencial": 1,
+    "n_ies": 1,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 7,
+    "ead_polos_municipios": 2,
+    "matriculas": 41,
+    "concluintes": 0
    }
   },
   "RS": {
+   "2021": {
+    "vagas_presencial": 565,
+    "vagas_ead": 0,
+    "vagas_total": 565,
+    "n_cursos_presencial": 8,
+    "n_ies": 11,
+    "municipios_oferta": 5,
+    "ead_polos_registros": 8,
+    "ead_polos_municipios": 8,
+    "matriculas": 865,
+    "concluintes": 130
+   },
+   "2022": {
+    "vagas_presencial": 471,
+    "vagas_ead": 0,
+    "vagas_total": 471,
+    "n_cursos_presencial": 8,
+    "n_ies": 11,
+    "municipios_oferta": 5,
+    "ead_polos_registros": 14,
+    "ead_polos_municipios": 12,
+    "matriculas": 862,
+    "concluintes": 161
+   },
    "2023": {
     "vagas_presencial": 670,
     "vagas_ead": 0,
@@ -645,9 +1532,47 @@
     "ead_polos_municipios": 29,
     "matriculas": 1075,
     "concluintes": 102
+   },
+   "2025": {
+    "vagas_presencial": 657,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 300,
+    "vagas_total": 657,
+    "n_cursos_presencial": 10,
+    "n_ies": 10,
+    "municipios_oferta": 8,
+    "ead_polos_registros": 162,
+    "ead_polos_municipios": 84,
+    "matriculas": 1238,
+    "concluintes": 131
    }
   },
   "SC": {
+   "2021": {
+    "vagas_presencial": 237,
+    "vagas_ead": 0,
+    "vagas_total": 237,
+    "n_cursos_presencial": 3,
+    "n_ies": 6,
+    "municipios_oferta": 3,
+    "ead_polos_registros": 14,
+    "ead_polos_municipios": 12,
+    "matriculas": 422,
+    "concluintes": 76
+   },
+   "2022": {
+    "vagas_presencial": 308,
+    "vagas_ead": 0,
+    "vagas_total": 308,
+    "n_cursos_presencial": 4,
+    "n_ies": 7,
+    "municipios_oferta": 4,
+    "ead_polos_registros": 21,
+    "ead_polos_municipios": 17,
+    "matriculas": 414,
+    "concluintes": 55
+   },
    "2023": {
     "vagas_presencial": 441,
     "vagas_ead": 0,
@@ -671,9 +1596,47 @@
     "ead_polos_municipios": 24,
     "matriculas": 630,
     "concluintes": 57
+   },
+   "2025": {
+    "vagas_presencial": 601,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 601,
+    "n_cursos_presencial": 8,
+    "n_ies": 8,
+    "municipios_oferta": 8,
+    "ead_polos_registros": 109,
+    "ead_polos_municipios": 60,
+    "matriculas": 865,
+    "concluintes": 74
    }
   },
   "SE": {
+   "2021": {
+    "vagas_presencial": 315,
+    "vagas_ead": 0,
+    "vagas_total": 315,
+    "n_cursos_presencial": 3,
+    "n_ies": 3,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 412,
+    "concluintes": 135
+   },
+   "2022": {
+    "vagas_presencial": 320,
+    "vagas_ead": 0,
+    "vagas_total": 320,
+    "n_cursos_presencial": 3,
+    "n_ies": 3,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 4,
+    "ead_polos_municipios": 4,
+    "matriculas": 344,
+    "concluintes": 72
+   },
    "2023": {
     "vagas_presencial": 806,
     "vagas_ead": 0,
@@ -697,9 +1660,47 @@
     "ead_polos_municipios": 3,
     "matriculas": 513,
     "concluintes": 62
+   },
+   "2025": {
+    "vagas_presencial": 436,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 436,
+    "n_cursos_presencial": 4,
+    "n_ies": 3,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 25,
+    "ead_polos_municipios": 13,
+    "matriculas": 626,
+    "concluintes": 76
    }
   },
   "SP": {
+   "2021": {
+    "vagas_presencial": 2109,
+    "vagas_ead": 0,
+    "vagas_total": 2109,
+    "n_cursos_presencial": 19,
+    "n_ies": 20,
+    "municipios_oferta": 12,
+    "ead_polos_registros": 33,
+    "ead_polos_municipios": 26,
+    "matriculas": 2608,
+    "concluintes": 486
+   },
+   "2022": {
+    "vagas_presencial": 2287,
+    "vagas_ead": 83,
+    "vagas_total": 2370,
+    "n_cursos_presencial": 21,
+    "n_ies": 22,
+    "municipios_oferta": 13,
+    "ead_polos_registros": 70,
+    "ead_polos_municipios": 56,
+    "matriculas": 3023,
+    "concluintes": 501
+   },
    "2023": {
     "vagas_presencial": 3030,
     "vagas_ead": 6899,
@@ -723,9 +1724,47 @@
     "ead_polos_municipios": 159,
     "matriculas": 6574,
     "concluintes": 526
+   },
+   "2025": {
+    "vagas_presencial": 4531,
+    "vagas_ead": null,
+    "vagas_semipresencial": 20000,
+    "vagas_em_extincao": 6842,
+    "vagas_total": 24531,
+    "n_cursos_presencial": 34,
+    "n_ies": 30,
+    "municipios_oferta": 22,
+    "ead_polos_registros": 873,
+    "ead_polos_municipios": 230,
+    "matriculas": 8952,
+    "concluintes": 586
    }
   },
   "TO": {
+   "2021": {
+    "vagas_presencial": 0,
+    "vagas_ead": 0,
+    "vagas_total": 0,
+    "n_cursos_presencial": 0,
+    "n_ies": 1,
+    "municipios_oferta": 0,
+    "ead_polos_registros": 1,
+    "ead_polos_municipios": 1,
+    "matriculas": 2,
+    "concluintes": 0
+   },
+   "2022": {
+    "vagas_presencial": 254,
+    "vagas_ead": 0,
+    "vagas_total": 254,
+    "n_cursos_presencial": 1,
+    "n_ies": 2,
+    "municipios_oferta": 1,
+    "ead_polos_registros": 2,
+    "ead_polos_municipios": 2,
+    "matriculas": 23,
+    "concluintes": 0
+   },
    "2023": {
     "vagas_presencial": 260,
     "vagas_ead": 0,
@@ -748,6 +1787,20 @@
     "ead_polos_registros": 2,
     "ead_polos_municipios": 2,
     "matriculas": 124,
+    "concluintes": 0
+   },
+   "2025": {
+    "vagas_presencial": 505,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 505,
+    "n_cursos_presencial": 2,
+    "n_ies": 2,
+    "municipios_oferta": 2,
+    "ead_polos_registros": 17,
+    "ead_polos_municipios": 8,
+    "matriculas": 369,
     "concluintes": 0
    }
   }

@@ -27,6 +27,45 @@
   {% endif %}
 </section>
 
+{% if serie and serie.anos and '2025' in serie.anos %}
+{#
+  Nota de nao comparabilidade, condicional ao dado. Ver `etl/serie.py`:
+  `CAMPOS_SEM_SENTIDO_APOS_2024` decide se a linha da EaD termina em 2024 ou
+  continua, e e essa mesma decisao que escolhe o texto aqui.
+#}
+<section class="secao">
+  <h2 class="secao-titulo">O que mudou de definição em 2025</h2>
+  <p class="secao-lede">
+    A edição de 2025 encosta no limite da comparação, e em dois pontos
+    nomeáveis. O dicionário do INEP diz que até 2024 a variável de modalidade
+    representa a <em>modalidade de ensino</em> do curso e que a partir de 2025
+    ela representa o <em>formato de oferta</em>, conforme o Decreto
+    12.456/2025 — que também criou a categoria <strong>semipresencial</strong>,
+    inexistente nas edições anteriores.
+    {% if serie.brasil['2025'].vagas_ead is none %}
+    E o mesmo decreto encerrou a graduação inteiramente a distância nesta área:
+    por isso a linha de vagas a distância <strong>termina em 2024</strong>. Ela
+    não caiu a zero — a categoria deixou de existir, e zero afirmaria uma queda
+    da oferta onde houve uma mudança de lei.
+    {% else %}
+    O decreto alcança os cursos da área da saúde, e este não é um deles: a
+    oferta a distância continua em atividade e continua publicada, medida. O
+    que mudou foi o que a variável <em>nomeia</em>, e isso vale mesmo onde a
+    oferta ficou de pé.
+    {% endif %}
+  </p>
+  <p class="nota">
+    A capacidade de 2025 é a <strong>ativa</strong>: inclui o semipresencial,
+    que não tem equivalente antes de 2025, e exclui o que a instituição
+    declarou em extinção — que não desaparece, aparece em campo próprio, porque
+    esses cursos continuam cheios e, no ano da virada, ainda receberam
+    ingressantes. Antes de 2025 a fonte não distinguia situação de curso, então
+    os campos de extinção e de semipresencial são <span class="sem-dados">sem
+    dados</span> naquelas edições, nunca zero.
+  </p>
+</section>
+{% endif %}
+
 {% if serie and serie.anos %}
 
 <section class="secao">

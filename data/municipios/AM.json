@@ -5,13 +5,13 @@
    "codigo": "1302603",
    "nome": "Manaus",
    "uf": "AM",
-   "vagas_presencial": 1100,
+   "vagas_presencial": 1241,
    "cursos_presencial": 3,
    "n_ies": 3,
-   "matriculas": 703,
-   "matriculas_ead": 17,
-   "concluintes": 57,
-   "polos_ead": 2,
+   "matriculas": 913,
+   "matriculas_ead": 0,
+   "concluintes": 119,
+   "polos_ead": 19,
    "tem_curso_presencial": true,
    "fonoaudiologos_sus": 195,
    "estabelecimentos_servico_fono": 31,
@@ -22,6 +22,81 @@
     "107/006",
     "107/008",
     "135/005",
+    "135/010"
+   ]
+  },
+  {
+   "codigo": "1300706",
+   "nome": "Boca do Acre",
+   "uf": "AM",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 0,
+   "matriculas_ead": 0,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": 3,
+   "estabelecimentos_servico_fono": 1,
+   "estabelecimentos_servico_fono_total": 1,
+   "servicos_fono": [
+    "135/010"
+   ]
+  },
+  {
+   "codigo": "1301605",
+   "nome": "Fonte Boa",
+   "uf": "AM",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 0,
+   "matriculas_ead": 0,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": 1,
+   "estabelecimentos_servico_fono": null,
+   "estabelecimentos_servico_fono_total": null,
+   "servicos_fono": null
+  },
+  {
+   "codigo": "1301704",
+   "nome": "Humaitá",
+   "uf": "AM",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 0,
+   "matriculas_ead": 0,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": 2,
+   "estabelecimentos_servico_fono": 1,
+   "estabelecimentos_servico_fono_total": 1,
+   "servicos_fono": [
+    "107/006",
+    "135/010"
+   ]
+  },
+  {
+   "codigo": "1301852",
+   "nome": "Iranduba",
+   "uf": "AM",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 0,
+   "matriculas_ead": 0,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": 3,
+   "estabelecimentos_servico_fono": 1,
+   "estabelecimentos_servico_fono_total": 1,
+   "servicos_fono": [
     "135/010"
    ]
   },
@@ -43,6 +118,105 @@
    "servicos_fono": [
     "107/004",
     "107/006",
+    "135/010"
+   ]
+  },
+  {
+   "codigo": "1302504",
+   "nome": "Manacapuru",
+   "uf": "AM",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 0,
+   "matriculas_ead": 0,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": 7,
+   "estabelecimentos_servico_fono": 1,
+   "estabelecimentos_servico_fono_total": 1,
+   "servicos_fono": [
+    "135/010"
+   ]
+  },
+  {
+   "codigo": "1302702",
+   "nome": "Manicoré",
+   "uf": "AM",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 0,
+   "matriculas_ead": 0,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": 2,
+   "estabelecimentos_servico_fono": 2,
+   "estabelecimentos_servico_fono_total": 2,
+   "servicos_fono": [
+    "135/010"
+   ]
+  },
+  {
+   "codigo": "1303403",
+   "nome": "Parintins",
+   "uf": "AM",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 0,
+   "matriculas_ead": 0,
+   "concluintes": 0,
+   "polos_ead": 2,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": 8,
+   "estabelecimentos_servico_fono": 3,
+   "estabelecimentos_servico_fono_total": 6,
+   "servicos_fono": [
+    "107/004",
+    "107/006",
+    "135/005",
+    "135/010"
+   ]
+  },
+  {
+   "codigo": "1304062",
+   "nome": "Tabatinga",
+   "uf": "AM",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 0,
+   "matriculas_ead": 0,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": 5,
+   "estabelecimentos_servico_fono": 3,
+   "estabelecimentos_servico_fono_total": 4,
+   "servicos_fono": [
+    "135/010"
+   ]
+  },
+  {
+   "codigo": "1304203",
+   "nome": "Tefé",
+   "uf": "AM",
+   "vagas_presencial": 0,
+   "cursos_presencial": 0,
+   "n_ies": 0,
+   "matriculas": 0,
+   "matriculas_ead": 0,
+   "concluintes": 0,
+   "polos_ead": 1,
+   "tem_curso_presencial": false,
+   "fonoaudiologos_sus": 5,
+   "estabelecimentos_servico_fono": 2,
+   "estabelecimentos_servico_fono_total": 2,
+   "servicos_fono": [
+    "135/005",
     "135/010"
    ]
   }

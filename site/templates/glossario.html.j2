@@ -43,11 +43,22 @@
       mas nenhuma tabela-fato os liga a estabelecimento ou município. O
       indicador não existe aqui, e não foi substituído por aproximação.
     </li>
+    {#
+      A lista vem do conjunto, não escrita à mão. Até o Censo 2024 eram três
+      estados sem curso presencial de Fonoaudiologia — Amapá, Mato Grosso do
+      Sul e Roraima. Em 2025 Mato Grosso do Sul abriu três cursos e Roraima
+      abriu um, e o parágrafo escrito à mão passou a nomear dois estados que
+      deixaram de estar nessa condição. Nome de estado digitado em texto
+      sobrevive à troca de edição; este agora não.
+    #}
+    {% if panorama.ufs_sem_oferta %}
     <li>
-      <strong>Amapá, Mato Grosso do Sul e Roraima.</strong> Sem curso presencial
-      de Fonoaudiologia. Todos os indicadores que dependem de oferta presencial
-      ficam sem dados nesses estados.
+      <strong>{% for sigla in panorama.ufs_sem_oferta %}{{ nomes_uf[sigla] }}{% if not loop.last %}{% if loop.revindex == 2 %} e {% else %}, {% endif %}{% endif %}{% endfor %}.</strong>
+      Sem curso presencial de Fonoaudiologia. Todos os indicadores que dependem
+      de oferta presencial ficam sem dados
+      {% if panorama.ufs_sem_oferta | length == 1 %}nesse estado{% else %}nesses estados{% endif %}.
     </li>
+    {% endif %}
     <li>
       <strong>Tocantins.</strong> Tem curso presencial e nenhum curso avaliado
       no ciclo do CPC 2023, então os indicadores de qualidade — e o IAF, que

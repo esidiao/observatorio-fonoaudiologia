@@ -15,6 +15,44 @@
 <section class="heroi">
   <div class="heroi-interno">
     <p class="heroi-etiqueta">Censo da Educação Superior {{ panorama.ano_censo }} · CPC 2023 · CNES</p>
+    {% if panorama.n_cursos_em_extincao %}
+    {#
+      Ramo da edição em que a lei mudou a oferta. A manchete de antes dizia em
+      quantos municípios a Fonoaudiologia se ensina — continua verdade, e
+      deixou de ser o assunto. O Decreto 12.456/2025 encerrou a graduação em
+      saúde inteiramente a distância, e o formato que nasceu no lugar dela já
+      é maior que todo o presencial do país.
+    #}
+    <h1 class="heroi-manchete">
+      A formação em Fonoaudiologia inteiramente a distância foi encerrada por
+      decreto — e ainda tem
+      <strong>{{ panorama.matriculas_em_extincao | numero }}</strong>
+      estudantes matriculados nos
+      <strong>{{ panorama.n_cursos_em_extincao | numero }}</strong>
+      cursos encerrados ou em extinção.
+    </h1>
+    <p class="heroi-lede">
+      A capacidade ativa é de {{ panorama.vagas_total | numero }} vagas anuais
+      {% if panorama.ufs_sem_oferta %}
+      em {{ panorama.n_ufs_com_oferta }} das 27 unidades da federação —
+      {{ panorama.ufs_sem_oferta | join(', ') }}
+      {% if panorama.ufs_sem_oferta | length == 1 %}não tem{% else %}não têm{% endif %}
+      nenhum curso presencial.
+      {% else %}
+      nas {{ panorama.n_ufs_com_oferta }} unidades da federação, sem exceção.
+      {% endif %}
+      {{ panorama.vagas_presencial | numero }} são presenciais e
+      {{ panorama.vagas_semipresencial | numero }} semipresenciais, formato
+      criado pelo mesmo Marco Regulatório de 2025 — a oferta que não exige
+      presença integral já é maior que toda a presencial do país.
+      {% if panorama.ingressos_em_extincao %}
+      Ainda assim, {{ panorama.ingressos_em_extincao | numero }} das
+      {{ panorama.ingressos | numero }} pessoas que ingressaram neste ano
+      entraram em curso já declarado em extinção: o encerramento é um processo
+      com prazo, não uma porta que fechou.
+      {% endif %}
+    </p>
+    {% else %}
     <h1 class="heroi-manchete">
       A Fonoaudiologia se ensina em
       <strong>{{ panorama.municipios_oferta | numero }}</strong>
@@ -24,7 +62,9 @@
       São {{ panorama.vagas_total | numero }} vagas anuais
       em {{ panorama.n_ufs_com_oferta }} das 27 unidades da federação —
       {% if panorama.ufs_sem_oferta %}
-      {{ panorama.ufs_sem_oferta | join(', ') }} não têm nenhum curso presencial.
+      {{ panorama.ufs_sem_oferta | join(', ') }}
+      {% if panorama.ufs_sem_oferta | length == 1 %}não tem{% else %}não têm{% endif %}
+      nenhum curso presencial.
       {% endif %}
       {% if panorama.pct_ead is not none %}
       {{ panorama.pct_ead | numero }}% dessas vagas são a distância,
@@ -33,6 +73,7 @@
       espalhados por {{ panorama.polos_municipios | numero }} municípios.
       {% endif %}
     </p>
+    {% endif %}
     <p class="heroi-nota">
       Este observatório não estima nada. Onde não há fonte oficial para um
       recorte, a página diz <em>sem dados</em> — e o mapa fica cinza.
@@ -46,9 +87,25 @@
     <div class="kpi">
       <span class="kpi-valor">{{ panorama.vagas_total | numero }}</span>
       <span class="kpi-rotulo">Vagas anuais</span>
-      <span class="kpi-nota">{{ panorama.vagas_presencial | numero }} presenciais ·
-        {{ panorama.vagas_ead | numero }} EaD</span>
+      <span class="kpi-nota">{{ panorama.vagas_presencial | numero }} presenciais
+        {%- if panorama.vagas_semipresencial %} ·
+        {{ panorama.vagas_semipresencial | numero }} semipresenciais
+        {%- else %} · {{ panorama.vagas_ead | numero }} EaD{% endif %}</span>
     </div>
+    {% if panorama.n_cursos_em_extincao %}
+    <div class="kpi">
+      <span class="kpi-valor">{{ panorama.vagas_semipresencial | numero }}</span>
+      <span class="kpi-rotulo">Vagas semipresenciais</span>
+      <span class="kpi-nota">{{ panorama.n_cursos_semipresencial | numero }}
+        cursos · formato criado em 2025</span>
+    </div>
+    <div class="kpi">
+      <span class="kpi-valor">{{ panorama.vagas_em_extincao | numero }}</span>
+      <span class="kpi-rotulo">Vagas encerradas ou em extinção</span>
+      <span class="kpi-nota">fora da capacidade ativa ·
+        {{ panorama.matriculas_em_extincao | numero }} matriculados</span>
+    </div>
+    {% endif %}
     <div class="kpi">
       <span class="kpi-valor">{{ panorama.matriculas | numero }}</span>
       <span class="kpi-rotulo">Matrículas</span>
@@ -62,7 +119,12 @@
     <div class="kpi">
       <span class="kpi-valor">{{ panorama.cursos_avaliados }}</span>
       <span class="kpi-rotulo">Cursos avaliados no CPC 2023</span>
-      <span class="kpi-nota">em 23 UFs</span>
+      {#
+        Vinha digitado "em 23 UFs". Número escrito à mão em nota de KPI
+        sobrevive à troca de fonte e vira a primeira coisa errada que o leitor
+        vê; agora vem do conjunto.
+      #}
+      <span class="kpi-nota">em {{ panorama.ufs_avaliadas }} UFs</span>
     </div>
     <div class="kpi">
       <span class="kpi-valor">

@@ -9,29 +9,95 @@ Compartilha o método e o design system; não compartilha código, dados nem dep
 
 ## O que este observatório mede
 
-| | Fonoaudiologia (Censo 2024 · CPC 2023 · CNES 202609) |
+| | Fonoaudiologia (Censo 2025 · CPC 2023 · CNES 202609) |
 |---|---|
-| Registros no Censo | 939 |
-| UFs com oferta **presencial** | **24** de 27 |
-| Municípios com oferta presencial | 83 |
-| Vagas presenciais | 17.028 |
-| Vagas EaD (atribuídas à UF-sede) | 12.876 |
-| Polos EaD | 793 registros em 618 municípios |
+| Cursos no Censo | 209 — 185 em atividade, 24 encerrados ou em extinção |
+| UFs com oferta **presencial** | **26** de 27 |
+| Municípios com oferta presencial ou semipresencial | 119 |
+| Vagas presenciais | 23.429 |
+| Vagas semipresenciais | **33.256** — mais que todo o presencial do país |
+| Vagas **a distância em atividade** | **0** — encerradas pelo Decreto 12.456/2025 |
+| Vagas em cursos encerrados ou em extinção | 39.580, publicadas **ao lado** da capacidade |
+| Capacidade ativa | 56.685 |
+| Polos da rede ativa | 3.352 registros em 1.404 municípios |
+| Polos da rede em extinção | 5.768 registros em 1.851 municípios |
+| Matrículas / concluintes / ingressos | 49.505 / 2.463 / 35.116 |
+| Matrículas em curso em extinção | 25.574 — e 22.073 dos 35.116 ingressantes entraram neles |
+| IES distintas | 172 — a soma por UF dá 182, e conta três vezes quem atua em três estados |
 | Cursos avaliados no CPC 2023 | 74, em 23 UFs |
 | Municípios com fonoaudiólogo no SUS | 4.244 de 5.571 |
 | Municípios com serviço fonoaudiológico **ofertado ao SUS** | 2.150 |
 | Municípios com o mesmo serviço declarado (SUS ou privado) | 2.266 |
 | Fonoaudiólogos vinculados ao SUS | 24.124 |
 
-A especificação deste projeto trazia 616 municípios com polo. A apuração dá
-**618**, e o número foi conferido de forma independente contra outro
-levantamento do mesmo Censo. Vale 618.
+### O Censo 2025 mudou de forma, não só de número
 
-**A oferta presencial cobre 24 UFs, não 27.** Amapá, Mato Grosso do Sul e Roraima não têm
-curso presencial de Fonoaudiologia. Eles aparecem no site como *sem oferta presencial* —
-explicitamente, com o dado de EaD e de polos que lhes cabe. Não são omitidos: um estado
-cinza no mapa é informação, não falha de pipeline. Toda validação de fechamento
-territorial vale sobre as UFs presentes, nunca sobre o país inteiro.
+Duas rupturas caem na mesma edição, e confundi-las produz leitura falsa.
+
+**O INEP normalizou os microdados.** O cadastro único de curso virou sete tabelas
+(`curso`, `aluno`, `ies`, `docente`, `local_oferta`, `biblioteca`, `laboratorio`) e a
+coluna `TP_DIMENSAO` **deixou de existir**: as camadas presencial / polo / sede viraram
+bandeiras na tabela de local de oferta. Por isso a contagem de registros cai de 939
+(Censo 2024) para 209 **sem que nada tenha encolhido** — antes era uma linha por curso
+*e por camada*, agora é uma linha por curso. Quem comparar os dois números como série
+anunciará um colapso que não houve.
+
+**O Decreto 12.456/2025 encerrou a graduação em saúde inteiramente a distância.** Em
+Fonoaudiologia não sobrou **nenhum** curso EaD em atividade: os 24 que existem estão, um
+a um, declarados em extinção, com 39.580 vagas e 25.574 matrículas. E surgiu o formato
+**semipresencial**, que não existia — e que já é **maior que todo o presencial do país**:
+33.256 vagas contra 23.429.
+
+A regra adotada: **vaga de curso em extinção não entra na capacidade** (é oferta que a
+regulação já encerrou) e **não desaparece** (sai em campo próprio). **Pessoas não se
+filtram por situação** — quem está matriculado agora existe e tem direito a concluir no
+formato em que ingressou. É por isso que 22.073 dos 35.116 ingressantes do ano aparecem
+na página: quase dois terços de quem entrou em Fonoaudiologia entrou num curso já
+declarado em extinção.
+
+### Duas UFs deixaram de ser deserto
+
+Até o Censo 2024 três estados não tinham nenhum curso presencial de Fonoaudiologia:
+Amapá, Mato Grosso do Sul e Roraima. Em 2025 **Mato Grosso do Sul abriu três cursos
+presenciais e Roraima abriu um**; só o Amapá continua sem. Conferido no recorte bruto das
+duas edições, não deduzido do agregado.
+
+Isso deixou de ser uma frase escrita à mão em dois lugares — a manchete e o glossário
+nomeavam os três estados. Nome de estado digitado em texto sobrevive à troca de edição, e
+o parágrafo passou a afirmar sobre Mato Grosso do Sul e Roraima o contrário do que o
+conjunto mostrava. Agora a lista vem do dado, e concorda em número: *Amapá não tem*, não
+*não têm*.
+
+As UFs sem oferta continuam aparecendo no site como *sem oferta presencial* —
+explicitamente, com o dado de polos que lhes cabe. Não são omitidas: um estado cinza no
+mapa é informação, não falha de pipeline. Toda validação de fechamento territorial vale
+sobre as UFs presentes, nunca sobre o país inteiro.
+
+### Três populações de polo, e a que a fonte não localiza
+
+A bandeira `IN_LOCAL_OFERTA_POLO` marca, na mesma tabela, a rede de curso em extinção
+(5.768 locais), a de curso ativo não presencial (3.352) e **100 endereços de curso
+presencial**. Somar as três publica um alcance que não corresponde a rede nenhuma, então
+as duas primeiras saem separadas e a terceira fica fora das duas.
+
+Vinte e um polos ativos e vinte e seis em extinção vêm sem `SG_UF_LO`. Como o total
+nacional é a soma das UFs, descartá-los em silêncio deixaria o número publicado alguns
+polos abaixo das linhas da fonte, sem nada explicando a diferença. Eles são contados e
+declarados em `metadados.sem_localizacao.polos_sem_uf`, e não são atribuídos a UF nenhuma:
+um polo é por definição um endereço, e se a fonte não diz onde é, não há o que inferir.
+
+### 73% da capacidade ativa chega por atribuição, e isso está declarado
+
+Nove cursos vêm sem local de oferta próprio — cinco a distância e quatro semipresenciais,
+**nenhum presencial** — e carregam 41.152 das 56.685 vagas ativas. Oferta não presencial
+não tem endereço por natureza, então ela é atribuída à UF-sede da mantenedora, como o
+modelo de 2024 já fazia com a camada de sede. Descartá-las publicaria uma Fonoaudiologia
+de um quarto do tamanho que ela tem; atribuí-las sem dizer seria pior. O contador sai em
+`metadados.sem_localizacao.atribuidas_pela_sede_da_ies`, e um teste impede que curso
+presencial entre nessa conta.
+
+A especificação deste projeto trazia 616 municípios com polo no Censo 2024. A apuração deu
+**618**, conferida de forma independente contra outro levantamento do mesmo Censo.
 
 ## Estrutura
 
@@ -49,7 +115,7 @@ territorial vale sobre as UFs presentes, nunca sobre o país inteiro.
 
 | Indicador | Fonte | Acesso |
 |---|---|---|
-| Oferta, vagas, matrículas, polos | Censo da Educação Superior 2024 (INEP) | HTTPS, ZIP lido por `Range` |
+| Oferta, vagas, matrículas, polos | Censo da Educação Superior 2025 (INEP) | HTTPS, ZIP lido por `Range` (ou espelho local conferido) |
 | CPC, IDD, ENADE, perfil docente | CPC 2023 (INEP), área FONOAUDIOLOGIA | HTTPS |
 | Força de trabalho no SUS | CNES — vínculos com CBO `2238xx` | FTP DATASUS |
 | Rede especializada | CNES — serviços 107 e 135 (fonoaudiológicos/auditivos) | FTP DATASUS |
@@ -135,9 +201,9 @@ Rodam como script ou sob `pytest`, se você o tiver instalado.
 
 ```bash
 python etl/pipeline.py --check-only     # só verifica se as fontes mudaram
-python etl/pipeline.py --ano 2024       # extrai, calcula, valida, publica
+python etl/pipeline.py --ano 2025       # extrai, calcula, valida, publica
 python etl/pipeline.py --so-riqueza     # só a guarda de riqueza
-python etl/serie.py --anos 2023 2024    # série histórica
+python etl/serie.py --anos 2021 2025    # série histórica
 ```
 
 A extração do CNES leva perto de uma hora, porque o FTP do DATASUS derruba a
@@ -163,6 +229,23 @@ guarda que existe porque, no projeto de Farmácia, republicar por um caminho par
 derrubou 33 dos 51 campos com todos os testes verdes: nenhum teste checava *presença* de
 campo.
 
+### Espelho local do Censo
+
+A edição de 2025 tem 2,4 GB de tabela para ler em fluxo, e a família inteira lê o
+mesmo arquivo do INEP para extrair cursos diferentes. `--espelho` lê o ZIP de um
+arquivo local em vez de baixá-lo:
+
+```bash
+python etl/extrair_censo.py --ano 2025 --espelho /caminho/do/diretorio
+```
+
+Não há caminho novo de leitura: o leitor por intervalo de bytes precisa apenas
+de `tamanho()` e `_ler(inicio, quantidade)`, e sobre arquivo local as duas são
+triviais — índice, fluxo e fatiamento continuam sendo o mesmo código. O nome do
+arquivo tem de casar com um padrão conhecido da edição, o tamanho é conferido
+contra o publicado, e a proveniência grava `lido_de`, o caminho e o resultado da
+conferência, inclusive quando ela foi impossível por falha de rede.
+
 ## Publicação
 
 O deploy é **manual**. Um push na `main` roda os portões, os testes e o build,
@@ -186,7 +269,7 @@ Nenhum indicador é estimado, interpolado ou preenchido por analogia. Sem fonte 
 para um recorte, o valor é `null` e aparece como **"sem dados"** — nunca zero, nunca média
 plausível. Todo número carrega proveniência: fonte, ano e data de extração.
 
-Isso pesa mais aqui do que no observatório de Farmácia: com 24 UFs e 74 cursos avaliados,
+Isso pesa mais aqui do que no observatório de Farmácia: com 74 cursos avaliados,
 as lacunas são proporcionalmente maiores e a tentação de preencher por analogia é
 constante.
 
