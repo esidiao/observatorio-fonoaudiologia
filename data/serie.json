@@ -93,8 +93,8 @@
    "n_cursos_presencial": 175,
    "n_ies": 182,
    "municipios_oferta": 119,
-   "ead_polos_registros": 3343,
-   "ead_polos_municipios": 1401,
+   "ead_polos_registros": 3345,
+   "ead_polos_municipios": 1404,
    "matriculas": 49505,
    "concluintes": 2463
   }
@@ -222,7 +222,7 @@
     "n_cursos_presencial": 2,
     "n_ies": 4,
     "municipios_oferta": 1,
-    "ead_polos_registros": 30,
+    "ead_polos_registros": 29,
     "ead_polos_municipios": 17,
     "matriculas": 751,
     "concluintes": 25
@@ -341,7 +341,20 @@
     "matriculas": 25,
     "concluintes": 0
    },
-   "2025": null
+   "2025": {
+    "vagas_presencial": 0,
+    "vagas_ead": null,
+    "vagas_semipresencial": 0,
+    "vagas_em_extincao": 0,
+    "vagas_total": 0,
+    "n_cursos_presencial": 0,
+    "n_ies": 0,
+    "municipios_oferta": 0,
+    "ead_polos_registros": 9,
+    "ead_polos_municipios": 3,
+    "matriculas": 0,
+    "concluintes": 0
+   }
   },
   "BA": {
    "2021": {
@@ -465,7 +478,7 @@
     "n_cursos_presencial": 9,
     "n_ies": 8,
     "municipios_oferta": 4,
-    "ead_polos_registros": 113,
+    "ead_polos_registros": 112,
     "ead_polos_municipios": 55,
     "matriculas": 1432,
     "concluintes": 107
@@ -785,7 +798,7 @@
     "n_cursos_presencial": 17,
     "n_ies": 17,
     "municipios_oferta": 15,
-    "ead_polos_registros": 347,
+    "ead_polos_registros": 346,
     "ead_polos_municipios": 187,
     "matriculas": 1197,
     "concluintes": 98
@@ -977,7 +990,7 @@
     "n_cursos_presencial": 9,
     "n_ies": 6,
     "municipios_oferta": 7,
-    "ead_polos_registros": 128,
+    "ead_polos_registros": 127,
     "ead_polos_municipios": 72,
     "matriculas": 785,
     "concluintes": 57
@@ -1041,7 +1054,7 @@
     "n_cursos_presencial": 7,
     "n_ies": 8,
     "municipios_oferta": 5,
-    "ead_polos_registros": 85,
+    "ead_polos_registros": 84,
     "ead_polos_municipios": 24,
     "matriculas": 1325,
     "concluintes": 117
@@ -1233,7 +1246,7 @@
     "n_cursos_presencial": 11,
     "n_ies": 12,
     "municipios_oferta": 7,
-    "ead_polos_registros": 428,
+    "ead_polos_registros": 427,
     "ead_polos_municipios": 197,
     "matriculas": 6851,
     "concluintes": 101
@@ -1734,7 +1747,7 @@
     "n_cursos_presencial": 34,
     "n_ies": 30,
     "municipios_oferta": 22,
-    "ead_polos_registros": 873,
+    "ead_polos_registros": 872,
     "ead_polos_municipios": 230,
     "matriculas": 8952,
     "concluintes": 586

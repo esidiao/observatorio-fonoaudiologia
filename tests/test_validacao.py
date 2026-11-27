@@ -57,13 +57,19 @@ VAGAS_TOTAL_ATIVA = 56685        # presencial + semipresencial
 # atendem. Polo de curso presencial não entra em nenhum dos dois: a fonte marca
 # 100 endereços de curso presencial como polo, e contá-los como alcance de
 # oferta não presencial seria inflar o país.
-POLOS_REGISTROS = 3352           # rede ativa (semipresencial)
+POLOS_REGISTROS = 3345           # rede ativa (semipresencial)
 POLOS_MUNICIPIOS = 1404
-POLOS_EM_EXTINCAO = 5768         # rede que está sendo desmontada
+POLOS_EM_EXTINCAO = 5755         # rede que está sendo desmontada
 POLOS_EM_EXTINCAO_MUNICIPIOS = 1851
 # Polo que a fonte não localiza: contado e declarado, nunca atribuído a UF.
 POLOS_SEM_UF_ATIVOS = 21
 POLOS_SEM_UF_EM_EXTINCAO = 26
+# Linhas de polo que a fonte traz sem identificar o local. O código vazio
+# entrava no conjunto de locais como se fosse um local, e todas as linhas sem
+# código de uma mesma UF colapsavam em UM polo que não existe. O município
+# delas, que é conhecido, continua contando no alcance.
+POLOS_SEM_CODIGO_ATIVOS = 9
+POLOS_SEM_CODIGO_EM_EXTINCAO = 21
 
 # Pessoas NÃO se filtram por situação: quem está matriculado agora existe, e
 # tem direito a concluir no formato em que ingressou.
@@ -266,6 +272,12 @@ def test_polos_ead():
         f"polos ativos sem UF: esperado {POLOS_SEM_UF_ATIVOS}, veio "
         f"{sem_uf.get('ativos')}")
     assert sem_uf.get("em_extincao") == POLOS_SEM_UF_EM_EXTINCAO
+    sem_codigo = ((_ler("bruto.json")["metadados"].get("sem_localizacao") or {})
+                  .get("polos_sem_codigo") or {})
+    assert sem_codigo.get("ativos") == POLOS_SEM_CODIGO_ATIVOS, (
+        f"linhas de polo ativo sem código de local: esperado "
+        f"{POLOS_SEM_CODIGO_ATIVOS}, veio {sem_codigo.get('ativos')}")
+    assert sem_codigo.get("em_extincao") == POLOS_SEM_CODIGO_EM_EXTINCAO
 
 
 def test_fluxo():

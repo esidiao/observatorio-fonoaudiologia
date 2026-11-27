@@ -19,8 +19,8 @@ Compartilha o método e o design system; não compartilha código, dados nem dep
 | Vagas **a distância em atividade** | **0** — encerradas pelo Decreto 12.456/2025 |
 | Vagas em cursos encerrados ou em extinção | 39.580, publicadas **ao lado** da capacidade |
 | Capacidade ativa | 56.685 |
-| Polos da rede ativa | 3.352 registros em 1.404 municípios |
-| Polos da rede em extinção | 5.768 registros em 1.851 municípios |
+| Polos da rede ativa | 3.345 locais em 1.404 municípios |
+| Polos da rede em extinção | 5.755 locais em 1.851 municípios |
 | Matrículas / concluintes / ingressos | 49.505 / 2.463 / 35.116 |
 | Matrículas em curso em extinção | 25.574 — e 22.073 dos 35.116 ingressantes entraram neles |
 | IES distintas | 172 — a soma por UF dá 182, e conta três vezes quem atua em três estados |
@@ -76,15 +76,19 @@ sobre as UFs presentes, nunca sobre o país inteiro.
 ### Três populações de polo, e a que a fonte não localiza
 
 A bandeira `IN_LOCAL_OFERTA_POLO` marca, na mesma tabela, a rede de curso em extinção
-(5.768 locais), a de curso ativo não presencial (3.352) e **100 endereços de curso
+(5.755 locais), a de curso ativo não presencial (3.345) e **100 endereços de curso
 presencial**. Somar as três publica um alcance que não corresponde a rede nenhuma, então
 as duas primeiras saem separadas e a terceira fica fora das duas.
 
-Vinte e um polos ativos e vinte e seis em extinção vêm sem `SG_UF_LO`. Como o total
-nacional é a soma das UFs, descartá-los em silêncio deixaria o número publicado alguns
-polos abaixo das linhas da fonte, sem nada explicando a diferença. Eles são contados e
-declarados em `metadados.sem_localizacao.polos_sem_uf`, e não são atribuídos a UF nenhuma:
-um polo é por definição um endereço, e se a fonte não diz onde é, não há o que inferir.
+E a fonte deixa de dizer o que é um polo de dois jeitos. Vinte e um polos ativos e vinte e
+seis em extinção vêm **sem `SG_UF_LO`**: como o total nacional é a soma das UFs,
+descartá-los em silêncio deixaria o número publicado alguns polos abaixo das linhas da
+fonte. Não são atribuídos a UF nenhuma, porque polo é por definição um endereço e não há o
+que inferir. Outras 30 linhas vêm **sem `CO_LOCAL_OFERTA`**, e essas tinham o pior
+tratamento: o código vazio entrava no conjunto de locais como se fosse um local, e todas
+as linhas sem código de uma mesma UF colapsavam em **um polo inventado por UF** — treze
+deles. O município delas, que é conhecido, continua contando no alcance; a identidade do
+polo, não. As duas contagens saem em `metadados.sem_localizacao`.
 
 ### 73% da capacidade ativa chega por atribuição, e isso está declarado
 
